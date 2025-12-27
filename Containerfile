@@ -44,6 +44,22 @@ RUN pnpm build
 # Deploy production dependencies only
 RUN pnpm deploy --filter immich --prod /app
 
+# Build web UI
+WORKDIR /build
+RUN pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile
+RUN pnpm --filter @immich/sdk --filter immich-web build
+RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
+
+# Download geodata for reverse geocoding
+RUN mkdir -p /app/geodata && \
+    fetch -o /app/geodata/admin1CodesASCII.txt https://download.geonames.org/export/dump/admin1CodesASCII.txt && \
+    fetch -o /app/geodata/admin2Codes.txt https://download.geonames.org/export/dump/admin2Codes.txt && \
+    fetch -o /app/geodata/cities500.zip https://download.geonames.org/export/dump/cities500.zip && \
+    unzip -o /app/geodata/cities500.zip -d /app/geodata && \
+    rm /app/geodata/cities500.zip && \
+    fetch -o /app/geodata/ne_10m_admin_0_countries.geojson "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson" && \
+    date +%Y-%m-%d > /app/geodata/geodata-date.txt
+
 # Production image
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
@@ -74,9 +90,17 @@ RUN pkg update && \
 # Copy built application from builder
 COPY --from=builder /app /app
 
+# Copy geodata and web UI from builder
+COPY --from=builder /app/geodata /build/geodata
+COPY --from=builder /app/www /build/www
+
+# Create minimal corePlugin manifest (WASM plugins not supported on FreeBSD yet)
+RUN mkdir -p /build/corePlugin/dist && \
+    printf '{"name":"immich-core","version":"2.0.0","title":"Immich Core","description":"Core workflow (disabled)","author":"Immich Team","wasm":{"path":"dist/plugin.wasm"},"filters":[{"methodName":"filterFileName","title":"Filter by filename","description":"Filter assets by filename","supportedContexts":["asset"],"schema":{"type":"object","properties":{"pattern":{"type":"string"}},"required":["pattern"]}}],"actions":[{"methodName":"actionArchive","title":"Archive","description":"Archive asset","supportedContexts":["asset"],"schema":{}}]}' > /build/corePlugin/manifest.json
+
 # Create directories
 RUN mkdir -p /config /upload /library && \
-    chown -R bsd:bsd /config /upload /library /app
+    chown -R bsd:bsd /config /upload /library /app /build
 
 # Copy service files
 COPY root/ /
