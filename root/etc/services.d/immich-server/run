@@ -1,0 +1,6 @@
+#!/bin/sh
+exec 2>&1
+
+echo "Starting Immich Server..."
+cd /app
+exec s6-setuidgid bsd /usr/local/bin/node dist/main.js
