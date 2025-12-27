@@ -49,12 +49,16 @@ RUN pnpm install --frozen-lockfile && \
     SHARP_DIR=$(find /build/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     sed -i '' 's/VIPS,/VIPS,\n    UHDR,/' "$SHARP_DIR/src/common.h" && \
     sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc" && \
-    cd "$SHARP_DIR" && PYTHON=/usr/local/bin/python3.11 node-gyp rebuild
+    cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3.11 node-gyp rebuild
 
 RUN pnpm build
 
 # Deploy production dependencies only
-RUN pnpm deploy --filter immich --prod /app
+RUN pnpm deploy --filter immich --prod /app && \
+    SHARP_BUILD=$(find /build/node_modules/.pnpm -name 'sharp-freebsd-x64.node' -path '*/src/build/Release/*' | head -1) && \
+    SHARP_DEST=$(find /app/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
+    mkdir -p "$SHARP_DEST/src/build/Release" && \
+    cp "$SHARP_BUILD" "$SHARP_DEST/src/build/Release/"
 
 # Build web UI
 WORKDIR /build
