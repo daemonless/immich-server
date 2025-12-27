@@ -107,6 +107,7 @@ LABEL org.opencontainers.image.title="Immich Server" \
 # Install runtime dependencies
 RUN pkg update && \
     pkg install -y ${PACKAGES} && \
+    mkdir -p /app && echo "${IMMICH_VERSION}" | sed 's/^v//' > /app/version && \
     pkg clean -ay && \
     rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
 
