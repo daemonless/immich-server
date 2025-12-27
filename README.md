@@ -6,10 +6,13 @@ Main [Immich](https://immich.app/) application server (Node.js).
 
 ```bash
 podman run -d --name immich-server \
-  -e DB_URL=postgres://postgres:postgres@immich-postgres:5432/immich \
-  -e REDIS_URL=redis://redis:6379 \
-  -v /containers/immich/upload:/upload \
-  -v /containers/immich/library:/library \
+  -e DB_HOSTNAME=immich-postgres \
+  -e DB_USERNAME=immich \
+  -e DB_PASSWORD=immich \
+  -e DB_DATABASE_NAME=immich \
+  -e REDIS_HOSTNAME=immich-redis \
+  -v /containers/immich/upload:/usr/src/app/upload \
+  -v /containers/immich/library:/usr/src/app/library \
   -p 2283:2283 \
   ghcr.io/daemonless/immich-server:latest
 ```
@@ -18,17 +21,22 @@ podman run -d --name immich-server \
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| DB_URL | - | PostgreSQL connection string |
-| REDIS_URL | - | Redis connection string |
+| DB_HOSTNAME | - | PostgreSQL hostname |
+| DB_USERNAME | - | PostgreSQL username |
+| DB_PASSWORD | - | PostgreSQL password |
+| DB_DATABASE_NAME | - | PostgreSQL database name |
+| REDIS_HOSTNAME | - | Redis hostname |
 | IMMICH_PORT | 2283 | Server port |
-| UPLOAD_LOCATION | /upload | Upload directory |
-| IMMICH_MEDIA_LOCATION | /library | Media library directory |
+| UPLOAD_LOCATION | /usr/src/app/upload | Upload directory |
+| IMMICH_MEDIA_LOCATION | /usr/src/app/library | Media library directory |
 
 ## Volumes
 
-- `/upload` - Uploaded photos/videos
-- `/library` - External libraries
+- `/usr/src/app/upload` - Uploaded photos/videos
+- `/usr/src/app/library` - External libraries
 - `/config` - Configuration
+
+Note: Volume paths match the official Linux image for drop-in compatibility.
 
 ## Ports
 
@@ -36,22 +44,41 @@ podman run -d --name immich-server \
 
 ## FreeBSD-Specific Notes
 
+### Drop-in Linux Compatibility
+
+This image uses the same volume paths as the official Linux image, allowing
+migration between Linux and FreeBSD without changing your data layout.
+
 ### Ultra HDR Support
 
 FreeBSD's vips 8.18 includes Ultra HDR (UHDR) support via libultrahdr, which is
 more current than the libvips 8.17.3 bundled with sharp's Linux prebuilds.
-However, sharp's loader map doesn't yet recognize the UHDR loader, causing
-"unsupported image format" errors for Ultra HDR images from Pixel phones.
+The Containerfile includes a patch that adds UHDR to sharp's loader map,
+enabling proper handling of Ultra HDR images from Pixel phones.
 
-The Containerfile includes a patch that adds UHDR to sharp's ImageType enum and
-loader map, then rebuilds the native module. This enables proper handling of
-Ultra HDR images until sharp adds official support upstream.
+### Workflow Plugins (WASM)
 
-### ML Service
+The corePlugin (workflow automation) is copied from the official Linux image
+since the extism-js build tool doesn't have FreeBSD releases. WASM plugins
+run fine on FreeBSD - only the build tooling is missing.
 
-The ML service (immich-ml) requires onnxruntime, which doesn't have FreeBSD
-support yet. For face recognition and smart search features, route ML requests
-to a Linux host running immich-ml.
+### ML Service (Remote)
+
+The ML service (immich-ml) requires onnxruntime Python bindings, which aren't
+available for FreeBSD. Run immich-ml on a Linux host and configure this server
+to connect to it:
+
+**Option 1: Admin UI** (recommended)
+- Go to Administration → Settings → Machine Learning
+- Add URL: `http://<linux-host>:3003`
+
+**Option 2: Environment Variable**
+```bash
+-e IMMICH_MACHINE_LEARNING_URL=http://<linux-host>:3003
+```
+
+This gives you full ML functionality: face recognition, smart search, and
+image classification.
 
 ## Part of Immich for FreeBSD
 
