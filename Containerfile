@@ -4,6 +4,9 @@
 ARG BASE_VERSION=15
 ARG IMMICH_VERSION=v2.4.1
 
+# Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
+FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:${IMMICH_VERSION} AS linux-immich
+
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG IMMICH_VERSION
@@ -66,6 +69,10 @@ RUN pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile
 RUN pnpm --filter @immich/sdk --filter immich-web build
 RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
 
+# Copy pre-built corePlugin from Linux image (extism-js doesn't have FreeBSD releases)
+# The WASM plugin is platform-independent, so we can use the Linux build
+COPY --from=linux-immich /build/corePlugin /app/corePlugin
+
 # Download geodata for reverse geocoding
 RUN mkdir -p /app/geodata && \
     fetch -o /app/geodata/admin1CodesASCII.txt https://download.geonames.org/export/dump/admin1CodesASCII.txt && \
@@ -106,17 +113,14 @@ RUN pkg update && \
 # Copy built application from builder
 COPY --from=builder /app /app
 
-# Copy geodata and web UI from builder
+# Copy geodata, web UI, and corePlugin from builder
 COPY --from=builder /app/geodata /build/geodata
 COPY --from=builder /app/www /build/www
+COPY --from=builder /app/corePlugin /build/corePlugin
 
-# Create minimal corePlugin manifest (WASM plugins not supported on FreeBSD yet)
-RUN mkdir -p /build/corePlugin/dist && \
-    printf '{"name":"immich-core","version":"2.0.0","title":"Immich Core","description":"Core workflow (disabled)","author":"Immich Team","wasm":{"path":"dist/plugin.wasm"},"filters":[{"methodName":"filterFileName","title":"Filter by filename","description":"Filter assets by filename","supportedContexts":["asset"],"schema":{"type":"object","properties":{"pattern":{"type":"string"}},"required":["pattern"]}}],"actions":[{"methodName":"actionArchive","title":"Archive","description":"Archive asset","supportedContexts":["asset"],"schema":{}}]}' > /build/corePlugin/manifest.json
-
-# Create directories
-RUN mkdir -p /config /upload /library && \
-    chown -R bsd:bsd /config /upload /library /app /build
+# Create directories (paths match Linux immich for drop-in compatibility)
+RUN mkdir -p /config /usr/src/app/upload /usr/src/app/library && \
+    chown -R bsd:bsd /config /usr/src/app /app /build
 
 # Copy service files
 COPY root/ /
@@ -126,8 +130,8 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV IMMICH_PORT=2283
-ENV UPLOAD_LOCATION=/upload
-ENV IMMICH_MEDIA_LOCATION=/library
+ENV UPLOAD_LOCATION=/usr/src/app/upload
+ENV IMMICH_MEDIA_LOCATION=/usr/src/app/library
 
 EXPOSE 2283
-VOLUME /config /upload /library
+VOLUME /config /usr/src/app/upload /usr/src/app/library
