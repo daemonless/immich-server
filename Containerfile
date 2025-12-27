@@ -38,7 +38,6 @@ RUN git clone --depth 1 --branch ${IMMICH_VERSION} \
 
 # Build server
 WORKDIR /build/server
-RUN pnpm install --frozen-lockfile
 
 # Patch sharp to recognize UHDR loader (libvips 8.18+)
 # TODO: Remove this patch once sharp adds UHDR support upstream
@@ -46,7 +45,8 @@ RUN pnpm install --frozen-lockfile
 # Problem: libvips 8.18 added UHDR support, but sharp's hardcoded loader map
 # in common.cc doesn't include VipsForeignLoadUhdr*, causing "unsupported image
 # format" errors for Ultra HDR images from Pixel phones.
-RUN SHARP_DIR=$(find node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
+RUN pnpm install --frozen-lockfile && \
+    SHARP_DIR=$(find node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     sed -i '' 's/VIPS,/VIPS,\n    UHDR,/' "$SHARP_DIR/src/common.h" && \
     sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc" && \
     cd "$SHARP_DIR" && node-gyp rebuild
