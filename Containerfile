@@ -120,8 +120,8 @@ COPY --from=builder /app/www /build/www
 COPY --from=builder /app/corePlugin /build/corePlugin
 
 # Create directories (paths match Linux immich for drop-in compatibility)
-RUN mkdir -p /config /usr/src/app/upload /usr/src/app/library && \
-    chown -R bsd:bsd /config /usr/src/app /app /build
+RUN mkdir -p /config /data && \
+    chown -R bsd:bsd /config /data /app /build
 
 # Copy service files
 COPY root/ /
@@ -131,8 +131,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV IMMICH_PORT=2283
-ENV UPLOAD_LOCATION=/usr/src/app/upload
-ENV IMMICH_MEDIA_LOCATION=/usr/src/app/library
+ENV IMMICH_MEDIA_LOCATION=/data
 
 EXPOSE 2283
-VOLUME /config /usr/src/app/upload /usr/src/app/library
+VOLUME /config /data
