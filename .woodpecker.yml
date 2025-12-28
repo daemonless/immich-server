@@ -15,6 +15,7 @@ steps:
           "https://raw.githubusercontent.com/daemonless/daemonless/build-v1.2.0/scripts/build.sh"
         chmod +x scripts/build.sh
         ./scripts/build.sh \
+          --doas \
           --registry ghcr.io \
           --image ghcr.io/daemonless/immich-server \
           --tag latest \
