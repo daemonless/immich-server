@@ -1,7 +1,7 @@
 #!/bin/sh
 # Initialize Immich configuration
 
-# Fix permissions
-chown -R bsd:bsd /config /upload /library /app
+# Fix permissions on upload and library directories
+chown -R bsd:bsd /config /usr/src/app/upload /usr/src/app/library /app 2>/dev/null || true
 
 echo "Immich server initialized."
