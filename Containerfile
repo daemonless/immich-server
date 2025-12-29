@@ -120,11 +120,14 @@ COPY --from=builder --chown=bsd:bsd /app /app
 
 # Create directories and symlinks (paths match Linux immich expectations)
 # www, corePlugin, and geodata are in /app but immich expects them in /build
+# Permissions: bsd user needs read access to symlinks, write access to geodata
 RUN mkdir -p /config /data /build && \
-    chown bsd:bsd /config /data && \
+    chown bsd:bsd /config /data /build && \
     ln -sf /app/www /build/www && \
     ln -sf /app/corePlugin /build/corePlugin && \
-    ln -sf /app/geodata /build/geodata
+    ln -sf /app/geodata /build/geodata && \
+    chown -h bsd:bsd /build/www /build/corePlugin /build/geodata && \
+    chmod 755 /app/geodata && chmod 644 /app/geodata/*
 
 # Copy service files
 COPY root/ /
