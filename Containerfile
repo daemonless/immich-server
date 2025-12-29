@@ -111,17 +111,16 @@ RUN pkg update && \
     pkg clean -ay && \
     rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
 
-# Copy built application from builder
-COPY --from=builder /app /app
+# Copy built application from builder (with correct ownership)
+COPY --from=builder --chown=bsd:bsd /app /app
 
 # Copy geodata, web UI, and corePlugin from builder
-COPY --from=builder /app/geodata /build/geodata
-COPY --from=builder /app/www /build/www
-COPY --from=builder /app/corePlugin /build/corePlugin
+COPY --from=builder --chown=bsd:bsd /app/geodata /build/geodata
+COPY --from=builder --chown=bsd:bsd /app/www /build/www
+COPY --from=builder --chown=bsd:bsd /app/corePlugin /build/corePlugin
 
 # Create directories (paths match Linux immich for drop-in compatibility)
-RUN mkdir -p /config /data && \
-    chown -R bsd:bsd /config /data /app /build
+RUN mkdir -p /config /data && chown bsd:bsd /config /data
 
 # Copy service files
 COPY root/ /
