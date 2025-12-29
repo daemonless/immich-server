@@ -8,6 +8,10 @@ Main application server (Node.js) for [Immich](https://immich.app/).
 > [!IMPORTANT]
 > **Container Networking**: Immich requires the CNI `dnsname` plugin for internal communication between services. Ensure it is installed and configured on your host.
 
+## Prerequisites
+> [!IMPORTANT]
+> **Container Networking**: Immich requires the CNI `dnsname` plugin for internal communication between services. Ensure it is installed and configured on your host.
+
 ## Environment Variables
 
 | Variable | Description | Default |
