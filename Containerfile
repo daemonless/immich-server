@@ -118,13 +118,12 @@ RUN pkg update && \
 # Copy built application from builder (with correct ownership)
 COPY --from=builder --chown=bsd:bsd /app /app
 
-# Copy web UI and corePlugin from builder (geodata already in /app from above)
-COPY --from=builder --chown=bsd:bsd /app/www /build/www
-COPY --from=builder --chown=bsd:bsd /app/corePlugin /build/corePlugin
-
-# Create directories and symlink geodata (paths match Linux immich)
+# Create directories and symlinks (paths match Linux immich expectations)
+# www, corePlugin, and geodata are in /app but immich expects them in /build
 RUN mkdir -p /config /data /build && \
     chown bsd:bsd /config /data && \
+    ln -sf /app/www /build/www && \
+    ln -sf /app/corePlugin /build/corePlugin && \
     ln -sf /app/geodata /build/geodata
 
 # Copy service files
