@@ -106,22 +106,26 @@ LABEL org.opencontainers.image.title="Immich Server" \
     io.daemonless.packages="${PACKAGES}"
 
 # Install runtime dependencies
+# Remove GCC compiler binaries (keep runtime libs) - saves ~155MB
 RUN pkg update && \
     pkg install -y ${PACKAGES} && \
     mkdir -p /app && echo "${IMMICH_VERSION}" | sed 's/^v//' > /app/version && \
     pkg clean -ay && \
-    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/* && \
+    rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
+    rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
 # Copy built application from builder (with correct ownership)
 COPY --from=builder --chown=bsd:bsd /app /app
 
-# Copy geodata, web UI, and corePlugin from builder
-COPY --from=builder --chown=bsd:bsd /app/geodata /build/geodata
+# Copy web UI and corePlugin from builder (geodata already in /app from above)
 COPY --from=builder --chown=bsd:bsd /app/www /build/www
 COPY --from=builder --chown=bsd:bsd /app/corePlugin /build/corePlugin
 
-# Create directories (paths match Linux immich for drop-in compatibility)
-RUN mkdir -p /config /data && chown bsd:bsd /config /data
+# Create directories and symlink geodata (paths match Linux immich)
+RUN mkdir -p /config /data /build && \
+    chown bsd:bsd /config /data && \
+    ln -sf /app/geodata /build/geodata
 
 # Copy service files
 COPY root/ /
