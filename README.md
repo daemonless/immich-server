@@ -4,6 +4,10 @@ Main application server (Node.js) for [Immich](https://immich.app/).
 
 > **Note:** This is just one component of Immich. For the complete setup (compose, configuration, etc.), see the [Daemonless Immich Stack](https://github.com/daemonless/immich).
 
+## Prerequisites
+> [!IMPORTANT]
+> **Container Networking**: Immich requires the CNI `dnsname` plugin for internal communication between services. Ensure it is installed and configured on your host.
+
 ## Environment Variables
 
 | Variable | Description | Default |
