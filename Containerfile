@@ -63,8 +63,9 @@ RUN pnpm deploy --filter immich --prod /app && \
     mkdir -p "$SHARP_DEST/src/build/Release" && \
     cp "$SHARP_BUILD" "$SHARP_DEST/src/build/Release/"
 
-# Build web UI
+# Build web UI (increase heap for vite build)
 WORKDIR /build
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile
 RUN pnpm --filter @immich/sdk --filter immich-web build
 RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
