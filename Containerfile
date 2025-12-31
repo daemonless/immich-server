@@ -90,6 +90,8 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 ARG FREEBSD_ARCH=amd64
 ARG IMMICH_VERSION
 ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
+ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
+ARG UPSTREAM_SED="s/.*\"tag_name\":\"\\([^\"]*\\)\".*/\\1/p"
 
 LABEL org.opencontainers.image.title="Immich Server" \
     org.opencontainers.image.description="Immich photo management server for FreeBSD" \
@@ -103,8 +105,8 @@ LABEL org.opencontainers.image.title="Immich Server" \
     io.daemonless.arch="${FREEBSD_ARCH}" \
     io.daemonless.config-mount="/config" \
     io.daemonless.category="Photos & Media" \
-    io.daemonless.upstream-mode="github" \
-    io.daemonless.upstream-repo="immich-app/immich" \
+    io.daemonless.upstream-url="${UPSTREAM_URL}" \
+    io.daemonless.upstream-sed="${UPSTREAM_SED}" \
     io.daemonless.packages="${PACKAGES}"
 
 # Install runtime dependencies
