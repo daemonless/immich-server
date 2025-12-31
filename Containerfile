@@ -92,6 +92,9 @@ ARG IMMICH_VERSION
 ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
+ARG HEALTHCHECK_ENDPOINT="http://localhost:2283/api/server-info/ping"
+
+ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 LABEL org.opencontainers.image.title="Immich Server" \
     org.opencontainers.image.description="Immich photo management server for FreeBSD" \
@@ -107,6 +110,7 @@ LABEL org.opencontainers.image.title="Immich Server" \
     io.daemonless.category="Photos & Media" \
     io.daemonless.upstream-url="${UPSTREAM_URL}" \
     io.daemonless.upstream-jq="${UPSTREAM_JQ}" \
+    io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}" \
     io.daemonless.packages="${PACKAGES}"
 
 # Install runtime dependencies
