@@ -87,6 +87,7 @@ services:
 - **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)
 - **Machine Learning:** Native FreeBSD ML is available via [`ghcr.io/daemonless/immich-ml`](https://github.com/daemonless/immich-ml) (CPU only).
 - **Ultra HDR:** Includes patched `sharp` library to support Ultra HDR images from Pixel phones (via `libvips` 8.18+).
+- **DNS:** Requires `dnsname` CNI plugin for container name resolution (see [networking guide](https://daemonless.io/guides/networking/#option-2-dns-resolution-cni-dnsname))
 
 ## Links
 
