@@ -130,7 +130,8 @@ COPY --from=builder --chown=bsd:bsd /app /app
 # www, corePlugin, and geodata are in /app but immich expects them in /build
 # Permissions: bsd user needs read access to symlinks, write access to geodata
 RUN mkdir -p /config /data /build && \
-    chown bsd:bsd /config /data /build && \
+    mkdir -p /data/{encoded-video,thumbs,upload,profile,backups,library} && \
+    chown -R bsd:bsd /config /data /build && \
     ln -sf /app/www /build/www && \
     ln -sf /app/corePlugin /build/corePlugin && \
     ln -sf /app/geodata /build/geodata && \
