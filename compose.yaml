@@ -1,0 +1,52 @@
+name: immich-server
+
+x-daemonless:
+  title: "Immich Server"
+  icon: ":material-server:"
+  category: "Photos & Media"
+  description: "Immich photo management server on FreeBSD."
+  upstream_url: "https://github.com/immich-app/immich"
+  web_url: "https://immich.app/"
+  freshports_url: ""
+  user: "bsd"
+  mlock: false
+  upstream_binary: true
+  
+  docs:
+    env:
+      PUID: "User ID for the application process"
+      PGID: "Group ID for the application process"
+      TZ: "Timezone for the container"
+      DB_HOSTNAME: "Postgres database hostname"
+      DB_USERNAME: "Postgres database user"
+      DB_PASSWORD: "Postgres database password"
+      DB_DATABASE_NAME: "Postgres database name"
+      REDIS_HOSTNAME: "Redis hostname"
+    volumes:
+      /config: "Configuration directory (unused but mounted)"
+      /data: "Media storage (photos, videos, thumbnails)"
+    ports:
+      2283: "Web UI/API"
+
+services:
+  immich-server:
+    image: ghcr.io/daemonless/immich-server:latest
+    container_name: immich-server
+    restart: unless-stopped
+    
+    environment:
+      - DB_HOSTNAME=immich-postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE_NAME=immich
+      - REDIS_HOSTNAME=immich-redis
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+
+    volumes:
+      - /path/to/containers/immich/config:/config
+      - /path/to/containers/immich/data:/data
+
+    ports:
+      - "2283:2283"

@@ -84,22 +84,33 @@ ARG IMMICH_VERSION
 ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
+{%- if ports %}
+ARG HEALTHCHECK_ENDPOINT="http://localhost:{{ ports[0].port }}/api/server-info/ping"
+{%- else %}
 ARG HEALTHCHECK_ENDPOINT="http://localhost:2283/api/server-info/ping"
+{%- endif %}
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 # --- Metadata (Injected by Generator) ---
-LABEL org.opencontainers.image.title="Immich Server" \
-      org.opencontainers.image.description="Immich photo management server on FreeBSD." \
-      org.opencontainers.image.source="https://github.com/daemonless/immich-server" \
-      org.opencontainers.image.url="https://immich.app/" \
+LABEL org.opencontainers.image.title="{{ title }}" \
+      org.opencontainers.image.description="{{ description }}" \
+      org.opencontainers.image.source="{{ repo_url }}" \
+      org.opencontainers.image.url="{{ web_url }}" \
       org.opencontainers.image.version="${IMMICH_VERSION}" \
       org.opencontainers.image.licenses="AGPL-3.0" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
-      io.daemonless.category="Photos & Media" \
-      io.daemonless.port="2283" \
-      io.daemonless.volumes="/config,/data" \
+      io.daemonless.category="{{ category }}" \
+{%- if ports %}
+      io.daemonless.port="{{ ports[0].port }}" \
+{%- endif %}
+{%- if volumes %}
+      io.daemonless.volumes="{{ volumes | map(attribute='path') | join(',') }}" \
+{%- endif %}
+{%- if mlock %}
+      org.freebsd.jail.allow.mlock="required" \
+{%- endif %}
       io.daemonless.arch="${FREEBSD_ARCH}" \
       io.daemonless.upstream-url="${UPSTREAM_URL}" \
       io.daemonless.upstream-jq="${UPSTREAM_JQ}" \
@@ -139,7 +150,11 @@ ENV IMMICH_PORT=2283
 ENV IMMICH_MEDIA_LOCATION=/data
 
 # --- Expose (Injected by Generator) ---
-EXPOSE 2283
+{%- if ports %}
+EXPOSE {{ ports | map(attribute='port') | join(' ') }}
+{%- endif %}
 
 # --- Volumes (Injected by Generator) ---
-VOLUME /config /data
+{%- if volumes %}
+VOLUME {{ volumes | map(attribute='path') | join(' ') }}
+{%- endif %}

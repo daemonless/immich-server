@@ -1,45 +1,17 @@
-# immich-server
+# Immich Server
 
-Main application server (Node.js) for [Immich](https://immich.app/).
+Immich photo management server on FreeBSD.
 
-> **Note:** This is just one component of Immich. For the complete setup (compose, configuration, etc.), see the [Daemonless Immich Stack](https://github.com/daemonless/immich).
+| | |
+|---|---|
+| **Port** | 2283 |
+| **Registry** | `ghcr.io/daemonless/immich-server` |
+| **Source** | [https://github.com/immich-app/immich](https://github.com/immich-app/immich) |
+| **Website** | [https://immich.app/](https://immich.app/) |
 
-## Prerequisites
-> [!IMPORTANT]
-> **Container Networking**: Immich requires the CNI `dnsname` plugin for internal communication between services. Ensure it is installed and configured on your host.
+## Deployment
 
-## Prerequisites
-> [!IMPORTANT]
-> **Container Networking**: Immich requires the CNI `dnsname` plugin for internal communication between services. Ensure it is installed and configured on your host.
-
-## Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `DB_HOSTNAME` | PostgreSQL hostname | - |
-| `DB_USERNAME` | PostgreSQL username | - |
-| `DB_PASSWORD` | PostgreSQL password | - |
-| `DB_DATABASE_NAME` | PostgreSQL database name | - |
-| `REDIS_HOSTNAME` | Redis hostname | - |
-| `IMMICH_PORT` | Server listening port | `2283` |
-| `IMMICH_MEDIA_LOCATION` | Media library directory | `/data` |
-| `IMMICH_MACHINE_LEARNING_URL` | URL to ML service (see Notes) | - |
-
-## Quick Start
-
-```bash
-podman run -d --name immich-server \
-  -p 2283:2283 \
-  -e DB_HOSTNAME=immich-postgres \
-  -e DB_USERNAME=postgres \
-  -e DB_PASSWORD=postgres \
-  -e DB_DATABASE_NAME=immich \
-  -e REDIS_HOSTNAME=redis \
-  -v /containers/immich/library:/data \
-  ghcr.io/daemonless/immich-server:latest
-```
-
-## podman-compose
+### Podman Compose
 
 ```yaml
 services:
@@ -51,45 +23,91 @@ services:
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=redis
+      - REDIS_HOSTNAME=immich-redis
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
     volumes:
-      - /containers/immich/library:/data
+      - /path/to/containers/immich-server:/config
+      - /path/to/data:/data
     ports:
       - 2283:2283
     restart: unless-stopped
-    depends_on:
-      - immich-postgres
-      - redis
 ```
 
-## Tags
+### Podman CLI
 
-| Tag | Source | Description |
-|-----|--------|-------------|
-| `:latest` | [Immich Releases](https://github.com/immich-app/immich/releases) | Latest upstream release |
+```bash
+podman run -d --name immich-server \
+  -p 2283:2283 \
+  -e DB_HOSTNAME=immich-postgres \
+  -e DB_USERNAME=postgres \
+  -e DB_PASSWORD=postgres \
+  -e DB_DATABASE_NAME=immich \
+  -e REDIS_HOSTNAME=immich-redis \
+  -e PUID=@PUID@ \
+  -e PGID=@PGID@ \
+  -e TZ=@TZ@ \
+  -v /path/to/containers/immich-server:/config \ 
+  -v /path/to/data:/data \ 
+  ghcr.io/daemonless/immich-server:latest
+```
+Access at: `http://localhost:2283`
 
-## Volumes
+### Ansible
+
+```yaml
+- name: Deploy immich-server
+  containers.podman.podman_container:
+    name: immich-server
+    image: ghcr.io/daemonless/immich-server:latest
+    state: started
+    restart_policy: always
+    env:
+      DB_HOSTNAME: "immich-postgres"
+      DB_USERNAME: "postgres"
+      DB_PASSWORD: "postgres"
+      DB_DATABASE_NAME: "immich"
+      REDIS_HOSTNAME: "immich-redis"
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "UTC"
+    ports:
+      - "2283:2283"
+    volumes:
+      - "/path/to/containers/immich-server:/config"
+      - "/path/to/data:/data"
+```
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DB_HOSTNAME` | `immich-postgres` | Postgres database hostname |
+| `DB_USERNAME` | `postgres` | Postgres database user |
+| `DB_PASSWORD` | `postgres` | Postgres database password |
+| `DB_DATABASE_NAME` | `immich` | Postgres database name |
+| `REDIS_HOSTNAME` | `immich-redis` | Redis hostname |
+| `PUID` | `1000` | User ID for the application process |
+| `PGID` | `1000` | Group ID for the application process |
+| `TZ` | `UTC` | Timezone for the container |
+
+### Volumes
 
 | Path | Description |
 |------|-------------|
-| `/data` | Media library (photos/videos) |
-| `/config` | Configuration directory |
+| `/config` | Configuration directory (unused but mounted) |
+| `/data` | Media storage (photos, videos, thumbnails) |
 
-## Ports
+### Ports
 
-| Port | Description |
-|------|-------------|
-| 2283 | Web UI and API |
+| Port | Protocol | Description |
+|------|----------|-------------|
+| `2283` | TCP | Web UI/API |
 
 ## Notes
 
-- **User:** `bsd` (UID/GID set via PUID/PGID, default 1000)
+- **User:** `bsd` (UID/GID set via PUID/PGID)
 - **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)
-- **Machine Learning:** Native FreeBSD ML is available via [`ghcr.io/daemonless/immich-ml`](https://github.com/daemonless/immich-ml) (CPU only).
-- **Ultra HDR:** Includes patched `sharp` library to support Ultra HDR images from Pixel phones (via `libvips` 8.18+).
-- **DNS:** Requires `dnsname` CNI plugin for container name resolution (see [networking guide](https://daemonless.io/guides/networking/#option-2-dns-resolution-cni-dnsname))
-
-## Links
-
-- [Immich](https://immich.app/)
-- [GitHub](https://github.com/immich-app/immich)
