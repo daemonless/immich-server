@@ -14,24 +14,24 @@ Immich photo management server on FreeBSD.
 ### Podman Compose
 
 ```yaml
-    services:
-      immich-server:
-        image: ghcr.io/daemonless/immich-server:latest
-        container_name: immich-server
-        environment:
-          - DB_HOSTNAME=immich-postgres
-          - DB_USERNAME=postgres
-          - DB_PASSWORD=postgres
-          - DB_DATABASE_NAME=immich
-          - REDIS_HOSTNAME=immich-redis
-          - PUID=1000
-          - PGID=1000
-          - TZ=UTC
-        volumes:
-          - /path/to/containers/immich/config:/config
-          - /path/to/containers/immich/data:/data
-        ports:
-          - 2283:2283
+services:
+  immich-server:
+    image: ghcr.io/daemonless/immich-server:latest
+    container_name: immich-server
+    environment:
+      - DB_HOSTNAME=immich-postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE_NAME=immich
+      - REDIS_HOSTNAME=immich-redis
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+    volumes:
+      - /path/to/containers/immich-server:/config
+      - /path/to/data:/data
+    ports:
+      - 2283:2283
     restart: unless-stopped
 ```
 
@@ -48,8 +48,8 @@ podman run -d --name immich-server \
   -e PUID=@PUID@ \
   -e PGID=@PGID@ \
   -e TZ=@TZ@ \
-  -v /path/to/containers/immich/config:/config \ 
-  -v /path/to/containers/immich/data:/data \ 
+  -v /path/to/containers/immich-server:/config \ 
+  -v /path/to/data:/data \ 
   ghcr.io/daemonless/immich-server:latest
 ```
 Access at: `http://localhost:2283`
@@ -75,8 +75,8 @@ Access at: `http://localhost:2283`
     ports:
       - "2283:2283"
     volumes:
-      - "/path/to/containers/immich/config:/config"
-      - "/path/to/containers/immich/data:/data"
+      - "/path/to/containers/immich-server:/config"
+      - "/path/to/data:/data"
 ```
 
 ## Configuration
