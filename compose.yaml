@@ -11,6 +11,7 @@ x-daemonless:
   user: "bsd"
   mlock: false
   upstream_binary: true
+  notes: "This image is part of the [Immich Stack](https://daemonless.io/images/immich)."
   
   docs:
     env:

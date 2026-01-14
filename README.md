@@ -107,6 +107,8 @@ Access at: `http://localhost:2283`
 |------|----------|-------------|
 | `2283` | TCP | Web UI/API |
 
+This image is part of the [Immich Stack](https://daemonless.io/images/immich).
+
 ## Notes
 
 - **User:** `bsd` (UID/GID set via PUID/PGID)
