@@ -11,6 +11,7 @@ Immich photo management server on FreeBSD.
 |---|---|
 | **Port** | 2283 |
 | **Registry** | `ghcr.io/daemonless/immich-server` |
+| **Docs** | [daemonless.io/images/immich-server](https://daemonless.io/images/immich-server/) |
 | **Source** | [https://github.com/immich-app/immich](https://github.com/immich-app/immich) |
 | **Website** | [https://immich.app/](https://immich.app/) |
 
