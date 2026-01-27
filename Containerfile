@@ -87,7 +87,7 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG IMMICH_VERSION
-ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
+ARG PACKAGES="node22 vips ffmpeg-nox11 p5-Image-ExifTool libheif libraw webp"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 ARG HEALTHCHECK_ENDPOINT="http://localhost:2283/api/server-info/ping"
@@ -117,9 +117,7 @@ RUN pkg update && \
     pkg install -y ${PACKAGES} && \
     mkdir -p /app && echo "${IMMICH_VERSION}" | sed 's/^v//' > /app/version && \
     pkg clean -ay && \
-    rm -rf /var/cache/pkg/* /var/db/pkg/repos/* && \
-    rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
-    rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
 
 # Copy built application from builder (with correct ownership)
 COPY --from=builder --chown=bsd:bsd /app /app
