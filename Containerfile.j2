@@ -17,7 +17,7 @@ RUN pkg update && pkg install -y \
     FreeBSD-openssl-dev FreeBSD-zlib-dev FreeBSD-xz-dev FreeBSD-bzip2-dev \
     python311 \
     vips \
-    ffmpeg-nox11 \
+    ffmpeg \
     p5-Image-ExifTool \
     libheif \
     libraw \
@@ -81,7 +81,7 @@ FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG IMMICH_VERSION
-ARG PACKAGES="node22 vips ffmpeg-nox11 p5-Image-ExifTool libheif libraw webp"
+ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 {%- if ports %}
