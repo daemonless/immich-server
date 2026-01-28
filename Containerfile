@@ -23,7 +23,7 @@ RUN pkg update && pkg install -y \
     FreeBSD-openssl-dev FreeBSD-zlib-dev FreeBSD-xz-dev FreeBSD-bzip2-dev \
     python311 \
     vips \
-    ffmpeg \
+    ffmpeg-nox11 \
     p5-Image-ExifTool \
     libheif \
     libraw \
@@ -117,7 +117,9 @@ RUN pkg update && \
     pkg install -y ${PACKAGES} && \
     mkdir -p /app && echo "${IMMICH_VERSION}" | sed 's/^v//' > /app/version && \
     pkg clean -ay && \
-    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/* && \
+    rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
+    rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
 # Copy built application from builder (with correct ownership)
 COPY --from=builder --chown=bsd:bsd /app /app
