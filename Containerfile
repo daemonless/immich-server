@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15
-ARG IMMICH_VERSION=v2.4.1
+ARG IMMICH_VERSION=v2.5.0
 
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
 FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:${IMMICH_VERSION} AS linux-immich
