@@ -114,5 +114,6 @@ This image is part of the [Immich Stack](https://daemonless.io/images/immich).
 
 ## Notes
 
+- **Architectures:** amd64
 - **User:** `bsd` (UID/GID set via PUID/PGID)
 - **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)

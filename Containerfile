@@ -5,18 +5,19 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15
-ARG IMMICH_VERSION=v2.5.2
+ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
-FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:${IMMICH_VERSION} AS linux-immich
+FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-immich
 
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
-ARG IMMICH_VERSION
+ARG UPSTREAM_URL
 
 # Build dependencies (including C++ compiler and headers for native modules)
 # FreeBSD base dev packages needed for pkg-config: openssl, zlib, xz (lzma), bzip2
 RUN pkg update && pkg install -y \
+    jq \
     node22 npm-node22 \
     git-lite gmake pkgconf \
     FreeBSD-clang FreeBSD-clibs-dev \
@@ -37,10 +38,13 @@ RUN ln -sf /usr/bin/clang++ /usr/bin/c++ && \
 # Enable corepack for pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Clone immich source
+# Clone immich source (resolve latest version from upstream)
 WORKDIR /build
-RUN git clone --depth 1 --branch ${IMMICH_VERSION} \
-    https://github.com/immich-app/immich.git .
+RUN IMMICH_VERSION=$(fetch -qo - "${UPSTREAM_URL}" | jq -r '.tag_name') && \
+    echo "Resolved IMMICH_VERSION=$IMMICH_VERSION" && \
+    git clone --depth 1 --branch ${IMMICH_VERSION} \
+      https://github.com/immich-app/immich.git . && \
+    echo "${IMMICH_VERSION}" > /tmp/immich_version
 
 # Build server
 WORKDIR /build/server
@@ -86,7 +90,6 @@ RUN mkdir -p /app/geodata && \
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG IMMICH_VERSION
 ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
@@ -99,7 +102,7 @@ LABEL org.opencontainers.image.title="Immich Server" \
       org.opencontainers.image.description="Immich photo management server on FreeBSD." \
       org.opencontainers.image.source="https://github.com/daemonless/immich-server" \
       org.opencontainers.image.url="https://immich.app/" \
-      org.opencontainers.image.version="${IMMICH_VERSION}" \
+      org.opencontainers.image.version="latest" \
       org.opencontainers.image.licenses="AGPL-3.0" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
@@ -115,17 +118,19 @@ LABEL org.opencontainers.image.title="Immich Server" \
 # Install runtime dependencies
 RUN pkg update && \
     pkg install -y ${PACKAGES} && \
-    mkdir -p /app && echo "${IMMICH_VERSION}" | sed 's/^v//' > /app/version && \
+    mkdir -p /app && \
     pkg clean -ay && \
     rm -rf /var/cache/pkg/* /var/db/pkg/repos/* && \
     rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
     rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
-# Copy built application from builder (with correct ownership)
+# Copy version and built application from builder
+COPY --from=builder /tmp/immich_version /tmp/immich_version
 COPY --from=builder --chown=bsd:bsd /app /app
 
-# Create directories and symlinks (paths match Linux immich expectations)
-RUN mkdir -p /config /data /build && \
+# Create directories, write version, and symlinks (paths match Linux immich expectations)
+RUN cp /tmp/immich_version /app/version && \
+    mkdir -p /config /data /build && \
     mkdir -p /data/{encoded-video,thumbs,upload,profile,backups,library} && \
     chown -R bsd:bsd /config /data /build && \
     ln -sf /app/www /build/www && \
