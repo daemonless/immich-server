@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-02-06T00:22:15Z",
+  "generated": "2026-02-07T12:15:37Z",
   "tags": {
     "latest": {
       "arch": "amd64",
-      "app_version": "2.5.2",
+      "app_version": "v2.5.5",
       "source": "upstream-binary",
-      "generated": "2026-02-06T00:18:40Z",
+      "generated": "2026-02-07T12:15:19Z",
       "packages": {
         "freebsd": [
           {
@@ -903,20 +903,21 @@
           }
         ],
         "dotnet": [],
-        "python": [
+        "go": [
           {
-            "name": "example",
-            "version": "21.12"
+            "name": "github.com/evanw/esbuild",
+            "version": null
           },
           {
-            "name": "numpy",
-            "version": "1.26.4"
+            "name": "golang.org/x/sys",
+            "version": "v0.0.0-20220715151400-c0bba94af5f8"
           },
           {
-            "name": "packaging",
-            "version": "25.0"
+            "name": "stdlib",
+            "version": "v1.23.12"
           }
         ],
+        "java": [],
         "node": [
           {
             "name": "@alloc/quick-lru",
@@ -2164,7 +2165,7 @@
           },
           {
             "name": "immich",
-            "version": "2.5.2"
+            "version": "2.5.5"
           },
           {
             "name": "import-fresh",
@@ -3399,27 +3400,34 @@
             "version": "6.0.1"
           }
         ],
-        "go": [
+        "php": [],
+        "python": [
           {
-            "name": "github.com/evanw/esbuild",
-            "version": null
+            "name": "example",
+            "version": "21.12"
           },
           {
-            "name": "golang.org/x/sys",
-            "version": "v0.0.0-20220715151400-c0bba94af5f8"
+            "name": "numpy",
+            "version": "1.26.4"
           },
           {
-            "name": "stdlib",
-            "version": "v1.23.12"
+            "name": "packaging",
+            "version": "25.0"
           }
-        ]
+        ],
+        "ruby": [],
+        "rust": []
       },
       "summary": {
         "freebsd": 223,
         "dotnet": 0,
-        "python": 3,
-        "node": 620,
         "go": 3,
+        "java": 0,
+        "node": 620,
+        "php": 0,
+        "python": 3,
+        "ruby": 0,
+        "rust": 0,
         "total": 849
       }
     }
