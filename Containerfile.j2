@@ -4,6 +4,7 @@ ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
+ARG GITHUB_TOKEN=""
 
 # Build dependencies (including C++ compiler and headers for native modules)
 # FreeBSD base dev packages needed for pkg-config: openssl, zlib, xz (lzma), bzip2
@@ -67,7 +68,11 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Clone immich source (resolve latest version from upstream)
 WORKDIR /build
-RUN IMMICH_VERSION=$(fetch -qo - "${UPSTREAM_URL}" | jq -r '.tag_name') && \
+RUN FETCH_URL="${UPSTREAM_URL}"; \
+    if [ -n "${GITHUB_TOKEN}" ]; then \
+      FETCH_URL=$(echo "${UPSTREAM_URL}" | sed "s|https://|https://x-access-token:${GITHUB_TOKEN}@|"); \
+    fi && \
+    IMMICH_VERSION=$(fetch -qo - "${FETCH_URL}" | jq -r '.tag_name') && \
     echo "Resolved IMMICH_VERSION=$IMMICH_VERSION" && \
     git clone --depth 1 --branch ${IMMICH_VERSION} \
       https://github.com/immich-app/immich.git . && \
