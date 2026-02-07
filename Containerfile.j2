@@ -1,6 +1,9 @@
 ARG BASE_VERSION=15
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 
+# Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
+FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-immich
+
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
@@ -8,13 +11,11 @@ ARG GITHUB_TOKEN=""
 
 # Build dependencies (including C++ compiler and headers for native modules)
 # FreeBSD base dev packages needed for pkg-config: openssl, zlib, xz (lzma), bzip2
-# llvm19-lite/binaryen/wasi-* needed to build extism-js for corePlugin WASM compilation
 RUN pkg update && pkg install -y \
     jq \
     node22 npm-node22 \
     git-lite gmake pkgconf \
-    FreeBSD-clang FreeBSD-clang-dev FreeBSD-clibs-dev FreeBSD-libexecinfo-dev \
-    FreeBSD-utilities-dev FreeBSD-runtime-dev \
+    FreeBSD-clang FreeBSD-clibs-dev \
     FreeBSD-openssl-dev FreeBSD-zlib-dev FreeBSD-xz-dev FreeBSD-bzip2-dev \
     python311 \
     vips \
@@ -23,45 +24,11 @@ RUN pkg update && pkg install -y \
     libheif \
     libraw \
     webp \
-    llvm19-lite binaryen \
-    wasi-compiler-rt20 wasi-libc20 \
     && pkg clean -ay
-
-# Install Rust via rustup (need wasm32-wasip1 target, not available in ports rust)
-RUN fetch -qo - https://sh.rustup.rs | sh -s -- -y --default-toolchain stable && \
-    . "$HOME/.cargo/env" && rustup target add wasm32-wasip1
 
 # Set up compiler symlinks for node-gyp
 RUN ln -sf /usr/bin/clang++ /usr/bin/c++ && \
     ln -sf /usr/bin/clang /usr/bin/cc
-
-# Set up WASI SDK layout for extism-js build (clang + wasi-sysroot from ports)
-RUN mkdir -p /tmp/wasi-sdk/bin /tmp/wasi-sdk/share && \
-    ln -sf /usr/local/llvm19/bin/clang /tmp/wasi-sdk/bin/clang && \
-    ln -sf /usr/local/llvm19/bin/llvm-ar /tmp/wasi-sdk/bin/ar && \
-    ln -sf /usr/local/share/wasi-sysroot /tmp/wasi-sdk/share/wasi-sysroot && \
-    ln -sf /usr/local/share/wasi-sysroot/include/wasm32-wasi \
-      /usr/local/share/wasi-sysroot/include/wasm32-wasip1 && \
-    mkdir -p /usr/local/llvm19/lib/clang/19/lib/wasi && \
-    cp /usr/local/llvm20/lib/clang/20/lib/wasi/libclang_rt.builtins-wasm32.a \
-      /usr/local/llvm19/lib/clang/19/lib/wasi/
-
-# Build extism-js from source (compiles JS/TS to WASM for corePlugin)
-ENV LIBCLANG_PATH=/usr/local/llvm19/lib
-ENV QUICKJS_WASM_SYS_WASI_SDK_PATH=/tmp/wasi-sdk
-ENV WASI_SDK=/tmp/wasi-sdk
-RUN . "$HOME/.cargo/env" && \
-    git clone --depth 1 https://github.com/extism/js-pdk.git /tmp/extism-js && \
-    cd /tmp/extism-js/crates/core/src/prelude && npm install && npm run build && \
-    cd /tmp/extism-js/crates/core && \
-    cargo build --release --target=wasm32-wasip1 && \
-    wasm-opt --enable-reference-types --enable-bulk-memory --strip -O3 \
-      /tmp/extism-js/target/wasm32-wasip1/release/js_pdk_core.wasm \
-      -o /tmp/extism-js/target/wasm32-wasip1/release/js_pdk_core.wasm && \
-    cd /tmp/extism-js && \
-    cargo build --release && \
-    cp /tmp/extism-js/target/release/extism-js /usr/local/bin/ && \
-    rm -rf /tmp/extism-js
 
 # Enable corepack for pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -104,13 +71,9 @@ RUN pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile
 RUN pnpm --filter @immich/sdk --filter immich-web build
 RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
 
-# Build corePlugin WASM natively (extism-js compiled from source above)
-WORKDIR /build/plugins
-RUN npm install && npm run build:tsc && \
-    extism-js dist/index.js -i src/index.d.ts -o dist/plugin.wasm && \
-    mkdir -p /app/corePlugin/dist && \
-    cp manifest.json /app/corePlugin/ && \
-    cp dist/plugin.wasm /app/corePlugin/dist/
+# Copy pre-built corePlugin from Linux image (extism-js doesn't have FreeBSD releases)
+# The WASM plugin is platform-independent, so we can use the Linux build
+COPY --from=linux-immich /build/corePlugin /app/corePlugin
 
 # Download geodata for reverse geocoding
 RUN mkdir -p /app/geodata && \
