@@ -7,7 +7,6 @@ FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-im
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
-ARG GITHUB_TOKEN=""
 
 # Build dependencies (including C++ compiler and headers for native modules)
 # FreeBSD base dev packages needed for pkg-config: openssl, zlib, xz (lzma), bzip2
@@ -35,7 +34,9 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Clone immich source (resolve latest version from upstream)
 WORKDIR /build
-RUN FETCH_URL="${UPSTREAM_URL}"; \
+RUN --mount=type=secret,id=github_token \
+    FETCH_URL="${UPSTREAM_URL}"; \
+    GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || echo ""); \
     if [ -n "${GITHUB_TOKEN}" ]; then \
       FETCH_URL=$(echo "${UPSTREAM_URL}" | sed "s|https://|https://x-access-token:${GITHUB_TOKEN}@|"); \
     fi && \
