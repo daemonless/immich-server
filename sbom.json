@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-02-07T12:15:37Z",
+  "generated": "2026-02-08T12:29:10Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v2.5.5",
       "source": "upstream-binary",
-      "generated": "2026-02-07T12:15:19Z",
+      "generated": "2026-02-08T12:28:51Z",
       "packages": {
         "freebsd": [
           {
