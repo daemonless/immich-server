@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-02-08T12:29:10Z",
+  "generated": "2026-02-10T23:38:59Z",
   "tags": {
     "latest": {
       "arch": "amd64",
-      "app_version": "v2.5.5",
+      "app_version": "v2.5.6",
       "source": "upstream-binary",
-      "generated": "2026-02-08T12:28:51Z",
+      "generated": "2026-02-10T23:38:41Z",
       "packages": {
         "freebsd": [
           {
@@ -787,7 +787,7 @@
           },
           {
             "name": "python311",
-            "version": "3.11.14_1"
+            "version": "3.11.14_2"
           },
           {
             "name": "readline",
@@ -1453,7 +1453,7 @@
           },
           {
             "name": "@types/node",
-            "version": "24.10.9"
+            "version": "24.10.13"
           },
           {
             "name": "@types/pg",
@@ -2165,7 +2165,7 @@
           },
           {
             "name": "immich",
-            "version": "2.5.5"
+            "version": "2.5.6"
           },
           {
             "name": "import-fresh",
