@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-02-14T14:43:04Z",
+  "generated": "2026-02-16T18:29:39Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v2.5.6",
       "source": "upstream",
-      "generated": "2026-02-14T14:33:14Z",
+      "generated": "2026-02-16T18:29:23Z",
       "packages": {
         "freebsd": [
           {
@@ -495,7 +495,7 @@
           },
           {
             "name": "libjxl",
-            "version": "0.11.1_2"
+            "version": "0.11.2"
           },
           {
             "name": "libksba",
@@ -675,7 +675,7 @@
           },
           {
             "name": "node22",
-            "version": "22.21.1"
+            "version": "22.22.0"
           },
           {
             "name": "npth",
