@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-02-16T18:29:39Z",
+  "generated": "2026-03-08T22:28:11Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v2.5.6",
       "source": "upstream",
-      "generated": "2026-02-16T18:29:23Z",
+      "generated": "2026-03-08T22:27:54Z",
       "packages": {
         "freebsd": [
           {
@@ -135,7 +135,7 @@
           },
           {
             "name": "ImageMagick7",
-            "version": "7.1.2.11"
+            "version": "7.1.2.15"
           },
           {
             "name": "Imath",
@@ -211,7 +211,7 @@
           },
           {
             "name": "expat",
-            "version": "2.7.3"
+            "version": "2.7.4"
           },
           {
             "name": "ffmpeg",
@@ -275,7 +275,7 @@
           },
           {
             "name": "gnutls",
-            "version": "3.8.11"
+            "version": "3.8.12"
           },
           {
             "name": "gpgme",
@@ -635,7 +635,7 @@
           },
           {
             "name": "libxml2",
-            "version": "2.15.1"
+            "version": "2.15.2"
           },
           {
             "name": "libzip",
@@ -687,7 +687,7 @@
           },
           {
             "name": "nss",
-            "version": "3.120"
+            "version": "3.121"
           },
           {
             "name": "oniguruma",
@@ -699,7 +699,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.4"
+            "version": "3.4.5"
           },
           {
             "name": "openh264",
@@ -787,7 +787,7 @@
           },
           {
             "name": "python311",
-            "version": "3.11.14_2"
+            "version": "3.11.15"
           },
           {
             "name": "readline",
