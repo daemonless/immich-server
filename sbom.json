@@ -1,12 +1,12 @@
 {
   "image": "immich-server",
-  "generated": "2026-03-08T22:28:11Z",
+  "generated": "2026-03-19T21:26:41Z",
   "tags": {
     "latest": {
       "arch": "amd64",
-      "app_version": "v2.5.6",
+      "app_version": "v2.6.1",
       "source": "upstream",
-      "generated": "2026-03-08T22:27:54Z",
+      "generated": "2026-03-19T21:26:23Z",
       "packages": {
         "freebsd": [
           {
@@ -135,7 +135,7 @@
           },
           {
             "name": "ImageMagick7",
-            "version": "7.1.2.15"
+            "version": "7.1.2.16"
           },
           {
             "name": "Imath",
@@ -925,7 +925,7 @@
           },
           {
             "name": "@babel/code-frame",
-            "version": "7.28.6"
+            "version": "7.29.0"
           },
           {
             "name": "@babel/generator",
@@ -945,7 +945,7 @@
           },
           {
             "name": "@babel/parser",
-            "version": "7.28.5"
+            "version": "7.29.0"
           },
           {
             "name": "@babel/template",
@@ -957,7 +957,7 @@
           },
           {
             "name": "@babel/types",
-            "version": "7.28.5"
+            "version": "7.29.0"
           },
           {
             "name": "@borewit/text-codec",
@@ -992,20 +992,16 @@
             "version": "1.0.0"
           },
           {
+            "name": "@immich/sql-tools",
+            "version": "0.3.2"
+          },
+          {
             "name": "@inquirer/external-editor",
             "version": "1.0.3"
           },
           {
             "name": "@ioredis/commands",
             "version": "1.5.0"
-          },
-          {
-            "name": "@isaacs/balanced-match",
-            "version": "4.0.1"
-          },
-          {
-            "name": "@isaacs/brace-expansion",
-            "version": "5.0.0"
           },
           {
             "name": "@isaacs/cliui",
@@ -1061,11 +1057,11 @@
           },
           {
             "name": "@nestjs/common",
-            "version": "11.1.12"
+            "version": "11.1.16"
           },
           {
             "name": "@nestjs/core",
-            "version": "11.1.12"
+            "version": "11.1.16"
           },
           {
             "name": "@nestjs/mapped-types",
@@ -1073,23 +1069,23 @@
           },
           {
             "name": "@nestjs/platform-express",
-            "version": "11.1.12"
+            "version": "11.1.16"
           },
           {
             "name": "@nestjs/platform-socket.io",
-            "version": "11.1.12"
+            "version": "11.1.16"
           },
           {
             "name": "@nestjs/schedule",
-            "version": "6.1.0"
+            "version": "6.1.1"
           },
           {
             "name": "@nestjs/swagger",
-            "version": "11.2.5"
+            "version": "11.2.6"
           },
           {
             "name": "@nestjs/websockets",
-            "version": "11.1.12"
+            "version": "11.1.16"
           },
           {
             "name": "@nodelib/fs.scandir",
@@ -1121,63 +1117,63 @@
           },
           {
             "name": "@opentelemetry/api-logs",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/configuration",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/context-async-hooks",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/core",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-grpc",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-http",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-proto",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-grpc",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-http",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-proto",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-prometheus",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-grpc",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-http",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-proto",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/exporter-zipkin",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/host-metrics",
@@ -1185,43 +1181,43 @@
           },
           {
             "name": "@opentelemetry/instrumentation",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/instrumentation-http",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/instrumentation-ioredis",
-            "version": "0.58.0"
+            "version": "0.61.0"
           },
           {
             "name": "@opentelemetry/instrumentation-nestjs-core",
-            "version": "0.56.0"
+            "version": "0.59.0"
           },
           {
             "name": "@opentelemetry/instrumentation-pg",
-            "version": "0.62.0"
+            "version": "0.65.0"
           },
           {
             "name": "@opentelemetry/otlp-exporter-base",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/otlp-grpc-exporter-base",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/otlp-transformer",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/propagator-b3",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/propagator-jaeger",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/redis-common",
@@ -1229,31 +1225,31 @@
           },
           {
             "name": "@opentelemetry/resources",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/sdk-logs",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/sdk-metrics",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/sdk-node",
-            "version": "0.210.0"
+            "version": "0.213.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-base",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-node",
-            "version": "2.4.0"
+            "version": "2.6.0"
           },
           {
             "name": "@opentelemetry/semantic-conventions",
-            "version": "1.38.0"
+            "version": "1.40.0"
           },
           {
             "name": "@opentelemetry/sql-common",
@@ -1261,7 +1257,7 @@
           },
           {
             "name": "@photostructure/tz-lookup",
-            "version": "11.3.0"
+            "version": "11.5.0"
           },
           {
             "name": "@pkgjs/parseargs",
@@ -1453,7 +1449,7 @@
           },
           {
             "name": "@types/node",
-            "version": "24.10.13"
+            "version": "24.12.0"
           },
           {
             "name": "@types/pg",
@@ -1489,7 +1485,7 @@
           },
           {
             "name": "acorn",
-            "version": "8.15.0"
+            "version": "8.16.0"
           },
           {
             "name": "acorn-import-attributes",
@@ -1501,7 +1497,7 @@
           },
           {
             "name": "ajv",
-            "version": "8.17.1"
+            "version": "8.18.0"
           },
           {
             "name": "ansi-escapes",
@@ -1577,7 +1573,7 @@
           },
           {
             "name": "batch-cluster",
-            "version": "16.0.0"
+            "version": "17.3.1"
           },
           {
             "name": "bcrypt",
@@ -1625,7 +1621,7 @@
           },
           {
             "name": "bullmq",
-            "version": "5.66.5"
+            "version": "5.70.4"
           },
           {
             "name": "busboy",
@@ -1677,7 +1673,7 @@
           },
           {
             "name": "cjs-module-lexer",
-            "version": "1.4.3"
+            "version": "2.2.0"
           },
           {
             "name": "class-transformer",
@@ -1685,7 +1681,7 @@
           },
           {
             "name": "class-validator",
-            "version": "0.14.3"
+            "version": "0.15.1"
           },
           {
             "name": "cli-cursor",
@@ -1777,7 +1773,7 @@
           },
           {
             "name": "cors",
-            "version": "2.8.5"
+            "version": "2.8.6"
           },
           {
             "name": "cosmiconfig",
@@ -1793,7 +1789,7 @@
           },
           {
             "name": "cron",
-            "version": "4.3.5"
+            "version": "4.4.0"
           },
           {
             "name": "cron-parser",
@@ -1969,11 +1965,11 @@
           },
           {
             "name": "exiftool-vendored",
-            "version": "34.3.0"
+            "version": "35.13.1"
           },
           {
             "name": "exiftool-vendored.pl",
-            "version": "13.45.0"
+            "version": "13.52.0"
           },
           {
             "name": "exponential-backoff",
@@ -2165,7 +2161,7 @@
           },
           {
             "name": "immich",
-            "version": "2.5.6"
+            "version": "2.6.1"
           },
           {
             "name": "import-fresh",
@@ -2173,7 +2169,7 @@
           },
           {
             "name": "import-in-the-middle",
-            "version": "2.0.0"
+            "version": "3.0.0"
           },
           {
             "name": "imurmurhash",
@@ -2189,7 +2185,7 @@
           },
           {
             "name": "ioredis",
-            "version": "5.9.1"
+            "version": "5.10.0"
           },
           {
             "name": "ip-address",
@@ -2317,7 +2313,7 @@
           },
           {
             "name": "kysely",
-            "version": "0.28.2"
+            "version": "0.28.11"
           },
           {
             "name": "kysely-postgres-js",
@@ -2333,7 +2329,7 @@
           },
           {
             "name": "libphonenumber-js",
-            "version": "1.12.31"
+            "version": "1.12.38"
           },
           {
             "name": "lilconfig",
@@ -2353,7 +2349,7 @@
           },
           {
             "name": "lodash",
-            "version": "4.17.21"
+            "version": "4.17.23"
           },
           {
             "name": "lodash.camelcase",
@@ -2457,7 +2453,7 @@
           },
           {
             "name": "minimatch",
-            "version": "10.1.1"
+            "version": "10.2.4"
           },
           {
             "name": "minimist",
@@ -2473,7 +2469,7 @@
           },
           {
             "name": "minipass-fetch",
-            "version": "5.0.0"
+            "version": "5.0.1"
           },
           {
             "name": "minipass-flush",
@@ -2485,15 +2481,11 @@
           },
           {
             "name": "minipass-sized",
-            "version": "1.0.3"
+            "version": "2.0.0"
           },
           {
             "name": "minizlib",
             "version": "3.1.0"
-          },
-          {
-            "name": "mkdirp",
-            "version": "0.5.6"
           },
           {
             "name": "mnemonist",
@@ -2521,7 +2513,7 @@
           },
           {
             "name": "multer",
-            "version": "2.0.2"
+            "version": "2.1.1"
           },
           {
             "name": "mute-stream",
@@ -2573,7 +2565,7 @@
           },
           {
             "name": "node-gyp",
-            "version": "12.1.0"
+            "version": "12.2.0"
           },
           {
             "name": "node-gyp-build",
@@ -2585,7 +2577,7 @@
           },
           {
             "name": "nodemailer",
-            "version": "7.0.12"
+            "version": "7.0.13"
           },
           {
             "name": "nopt",
@@ -2605,7 +2597,7 @@
           },
           {
             "name": "oauth4webapi",
-            "version": "3.8.3"
+            "version": "3.8.5"
           },
           {
             "name": "object-assign",
@@ -2641,7 +2633,7 @@
           },
           {
             "name": "openid-client",
-            "version": "6.8.1"
+            "version": "6.8.2"
           },
           {
             "name": "ora",
@@ -2713,7 +2705,7 @@
           },
           {
             "name": "pg",
-            "version": "8.17.1"
+            "version": "8.20.0"
           },
           {
             "name": "pg-cloudflare",
@@ -2721,7 +2713,7 @@
           },
           {
             "name": "pg-connection-string",
-            "version": "2.10.0"
+            "version": "2.12.0"
           },
           {
             "name": "pg-int8",
@@ -2729,11 +2721,11 @@
           },
           {
             "name": "pg-pool",
-            "version": "3.11.0"
+            "version": "3.13.0"
           },
           {
             "name": "pg-protocol",
-            "version": "1.11.0"
+            "version": "1.13.0"
           },
           {
             "name": "pg-types",
@@ -2769,7 +2761,7 @@
           },
           {
             "name": "postcss",
-            "version": "8.5.6"
+            "version": "8.5.8"
           },
           {
             "name": "postcss-import",
@@ -2817,7 +2809,7 @@
           },
           {
             "name": "prettier",
-            "version": "3.8.0"
+            "version": "3.8.1"
           },
           {
             "name": "prismjs",
@@ -2873,11 +2865,11 @@
           },
           {
             "name": "react",
-            "version": "19.2.3"
+            "version": "19.2.4"
           },
           {
             "name": "react-dom",
-            "version": "19.2.3"
+            "version": "19.2.4"
           },
           {
             "name": "react-email",
@@ -2993,7 +2985,7 @@
           },
           {
             "name": "sanitize-html",
-            "version": "2.17.0"
+            "version": "2.17.1"
           },
           {
             "name": "scheduler",
@@ -3005,7 +2997,7 @@
           },
           {
             "name": "semver",
-            "version": "7.7.3"
+            "version": "7.7.4"
           },
           {
             "name": "send",
@@ -3105,7 +3097,7 @@
           },
           {
             "name": "ssri",
-            "version": "13.0.0"
+            "version": "13.0.1"
           },
           {
             "name": "standard-as-callback",
@@ -3189,7 +3181,7 @@
           },
           {
             "name": "tar",
-            "version": "7.5.2"
+            "version": "7.5.7"
           },
           {
             "name": "tar-stream",
@@ -3289,7 +3281,7 @@
           },
           {
             "name": "ua-parser-js",
-            "version": "2.0.8"
+            "version": "2.0.9"
           },
           {
             "name": "uglify-js",
@@ -3423,12 +3415,12 @@
         "dotnet": 0,
         "go": 3,
         "java": 0,
-        "node": 620,
+        "node": 618,
         "php": 0,
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 849
+        "total": 847
       }
     }
   }
