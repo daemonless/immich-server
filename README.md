@@ -5,15 +5,27 @@ Source: dbuild templates
 
 # Immich Server
 
-Immich photo management server on FreeBSD.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/immich-server/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/immich-server/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/daemonless/immich-server?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/immich-server/commits)
+
+Self-hosted photo and video backup and management server with web UI, mobile sync, and shared albums.
 
 | | |
 |---|---|
 | **Port** | 2283 |
 | **Registry** | `ghcr.io/daemonless/immich-server` |
-| **Docs** | [daemonless.io/images/immich-server](https://daemonless.io/images/immich-server/) |
 | **Source** | [https://github.com/immich-app/immich](https://github.com/immich-app/immich) |
 | **Website** | [https://immich.app/](https://immich.app/) |
+
+## Version Tags
+
+| Tag | Description | Best For |
+| :--- | :--- | :--- |
+| `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
+
+## Prerequisites
+
+Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
 
@@ -34,11 +46,68 @@ services:
       - PGID=1000
       - TZ=UTC
     volumes:
-      - /path/to/containers/immich-server:/config
-      - /path/to/data:/data
+      - "/path/to/containers/immich-server:/config"
+      - "/path/to/containers/immich-server/data:/data"
     ports:
       - 2283:2283
     restart: unless-stopped
+```
+
+### AppJail Director
+
+**.env**:
+
+```
+DIRECTOR_PROJECT=immich-server
+DB_HOSTNAME=immich-postgres
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE_NAME=immich
+REDIS_HOSTNAME=immich-redis
+PUID=1000
+PGID=1000
+TZ=UTC
+```
+
+**appjail-director.yml**:
+
+```yaml
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  immich-server:
+    name: immich_server
+    options:
+      - container: 'boot args:--pull'
+    oci:
+      user: root
+      environment:
+        - DB_HOSTNAME: !ENV '${DB_HOSTNAME}'
+        - DB_USERNAME: !ENV '${DB_USERNAME}'
+        - DB_PASSWORD: !ENV '${DB_PASSWORD}'
+        - DB_DATABASE_NAME: !ENV '${DB_DATABASE_NAME}'
+        - REDIS_HOSTNAME: !ENV '${REDIS_HOSTNAME}'
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+    volumes:
+      - immich-server: /config
+      - immich-server_data: /data
+volumes:
+  immich-server:
+    device: '/path/to/containers/immich-server'
+  immich-server_data:
+    device: '/path/to/containers/immich-server/data'
+```
+
+**Makejail**:
+
+```
+ARG tag=latest
+
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/immich-server:${tag}
 ```
 
 ### Podman CLI
@@ -51,14 +120,13 @@ podman run -d --name immich-server \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=immich-redis \
-  -e PUID=@PUID@ \
-  -e PGID=@PGID@ \
-  -e TZ=@TZ@ \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
   -v /path/to/containers/immich-server:/config \
-  -v /path/to/data:/data \
+  -v /path/to/containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
 ```
-Access at: `http://localhost:2283`
 
 ### Ansible
 
@@ -75,17 +143,20 @@ Access at: `http://localhost:2283`
       DB_PASSWORD: "postgres"
       DB_DATABASE_NAME: "immich"
       REDIS_HOSTNAME: "immich-redis"
-      PUID: "@PUID@"
-      PGID: "@PGID@"
-      TZ: "@TZ@"
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "UTC"
     ports:
       - "2283:2283"
     volumes:
       - "/path/to/containers/immich-server:/config"
-      - "/path/to/data:/data"
+      - "/path/to/containers/immich-server/data:/data"
 ```
 
-## Configuration
+Access at: `http://localhost:2283`
+
+## Parameters
+
 ### Environment Variables
 
 | Variable | Default | Description |
@@ -98,12 +169,14 @@ Access at: `http://localhost:2283`
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
+
 ### Volumes
 
 | Path | Description |
 |------|-------------|
 | `/config` | Configuration directory (unused but mounted) |
 | `/data` | Media storage (photos, videos, thumbnails) |
+
 ### Ports
 
 | Port | Protocol | Description |
@@ -112,8 +185,10 @@ Access at: `http://localhost:2283`
 
 This image is part of the [Immich Stack](https://daemonless.io/images/immich).
 
-## Notes
+**Architectures:** amd64
+**User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
+**Base:** FreeBSD 15.0
 
-- **Architectures:** amd64
-- **User:** `bsd` (UID/GID set via PUID/PGID)
-- **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)
+---
+
+Need help? Join our [Discord](https://discord.gg/Kb9tkhecZT) community.

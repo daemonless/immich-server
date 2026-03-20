@@ -105,7 +105,7 @@ ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 # --- Metadata (Injected by Generator) ---
 LABEL org.opencontainers.image.title="Immich Server" \
-      org.opencontainers.image.description="Immich photo management server on FreeBSD." \
+      org.opencontainers.image.description="Self-hosted photo and video backup and management server with web UI, mobile sync, and shared albums." \
       org.opencontainers.image.source="https://github.com/daemonless/immich-server" \
       org.opencontainers.image.url="https://immich.app/" \
       org.opencontainers.image.version="latest" \
