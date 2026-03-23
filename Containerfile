@@ -10,6 +10,35 @@ ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
 FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-immich
 
+# Jellyfin FFmpeg builder (HDR tonemapping support for immich thumbnails)
+FROM ghcr.io/daemonless/base:${BASE_VERSION} AS jffmpeg-builder
+
+RUN pkg update && pkg install -y \
+    FreeBSD-bmake FreeBSD-clibs-dev FreeBSD-clang FreeBSD-clang-dev FreeBSD-toolchain \
+    FreeBSD-utilities-dev FreeBSD-runtime-dev \
+    FreeBSD-zlib-dev FreeBSD-bzip2-dev FreeBSD-openssl-dev FreeBSD-xz-dev \
+    nasm vulkan-headers quilt pkgconf gmake perl5 \
+    libass libbluray chromaprint dav1d fdk-aac fontconfig freetype2 \
+    fribidi gmp harfbuzz lame libopenmpt opus libplacebo shaderc \
+    svt-av1 libtheora libvorbis libvpx vulkan-loader webp libx264 x265 \
+    sekrit-twc-zimg libzvbi gnutls libxml2 libiconv libva libdrm \
+    libvdpau libX11 alsa-lib sndio \
+    && pkg clean -ay
+
+RUN pkg install -y git && \
+    fetch -qo /tmp/ports.tar.zst \
+    "https://download.freebsd.org/ports/ports/ports.tar.zst" && \
+    mkdir -p /usr/ports/multimedia && \
+    tar -xf /tmp/ports.tar.zst -C /usr/ports --strip-components=1 \
+        ports/Mk ports/Templates ports/Keywords && \
+    rm /tmp/ports.tar.zst && \
+    git clone --depth=1 https://github.com/daemonless/freebsd-ports.git /tmp/freebsd-ports && \
+    cp -r /tmp/freebsd-ports/multimedia/jellyfin-ffmpeg /usr/ports/multimedia/ && \
+    rm -rf /tmp/freebsd-ports
+WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg
+RUN make BATCH=yes MAKE_JOBS_NUMBER=4 install clean || \
+    (cat /usr/ports/multimedia/jellyfin-ffmpeg/work/jellyfin-ffmpeg-7.1.3-3/ffbuild/config.log && false)
+
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
@@ -96,7 +125,7 @@ RUN mkdir -p /app/geodata && \
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp"
+ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 ARG HEALTHCHECK_ENDPOINT="http://localhost:2283/api/server-info/ping"
@@ -130,6 +159,14 @@ RUN pkg update && \
     rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
     rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
+# Install jellyfin-ffmpeg (HDR tonemapping) and override system ffmpeg
+COPY --from=jffmpeg-builder /usr/local/lib/jellyfin-ffmpeg /usr/local/lib/jellyfin-ffmpeg
+RUN mkdir -p /usr/local/libdata/ldconfig && \
+    echo /usr/local/lib/jellyfin-ffmpeg/lib > /usr/local/libdata/ldconfig/jellyfin-ffmpeg && \
+    ldconfig -m /usr/local/lib/jellyfin-ffmpeg/lib && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffmpeg  /usr/local/bin/ffmpeg && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffprobe /usr/local/bin/ffprobe
+
 # Copy version and built application from builder
 COPY --from=builder /tmp/immich_version /tmp/immich_version
 COPY --from=builder --chown=bsd:bsd /app /app
@@ -152,6 +189,7 @@ RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg/lib"
 ENV IMMICH_PORT=2283
 ENV IMMICH_MEDIA_LOCATION=/data
 
