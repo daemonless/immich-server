@@ -1,13 +1,13 @@
 {
+  "generated": "2026-04-02T23:51:00Z",
   "image": "immich-server",
-  "generated": "2026-03-26T18:47:07Z",
   "tags": {
     "latest": {
-      "arch": "amd64",
       "app_version": "v2.6.3",
-      "source": "upstream",
-      "generated": "2026-03-26T18:46:52Z",
+      "arch": "amd64",
+      "generated": "2026-04-02T23:49:44Z",
       "packages": {
+        "dotnet": [],
         "freebsd": [
           {
             "name": "FreeBSD-audit-lib",
@@ -779,7 +779,7 @@
           },
           {
             "name": "perl5",
-            "version": "5.42.0_1"
+            "version": "5.42.2"
           },
           {
             "name": "pinentry",
@@ -958,19 +958,18 @@
             "version": "1.5.7_1"
           }
         ],
-        "dotnet": [],
         "go": [
           {
             "name": "github.com/evanw/esbuild",
             "version": ""
           },
           {
-            "name": "stdlib",
-            "version": "v1.23.12"
-          },
-          {
             "name": "golang.org/x/sys",
             "version": "v0.0.0-20220715151400-c0bba94af5f8"
+          },
+          {
+            "name": "stdlib",
+            "version": "v1.23.12"
           }
         ],
         "java": [],
@@ -3466,9 +3465,10 @@
         "ruby": [],
         "rust": []
       },
+      "source": "upstream",
       "summary": {
-        "freebsd": 237,
         "dotnet": 0,
+        "freebsd": 237,
         "go": 3,
         "java": 0,
         "node": 618,
