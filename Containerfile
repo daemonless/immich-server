@@ -38,6 +38,7 @@ RUN pkg install -y git && \
 WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg
 RUN make BATCH=yes MAKE_JOBS_NUMBER=4 install clean || \
     (cat /usr/ports/multimedia/jellyfin-ffmpeg/work/jellyfin-ffmpeg-7.1.3-3/ffbuild/config.log && false)
+RUN mkdir -p /tmp/packages && pkg create -o /tmp/packages/ jellyfin-ffmpeg
 
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
@@ -160,10 +161,9 @@ RUN pkg update && \
     rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
 # Install jellyfin-ffmpeg (HDR tonemapping) and override system ffmpeg
-COPY --from=jffmpeg-builder /usr/local/lib/jellyfin-ffmpeg /usr/local/lib/jellyfin-ffmpeg
-RUN mkdir -p /usr/local/libdata/ldconfig && \
-    echo /usr/local/lib/jellyfin-ffmpeg/lib > /usr/local/libdata/ldconfig/jellyfin-ffmpeg && \
-    ldconfig -m /usr/local/lib/jellyfin-ffmpeg/lib && \
+COPY --from=jffmpeg-builder /tmp/packages/jellyfin-ffmpeg-*.pkg /tmp/
+RUN pkg add -f /tmp/jellyfin-ffmpeg-*.pkg && \
+    rm /tmp/jellyfin-ffmpeg-*.pkg && \
     ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffmpeg  /usr/local/bin/ffmpeg && \
     ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffprobe /usr/local/bin/ffprobe
 

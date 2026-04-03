@@ -10,7 +10,6 @@ Source: dbuild templates
 
 Self-hosted photo and video backup and management server with web UI, mobile sync, and shared albums.
 
-
 | | |
 |---|---|
 | **Port** | 2283 |
