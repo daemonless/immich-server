@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-05T22:35:49Z",
+  "generated": "2026-04-07T23:27:36Z",
   "image": "immich-server",
   "tags": {
     "latest": {
-      "app_version": "v2.6.3",
+      "app_version": "v2.7.2",
       "arch": "amd64",
-      "generated": "2026-04-05T22:34:32Z",
+      "generated": "2026-04-07T23:26:22Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -143,7 +143,7 @@
           },
           {
             "name": "alsa-lib",
-            "version": "1.2.14"
+            "version": "1.2.15.3"
           },
           {
             "name": "aom",
@@ -187,7 +187,7 @@
           },
           {
             "name": "cgif",
-            "version": "0.5.0"
+            "version": "0.5.1"
           },
           {
             "name": "chromaprint",
@@ -195,7 +195,7 @@
           },
           {
             "name": "corepack",
-            "version": "0.34.5"
+            "version": "0.34.6"
           },
           {
             "name": "cups",
@@ -203,11 +203,11 @@
           },
           {
             "name": "curl",
-            "version": "8.17.0"
+            "version": "8.19.0_1"
           },
           {
             "name": "dav1d",
-            "version": "1.5.3"
+            "version": "1.5.3_1"
           },
           {
             "name": "dbus",
@@ -223,7 +223,7 @@
           },
           {
             "name": "expat",
-            "version": "2.7.4"
+            "version": "2.7.5"
           },
           {
             "name": "fdk-aac",
@@ -231,7 +231,7 @@
           },
           {
             "name": "ffmpeg",
-            "version": "8.0.1_1,1"
+            "version": "8.1,1"
           },
           {
             "name": "fftw3",
@@ -247,7 +247,7 @@
           },
           {
             "name": "freetype2",
-            "version": "2.14.1"
+            "version": "2.14.3"
           },
           {
             "name": "fribidi",
@@ -267,11 +267,11 @@
           },
           {
             "name": "gettext-runtime",
-            "version": "0.26"
+            "version": "1.0"
           },
           {
             "name": "ghostscript10",
-            "version": "10.06.0_1"
+            "version": "10.07.0"
           },
           {
             "name": "giflib",
@@ -315,7 +315,7 @@
           },
           {
             "name": "harfbuzz",
-            "version": "12.3.0"
+            "version": "13.2.1"
           },
           {
             "name": "hdf5",
@@ -327,7 +327,7 @@
           },
           {
             "name": "hwdata",
-            "version": "0.403,1"
+            "version": "0.405,1"
           },
           {
             "name": "icu",
@@ -363,7 +363,7 @@
           },
           {
             "name": "lcms2",
-            "version": "2.17"
+            "version": "2.18"
           },
           {
             "name": "lerc",
@@ -379,11 +379,23 @@
           },
           {
             "name": "libX11",
-            "version": "1.8.12,1"
+            "version": "1.8.13,1"
+          },
+          {
+            "name": "libXScrnSaver",
+            "version": "1.2.4_1"
           },
           {
             "name": "libXau",
             "version": "1.0.12"
+          },
+          {
+            "name": "libXcursor",
+            "version": "1.2.3"
+          },
+          {
+            "name": "libXdamage",
+            "version": "1.1.6"
           },
           {
             "name": "libXdmcp",
@@ -402,6 +414,10 @@
             "version": "2.3.8"
           },
           {
+            "name": "libXi",
+            "version": "1.8.2,1"
+          },
+          {
             "name": "libXrandr",
             "version": "1.5.4"
           },
@@ -418,8 +434,16 @@
             "version": "1.0.13,1"
           },
           {
+            "name": "libXxf86vm",
+            "version": "1.1.6"
+          },
+          {
+            "name": "libada",
+            "version": "3.4.3"
+          },
+          {
             "name": "libaec",
-            "version": "1.1.4"
+            "version": "1.1.5"
           },
           {
             "name": "libarchive",
@@ -435,7 +459,7 @@
           },
           {
             "name": "libbluray",
-            "version": "1.4.0,1"
+            "version": "1.4.1,1"
           },
           {
             "name": "libdaemon",
@@ -483,11 +507,11 @@
           },
           {
             "name": "libfontenc",
-            "version": "1.1.8"
+            "version": "1.1.9"
           },
           {
             "name": "libgcrypt",
-            "version": "1.11.2"
+            "version": "1.12.0_1"
           },
           {
             "name": "libgd",
@@ -499,11 +523,11 @@
           },
           {
             "name": "libgpg-error",
-            "version": "1.58"
+            "version": "1.59"
           },
           {
             "name": "libheif",
-            "version": "1.19.8_6"
+            "version": "1.21.2_2"
           },
           {
             "name": "libiconv",
@@ -516,6 +540,10 @@
           {
             "name": "libidn2",
             "version": "2.3.8"
+          },
+          {
+            "name": "libinotify",
+            "version": "20240724_3"
           },
           {
             "name": "libjxl",
@@ -543,11 +571,11 @@
           },
           {
             "name": "libnghttp3",
-            "version": "1.14.0"
+            "version": "1.15.0"
           },
           {
             "name": "libngtcp2",
-            "version": "1.19.0"
+            "version": "1.21.0"
           },
           {
             "name": "libogg",
@@ -567,7 +595,7 @@
           },
           {
             "name": "libplacebo",
-            "version": "7.351.0_1"
+            "version": "7.360.1"
           },
           {
             "name": "libpsl",
@@ -579,11 +607,11 @@
           },
           {
             "name": "libraw",
-            "version": "0.21.5"
+            "version": "0.21.5_1"
           },
           {
             "name": "librsvg2-rust",
-            "version": "2.61.3"
+            "version": "2.62.0_1"
           },
           {
             "name": "libsndfile",
@@ -631,7 +659,7 @@
           },
           {
             "name": "libunistring",
-            "version": "1.4.1"
+            "version": "1.4.2"
           },
           {
             "name": "libunwind",
@@ -639,7 +667,7 @@
           },
           {
             "name": "libuv",
-            "version": "1.51.0"
+            "version": "1.52.0"
           },
           {
             "name": "libv4l",
@@ -659,7 +687,7 @@
           },
           {
             "name": "libvpx",
-            "version": "1.15.2"
+            "version": "1.16.0"
           },
           {
             "name": "libwmf",
@@ -674,8 +702,16 @@
             "version": "1.17.0"
           },
           {
+            "name": "libxkbcommon",
+            "version": "1.13.1"
+          },
+          {
             "name": "libxml2",
             "version": "2.15.2"
+          },
+          {
+            "name": "libxshmfence",
+            "version": "1.3.3"
           },
           {
             "name": "libzip",
@@ -683,11 +719,11 @@
           },
           {
             "name": "libzvbi",
-            "version": "0.2.44"
+            "version": "0.2.44_1"
           },
           {
             "name": "llhttp",
-            "version": "9.3.0"
+            "version": "9.3.1"
           },
           {
             "name": "lzo2",
@@ -695,7 +731,11 @@
           },
           {
             "name": "matio",
-            "version": "1.5.28"
+            "version": "1.5.30"
+          },
+          {
+            "name": "mesa-libs",
+            "version": "24.1.7_1"
           },
           {
             "name": "mkfontscale",
@@ -703,7 +743,7 @@
           },
           {
             "name": "mpc",
-            "version": "1.3.1_1"
+            "version": "1.4.0"
           },
           {
             "name": "mpdecimal",
@@ -723,7 +763,7 @@
           },
           {
             "name": "node22",
-            "version": "22.22.0"
+            "version": "22.22.1_2"
           },
           {
             "name": "npth",
@@ -735,7 +775,7 @@
           },
           {
             "name": "nss",
-            "version": "3.121"
+            "version": "3.122"
           },
           {
             "name": "oniguruma",
@@ -747,7 +787,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.5"
+            "version": "3.4.8"
           },
           {
             "name": "openh264",
@@ -755,15 +795,15 @@
           },
           {
             "name": "openjpeg",
-            "version": "2.5.4_1"
+            "version": "2.5.4_2"
           },
           {
             "name": "openjph",
-            "version": "0.25.3"
+            "version": "0.26.3"
           },
           {
             "name": "opus",
-            "version": "1.6"
+            "version": "1.6.1"
           },
           {
             "name": "p11-kit",
@@ -775,7 +815,7 @@
           },
           {
             "name": "pango",
-            "version": "1.56.4"
+            "version": "1.56.4_1"
           },
           {
             "name": "pcre2",
@@ -799,7 +839,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.5.1"
+            "version": "2.6.2_1"
           },
           {
             "name": "pkgconf",
@@ -807,11 +847,11 @@
           },
           {
             "name": "png",
-            "version": "1.6.53"
+            "version": "1.6.55"
           },
           {
             "name": "poppler",
-            "version": "25.10.0"
+            "version": "25.10.0_1"
           },
           {
             "name": "poppler-data",
@@ -819,7 +859,7 @@
           },
           {
             "name": "poppler-glib",
-            "version": "25.10.0"
+            "version": "25.10.0_1"
           },
           {
             "name": "portaudio",
@@ -831,15 +871,15 @@
           },
           {
             "name": "py311-numpy",
-            "version": "1.26.4_11,1"
+            "version": "1.26.4_12,1"
           },
           {
             "name": "py311-packaging",
-            "version": "25.0"
+            "version": "26.0"
           },
           {
             "name": "python311",
-            "version": "3.11.15"
+            "version": "3.11.15_1"
           },
           {
             "name": "readline",
@@ -850,12 +890,16 @@
             "version": "2.13.2.0"
           },
           {
+            "name": "sdl2",
+            "version": "2.32.10"
+          },
+          {
             "name": "sekrit-twc-zimg",
             "version": "3.0.6"
           },
           {
             "name": "shaderc",
-            "version": "2025.5_1"
+            "version": "2026.1"
           },
           {
             "name": "shared-mime-info",
@@ -863,7 +907,7 @@
           },
           {
             "name": "simdjson",
-            "version": "4.2.4"
+            "version": "4.5.0"
           },
           {
             "name": "skalibs",
@@ -903,7 +947,7 @@
           },
           {
             "name": "suitesparse-config",
-            "version": "7.12.1"
+            "version": "7.12.2"
           },
           {
             "name": "suitesparse-umfpack",
@@ -911,7 +955,7 @@
           },
           {
             "name": "svt-av1",
-            "version": "3.1.2"
+            "version": "4.1.0"
           },
           {
             "name": "tiff",
@@ -922,8 +966,12 @@
             "version": "20200910"
           },
           {
+            "name": "uvwasi",
+            "version": "0.0.23"
+          },
+          {
             "name": "vips",
-            "version": "8.18.0"
+            "version": "8.18.0_2"
           },
           {
             "name": "vmaf",
@@ -944,6 +992,10 @@
           {
             "name": "x265",
             "version": "4.1"
+          },
+          {
+            "name": "xkeyboard-config",
+            "version": "2.41_4"
           },
           {
             "name": "xorgproto",
@@ -1000,7 +1052,7 @@
           },
           {
             "name": "@babel/parser",
-            "version": "7.29.0"
+            "version": "7.29.2"
           },
           {
             "name": "@babel/template",
@@ -1016,7 +1068,7 @@
           },
           {
             "name": "@borewit/text-codec",
-            "version": "0.2.1"
+            "version": "0.2.2"
           },
           {
             "name": "@esbuild/freebsd-x64",
@@ -1112,11 +1164,11 @@
           },
           {
             "name": "@nestjs/common",
-            "version": "11.1.16"
+            "version": "11.1.17"
           },
           {
             "name": "@nestjs/core",
-            "version": "11.1.16"
+            "version": "11.1.17"
           },
           {
             "name": "@nestjs/mapped-types",
@@ -1124,11 +1176,11 @@
           },
           {
             "name": "@nestjs/platform-express",
-            "version": "11.1.16"
+            "version": "11.1.17"
           },
           {
             "name": "@nestjs/platform-socket.io",
-            "version": "11.1.16"
+            "version": "11.1.17"
           },
           {
             "name": "@nestjs/schedule",
@@ -1140,7 +1192,7 @@
           },
           {
             "name": "@nestjs/websockets",
-            "version": "11.1.16"
+            "version": "11.1.17"
           },
           {
             "name": "@nodelib/fs.scandir",
@@ -1472,15 +1524,15 @@
           },
           {
             "name": "@turf/boolean-point-in-polygon",
-            "version": "7.3.2"
+            "version": "7.3.4"
           },
           {
             "name": "@turf/helpers",
-            "version": "7.3.2"
+            "version": "7.3.4"
           },
           {
             "name": "@turf/invariant",
-            "version": "7.3.2"
+            "version": "7.3.4"
           },
           {
             "name": "@types/chai-withintoleranceof",
@@ -1504,7 +1556,7 @@
           },
           {
             "name": "@types/node",
-            "version": "24.12.0"
+            "version": "24.12.2"
           },
           {
             "name": "@types/pg",
@@ -1608,7 +1660,7 @@
           },
           {
             "name": "b4a",
-            "version": "1.7.3"
+            "version": "1.8.0"
           },
           {
             "name": "balanced-match",
@@ -1617,6 +1669,26 @@
           {
             "name": "bare-events",
             "version": "2.8.2"
+          },
+          {
+            "name": "bare-fs",
+            "version": "4.5.6"
+          },
+          {
+            "name": "bare-os",
+            "version": "3.8.0"
+          },
+          {
+            "name": "bare-path",
+            "version": "3.0.0"
+          },
+          {
+            "name": "bare-stream",
+            "version": "2.11.0"
+          },
+          {
+            "name": "bare-url",
+            "version": "2.4.0"
           },
           {
             "name": "base64-js",
@@ -1676,7 +1748,7 @@
           },
           {
             "name": "bullmq",
-            "version": "5.70.4"
+            "version": "5.71.0"
           },
           {
             "name": "busboy",
@@ -1824,7 +1896,7 @@
           },
           {
             "name": "corepack",
-            "version": "0.34.5"
+            "version": "0.34.6"
           },
           {
             "name": "cors",
@@ -2020,11 +2092,11 @@
           },
           {
             "name": "exiftool-vendored",
-            "version": "35.13.1"
+            "version": "35.15.1"
           },
           {
             "name": "exiftool-vendored.pl",
-            "version": "13.52.0"
+            "version": "13.53.0"
           },
           {
             "name": "exponential-backoff",
@@ -2076,7 +2148,7 @@
           },
           {
             "name": "file-type",
-            "version": "21.3.0"
+            "version": "21.3.2"
           },
           {
             "name": "fill-range",
@@ -2116,7 +2188,7 @@
           },
           {
             "name": "geo-tz",
-            "version": "8.1.5"
+            "version": "8.1.6"
           },
           {
             "name": "geobuf",
@@ -2160,7 +2232,7 @@
           },
           {
             "name": "handlebars",
-            "version": "4.7.8"
+            "version": "4.7.9"
           },
           {
             "name": "has-flag",
@@ -2179,12 +2251,16 @@
             "version": "1.2.0"
           },
           {
+            "name": "helmet",
+            "version": "8.1.0"
+          },
+          {
             "name": "html-to-text",
             "version": "9.0.5"
           },
           {
             "name": "htmlparser2",
-            "version": "8.0.2"
+            "version": "10.1.0"
           },
           {
             "name": "http-cache-semantics",
@@ -2216,7 +2292,7 @@
           },
           {
             "name": "immich",
-            "version": "2.6.3"
+            "version": "2.7.2"
           },
           {
             "name": "import-fresh",
@@ -2240,7 +2316,7 @@
           },
           {
             "name": "ioredis",
-            "version": "5.10.0"
+            "version": "5.10.1"
           },
           {
             "name": "ip-address",
@@ -2368,7 +2444,7 @@
           },
           {
             "name": "kysely",
-            "version": "0.28.11"
+            "version": "0.28.14"
           },
           {
             "name": "kysely-postgres-js",
@@ -2632,7 +2708,7 @@
           },
           {
             "name": "nodemailer",
-            "version": "7.0.13"
+            "version": "8.0.4"
           },
           {
             "name": "nopt",
@@ -2796,7 +2872,7 @@
           },
           {
             "name": "picomatch",
-            "version": "2.3.1"
+            "version": "2.3.2"
           },
           {
             "name": "pify",
@@ -3008,7 +3084,7 @@
           },
           {
             "name": "robust-predicates",
-            "version": "3.0.2"
+            "version": "3.0.3"
           },
           {
             "name": "router",
@@ -3036,11 +3112,11 @@
           },
           {
             "name": "sanitize-filename",
-            "version": "1.6.3"
+            "version": "1.6.4"
           },
           {
             "name": "sanitize-html",
-            "version": "2.17.1"
+            "version": "2.17.2"
           },
           {
             "name": "scheduler",
@@ -3176,7 +3252,7 @@
           },
           {
             "name": "streamx",
-            "version": "2.23.0"
+            "version": "2.25.0"
           },
           {
             "name": "string-width",
@@ -3196,7 +3272,7 @@
           },
           {
             "name": "strtok3",
-            "version": "10.3.4"
+            "version": "10.3.5"
           },
           {
             "name": "sucrase",
@@ -3240,11 +3316,15 @@
           },
           {
             "name": "tar-stream",
-            "version": "3.1.7"
+            "version": "3.1.8"
+          },
+          {
+            "name": "teex",
+            "version": "1.0.1"
           },
           {
             "name": "text-decoder",
-            "version": "1.2.3"
+            "version": "1.2.7"
           },
           {
             "name": "text-encoding",
@@ -3328,7 +3408,7 @@
           },
           {
             "name": "typescript",
-            "version": "5.9.3"
+            "version": "6.0.2"
           },
           {
             "name": "ua-is-frozen",
@@ -3428,7 +3508,7 @@
           },
           {
             "name": "yaml",
-            "version": "2.8.2"
+            "version": "2.8.3"
           },
           {
             "name": "yargs",
@@ -3459,7 +3539,7 @@
           },
           {
             "name": "packaging",
-            "version": "25.0"
+            "version": "26.0"
           }
         ],
         "ruby": [],
@@ -3468,15 +3548,15 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 237,
+        "freebsd": 250,
         "go": 3,
         "java": 0,
-        "node": 618,
+        "node": 625,
         "php": 0,
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 861
+        "total": 881
       }
     }
   }
