@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-07T23:27:36Z",
+  "generated": "2026-04-09T20:42:39Z",
   "image": "immich-server",
   "tags": {
     "latest": {
-      "app_version": "v2.7.2",
+      "app_version": "v2.7.3",
       "arch": "amd64",
-      "generated": "2026-04-07T23:26:22Z",
+      "generated": "2026-04-09T20:41:22Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -763,7 +763,7 @@
           },
           {
             "name": "node22",
-            "version": "22.22.1_2"
+            "version": "22.22.2"
           },
           {
             "name": "npth",
@@ -2260,7 +2260,7 @@
           },
           {
             "name": "htmlparser2",
-            "version": "10.1.0"
+            "version": "8.0.2"
           },
           {
             "name": "http-cache-semantics",
@@ -2292,7 +2292,7 @@
           },
           {
             "name": "immich",
-            "version": "2.7.2"
+            "version": "2.7.3"
           },
           {
             "name": "import-fresh",
@@ -2357,10 +2357,6 @@
           {
             "name": "is-number",
             "version": "7.0.0"
-          },
-          {
-            "name": "is-plain-object",
-            "version": "5.0.0"
           },
           {
             "name": "is-promise",
@@ -2787,10 +2783,6 @@
             "version": "5.2.0"
           },
           {
-            "name": "parse-srcset",
-            "version": "1.0.2"
-          },
-          {
             "name": "parseley",
             "version": "0.12.1"
           },
@@ -3113,10 +3105,6 @@
           {
             "name": "sanitize-filename",
             "version": "1.6.4"
-          },
-          {
-            "name": "sanitize-html",
-            "version": "2.17.2"
           },
           {
             "name": "scheduler",
@@ -3551,12 +3539,12 @@
         "freebsd": 250,
         "go": 3,
         "java": 0,
-        "node": 625,
+        "node": 622,
         "php": 0,
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 881
+        "total": 878
       }
     }
   }
