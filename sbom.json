@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-09T20:42:39Z",
+  "generated": "2026-04-10T20:59:08Z",
   "image": "immich-server",
   "tags": {
     "latest": {
-      "app_version": "v2.7.3",
+      "app_version": "v2.7.4",
       "arch": "amd64",
-      "generated": "2026-04-09T20:41:22Z",
+      "generated": "2026-04-10T20:57:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -2292,7 +2292,7 @@
           },
           {
             "name": "immich",
-            "version": "2.7.3"
+            "version": "2.7.4"
           },
           {
             "name": "import-fresh",
