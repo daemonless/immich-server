@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-10T20:59:08Z",
+  "generated": "2026-04-13T17:40:43Z",
   "image": "immich-server",
   "tags": {
     "latest": {
-      "app_version": "v2.7.4",
+      "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-04-10T20:57:49Z",
+      "generated": "2026-04-13T17:39:25Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -147,7 +147,7 @@
           },
           {
             "name": "aom",
-            "version": "3.13.2"
+            "version": "3.13.3"
           },
           {
             "name": "avahi-app",
@@ -439,7 +439,7 @@
           },
           {
             "name": "libada",
-            "version": "3.4.3"
+            "version": "3.4.4"
           },
           {
             "name": "libaec",
@@ -787,7 +787,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.8"
+            "version": "3.4.9"
           },
           {
             "name": "openh264",
@@ -2292,7 +2292,7 @@
           },
           {
             "name": "immich",
-            "version": "2.7.4"
+            "version": "2.7.5"
           },
           {
             "name": "import-fresh",
