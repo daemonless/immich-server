@@ -120,7 +120,7 @@ RUN mkdir -p /app/geodata && \
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora"
+ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora postgresql18-client"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 {%- if ports %}
@@ -185,7 +185,11 @@ RUN cp /tmp/immich_version /app/version && \
     ln -sf /app/corePlugin /build/corePlugin && \
     ln -sf /app/geodata /build/geodata && \
     chown -h bsd:bsd /build/www /build/corePlugin /build/geodata && \
-    chmod 755 /app/geodata && chmod 644 /app/geodata/*
+    chmod 755 /app/geodata && chmod 644 /app/geodata/* && \
+    for v in 14 15 16 17 18; do \
+      mkdir -p /usr/lib/postgresql/${v}/bin && \
+      ln -sf /usr/local/bin/pg_dump /usr/lib/postgresql/${v}/bin/pg_dump; \
+    done
 
 # Copy service files
 COPY root/ /
