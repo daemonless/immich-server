@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-30T12:50:49Z",
+  "generated": "2026-05-06T23:20:46Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-04-30T12:49:17Z",
+      "generated": "2026-05-06T23:19:24Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -103,7 +103,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p6"
+            "version": "15.0p8"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -131,7 +131,7 @@
           },
           {
             "name": "FreeBSD-zoneinfo",
-            "version": "15.0"
+            "version": "15.0p7"
           },
           {
             "name": "ImageMagick7",
@@ -199,7 +199,7 @@
           },
           {
             "name": "cups",
-            "version": "2.4.18"
+            "version": "2.4.19"
           },
           {
             "name": "curl",
@@ -295,7 +295,7 @@
           },
           {
             "name": "gnutls",
-            "version": "3.8.12"
+            "version": "3.8.13"
           },
           {
             "name": "gpgme",
