@@ -153,8 +153,6 @@ podman run -d --name immich-server \
       - "/path/to/containers/immich-server/data:/data"
 ```
 
-Access at: `http://localhost:2283`
-
 ## Parameters
 
 ### Environment Variables
