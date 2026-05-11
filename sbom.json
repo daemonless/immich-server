@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-06T23:20:46Z",
+  "generated": "2026-05-11T15:12:58Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-05-06T23:19:24Z",
+      "generated": "2026-05-11T15:11:38Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -183,7 +183,7 @@
           },
           {
             "name": "cfitsio",
-            "version": "4.6.3"
+            "version": "4.6.4"
           },
           {
             "name": "cgif",
@@ -203,7 +203,7 @@
           },
           {
             "name": "curl",
-            "version": "8.19.0_2"
+            "version": "8.20.0"
           },
           {
             "name": "dav1d",
@@ -787,7 +787,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.9"
+            "version": "3.4.11"
           },
           {
             "name": "openh264",
@@ -864,6 +864,10 @@
           {
             "name": "portaudio",
             "version": "19.6.0_7,1"
+          },
+          {
+            "name": "postgresql18-client",
+            "version": "18.3"
           },
           {
             "name": "py311-boost-libs",
@@ -3536,7 +3540,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 250,
+        "freebsd": 251,
         "go": 3,
         "java": 0,
         "node": 622,
@@ -3544,7 +3548,7 @@
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 878
+        "total": 879
       }
     }
   }
