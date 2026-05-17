@@ -189,7 +189,8 @@ RUN cp /tmp/immich_version /app/version && \
     for v in 14 15 16 17 18; do \
       mkdir -p /usr/lib/postgresql/${v}/bin && \
       ln -sf /usr/local/bin/pg_dump /usr/lib/postgresql/${v}/bin/pg_dump; \
-    done
+    done && \
+    chmod -R a+rX /usr/lib/postgresql
 
 # Copy service files
 COPY root/ /
