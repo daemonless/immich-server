@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-17T12:49:50Z",
+  "generated": "2026-05-26T14:21:06Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-05-17T12:48:29Z",
+      "generated": "2026-05-26T14:19:34Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -59,7 +59,7 @@
           },
           {
             "name": "FreeBSD-libcasper",
-            "version": "15.0"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-libexecinfo",
@@ -103,7 +103,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p8"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -115,7 +115,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p1"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -175,7 +175,7 @@
           },
           {
             "name": "ca_root_nss",
-            "version": "3.123.1"
+            "version": "3.124"
           },
           {
             "name": "cairo",
@@ -867,7 +867,7 @@
           },
           {
             "name": "postgresql18-client",
-            "version": "18.3"
+            "version": "18.4"
           },
           {
             "name": "py311-boost-libs",
