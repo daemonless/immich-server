@@ -71,16 +71,17 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Clone immich source (resolve latest version from upstream)
 WORKDIR /build
 RUN --mount=type=secret,id=github_token \
-    FETCH_URL="${UPSTREAM_URL}"; \
-    GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || echo ""); \
+    GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || echo "") && \
     if [ -n "${GITHUB_TOKEN}" ]; then \
-      FETCH_URL=$(echo "${UPSTREAM_URL}" | sed "s|https://|https://x-access-token:${GITHUB_TOKEN}@|"); \
+      printf 'machine api.github.com login x-access-token password %s\n' "${GITHUB_TOKEN}" > /root/.netrc && \
+      chmod 600 /root/.netrc; \
     fi && \
-    IMMICH_VERSION=$(fetch -qo - "${FETCH_URL}" | jq -r '.tag_name') && \
+    IMMICH_VERSION=$(fetch -qo - "${UPSTREAM_URL}" | jq -r '.tag_name') && \
     echo "Resolved IMMICH_VERSION=$IMMICH_VERSION" && \
     git clone --depth 1 --branch ${IMMICH_VERSION} \
       https://github.com/immich-app/immich.git . && \
-    echo "${IMMICH_VERSION}" > /tmp/immich_version
+    echo "${IMMICH_VERSION}" > /tmp/immich_version && \
+    rm -f /root/.netrc
 
 # Build server
 WORKDIR /build/server
