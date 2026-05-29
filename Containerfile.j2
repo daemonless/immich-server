@@ -177,16 +177,19 @@ RUN pkg add -f /tmp/jellyfin-ffmpeg-*.pkg && \
 COPY --from=builder /tmp/immich_version /tmp/immich_version
 COPY --from=builder --chown=bsd:bsd /app /app
 
+# Fix builder umask (COPY --chown preserves restrictive 700/600 from build stage)
+RUN chmod -R a+rX /app
+
 # Create directories, write version, and symlinks (paths match Linux immich expectations)
 RUN cp /tmp/immich_version /app/version && \
     mkdir -p /config /data /build && \
     mkdir -p /data/{encoded-video,thumbs,upload,profile,backups,library} && \
     chown -R bsd:bsd /config /data /build && \
+    chmod 755 /build && \
     ln -sf /app/www /build/www && \
     ln -sf /app/corePlugin /build/corePlugin && \
     ln -sf /app/geodata /build/geodata && \
     chown -h bsd:bsd /build/www /build/corePlugin /build/geodata && \
-    chmod 755 /app/geodata && chmod 644 /app/geodata/* && \
     for v in 14 15 16 17 18; do \
       mkdir -p /usr/lib/postgresql/${v}/bin && \
       ln -sf /usr/local/bin/pg_dump /usr/lib/postgresql/${v}/bin/pg_dump; \
