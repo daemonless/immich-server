@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-29T08:00:48Z",
+  "generated": "2026-06-11T22:54:01Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-05-29T07:59:30Z",
+      "generated": "2026-06-11T22:52:46Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -347,7 +347,7 @@
           },
           {
             "name": "jellyfin-ffmpeg",
-            "version": "7.1.4.1"
+            "version": "7.1.4.2"
           },
           {
             "name": "jpeg-turbo",
@@ -787,7 +787,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.11"
+            "version": "3.4.12"
           },
           {
             "name": "openh264",
