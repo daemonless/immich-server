@@ -34,22 +34,22 @@ Before deploying, ensure your host environment is ready. See the [Quick Start Gu
 ```yaml
 services:
   immich-server:
-    image: ghcr.io/daemonless/immich-server:latest
+    image: "ghcr.io/daemonless/immich-server:latest"
     container_name: immich-server
     environment:
-      - DB_HOSTNAME=immich-postgres
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-      - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=immich-redis
-      - PUID=1000
-      - PGID=1000
-      - TZ=UTC
+      - DB_HOSTNAME=immich-postgres  # Postgres database hostname
+      - DB_USERNAME=postgres  # Postgres database user
+      - DB_PASSWORD=postgres  # Postgres database password
+      - DB_DATABASE_NAME=immich  # Postgres database name
+      - REDIS_HOSTNAME=immich-redis  # Redis hostname
+      - PUID=1000  # User ID for the application process
+      - PGID=1000  # Group ID for the application process
+      - TZ=UTC  # Timezone for the container
     volumes:
       - "/path/to/containers/immich-server:/config"
       - "/path/to/containers/immich-server/data:/data"
     ports:
-      - 2283:2283
+      - "2283:2283"
     restart: unless-stopped
 ```
 
@@ -134,7 +134,7 @@ podman run -d --name immich-server \
 - name: Deploy immich-server
   containers.podman.podman_container:
     name: immich-server
-    image: ghcr.io/daemonless/immich-server:latest
+    image: "ghcr.io/daemonless/immich-server:latest"
     state: started
     restart_policy: always
     env:
