@@ -2,3 +2,14 @@ icon: ':material-server:'
 # Only test shell, we need depends, which will be tested in daemonless/immich
 cit:
   mode: shell
+
+build:
+  variants:
+    - tag: latest
+      containerfile: Containerfile
+      default: true
+    - tag: beta
+      containerfile: Containerfile
+      tag_desc: Beta release built from upstream v3.0.0-rc.0.
+      args:
+        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases/tags/v3.0.0-rc.0"

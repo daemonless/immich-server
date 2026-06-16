@@ -13,7 +13,7 @@ x-daemonless:
   upstream_binary: true
   appjail: true
   notes: "This image is part of the [Immich Stack](https://daemonless.io/images/immich)."
-  
+
   docs:
     env:
       PUID: "User ID for the application process"
@@ -35,7 +35,7 @@ services:
     image: ghcr.io/daemonless/immich-server:latest
     container_name: immich-server
     restart: unless-stopped
-    
+
     environment:
       - DB_HOSTNAME=immich-postgres
       - DB_USERNAME=postgres

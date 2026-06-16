@@ -46,7 +46,7 @@ RUN pkg update && pkg install -y \
     git-lite gmake pkgconf \
     FreeBSD-clang FreeBSD-clibs-dev \
     FreeBSD-openssl-dev FreeBSD-zlib-dev FreeBSD-xz-dev FreeBSD-bzip2-dev \
-    python311 \
+    python3 \
     vips \
     ffmpeg \
     p5-Image-ExifTool \
@@ -78,7 +78,7 @@ RUN --mount=type=secret,id=github_token \
     rm -f /root/.netrc
 
 # Build server
-WORKDIR /build/server
+WORKDIR /build
 
 # Patch sharp to recognize UHDR loader (libvips 8.18+)
 RUN pnpm install --frozen-lockfile && \
@@ -87,7 +87,12 @@ RUN pnpm install --frozen-lockfile && \
     sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc" && \
     cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3.11 node-gyp rebuild
 
-RUN pnpm build
+# Build server and SDKs
+RUN if [ -d "packages/plugin-sdk" ]; then \
+      pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter immich build; \
+    else \
+      pnpm --filter @immich/sdk --filter immich build; \
+    fi
 
 # Deploy production dependencies only
 RUN pnpm deploy --filter immich --prod /app && \
@@ -97,10 +102,9 @@ RUN pnpm deploy --filter immich --prod /app && \
     cp "$SHARP_BUILD" "$SHARP_DEST/src/build/Release/"
 
 # Build web UI (increase heap for vite build)
-WORKDIR /build
 ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile
-RUN pnpm --filter @immich/sdk --filter immich-web build
+RUN pnpm --filter immich-web build
+
 RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
 
 # Copy pre-built corePlugin from Linux image (extism-js doesn't have FreeBSD releases)

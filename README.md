@@ -22,6 +22,7 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
+| `beta` | Beta release built from upstream v3.0.0-rc.0. | Alternative build. |
 
 ## Prerequisites
 
