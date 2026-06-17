@@ -19,6 +19,7 @@ x-daemonless:
       PUID: "User ID for the application process"
       PGID: "Group ID for the application process"
       TZ: "Timezone for the container"
+      SKIP_CHOWN: "Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start."
       DB_HOSTNAME: "Postgres database hostname"
       DB_USERNAME: "Postgres database user"
       DB_PASSWORD: "Postgres database password"
