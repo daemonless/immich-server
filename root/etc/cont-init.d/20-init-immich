@@ -1,7 +1,19 @@
 #!/bin/sh
 # Initialize Immich configuration
 
-# Fix permissions on upload and library directories
-chown -R bsd:bsd /config /data /usr/src/app/upload /usr/src/app/library /app 2>/dev/null || true
+# Fix ownership so the unprivileged 'bsd' user can read/write the mounted
+# config and media directories. Needed on first run when /data is a freshly
+# mounted host directory with foreign ownership.
+#
+# This recursive chown runs on EVERY container start. On large libraries
+# (hundreds of GB) it can take many minutes, and it is pure duplication when
+# two containers share the same /data mount (e.g. a split api / microservices
+# deployment). Set SKIP_CHOWN=true to skip it when ownership is already known
+# to be correct. Unset/false preserves the previous always-chown behaviour.
+if [ "${SKIP_CHOWN:-false}" = "true" ]; then
+    echo "Immich server init: SKIP_CHOWN=true, skipping permission fix."
+else
+    chown -R bsd:bsd /config /data /usr/src/app/upload /usr/src/app/library /app 2>/dev/null || true
+fi
 
 echo "Immich server initialized."
