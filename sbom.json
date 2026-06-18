@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-18T00:10:14Z",
+  "generated": "2026-06-18T10:04:50Z",
   "image": "immich-server",
   "tags": {
     "beta": {
-      "app_version": "v3.0.0-rc.0",
+      "app_version": "v3.0.0-rc.1",
       "arch": "amd64",
-      "generated": "2026-06-17T23:55:02Z",
+      "generated": "2026-06-18T10:03:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1023,11 +1023,11 @@
           },
           {
             "name": "@babel/code-frame",
-            "version": "7.29.0"
+            "version": "7.29.7"
           },
           {
             "name": "@babel/generator",
-            "version": "7.29.1"
+            "version": "7.29.7"
           },
           {
             "name": "@babel/helper-string-parser",
@@ -1043,7 +1043,7 @@
           },
           {
             "name": "@babel/template",
-            "version": "7.28.6"
+            "version": "7.29.7"
           },
           {
             "name": "@babel/traverse",
@@ -1075,7 +1075,7 @@
           },
           {
             "name": "@grpc/grpc-js",
-            "version": "1.14.3"
+            "version": "1.14.4"
           },
           {
             "name": "@grpc/proto-loader",
@@ -1155,11 +1155,11 @@
           },
           {
             "name": "@nestjs/common",
-            "version": "11.1.24"
+            "version": "11.1.27"
           },
           {
             "name": "@nestjs/core",
-            "version": "11.1.24"
+            "version": "11.1.27"
           },
           {
             "name": "@nestjs/mapped-types",
@@ -1167,11 +1167,11 @@
           },
           {
             "name": "@nestjs/platform-express",
-            "version": "11.1.24"
+            "version": "11.1.27"
           },
           {
             "name": "@nestjs/platform-socket.io",
-            "version": "11.1.24"
+            "version": "11.1.27"
           },
           {
             "name": "@nestjs/schedule",
@@ -1183,7 +1183,7 @@
           },
           {
             "name": "@nestjs/websockets",
-            "version": "11.1.24"
+            "version": "11.1.27"
           },
           {
             "name": "@nodelib/fs.scandir",
@@ -1196,10 +1196,6 @@
           {
             "name": "@nodelib/fs.walk",
             "version": "1.2.8"
-          },
-          {
-            "name": "@nuxt/opencollective",
-            "version": "0.4.1"
           },
           {
             "name": "@opentelemetry/api",
@@ -1371,7 +1367,7 @@
           },
           {
             "name": "@protobufjs/eventemitter",
-            "version": "1.1.0"
+            "version": "1.1.1"
           },
           {
             "name": "@protobufjs/fetch",
@@ -1380,10 +1376,6 @@
           {
             "name": "@protobufjs/float",
             "version": "1.0.2"
-          },
-          {
-            "name": "@protobufjs/inquire",
-            "version": "1.1.2"
           },
           {
             "name": "@protobufjs/path",
@@ -1531,7 +1523,7 @@
           },
           {
             "name": "@types/inquirer",
-            "version": "8.2.12"
+            "version": "8.2.13"
           },
           {
             "name": "@types/luxon",
@@ -1539,7 +1531,7 @@
           },
           {
             "name": "@types/node",
-            "version": "24.13.1"
+            "version": "24.13.2"
           },
           {
             "name": "@types/pg",
@@ -1563,7 +1555,7 @@
           },
           {
             "name": "abbrev",
-            "version": "4.0.0"
+            "version": "5.0.0"
           },
           {
             "name": "abort-controller",
@@ -1575,7 +1567,7 @@
           },
           {
             "name": "acorn",
-            "version": "8.16.0"
+            "version": "8.17.0"
           },
           {
             "name": "acorn-import-attributes",
@@ -1655,11 +1647,11 @@
           },
           {
             "name": "bare-events",
-            "version": "2.8.3"
+            "version": "2.9.1"
           },
           {
             "name": "bare-fs",
-            "version": "4.7.1"
+            "version": "4.7.2"
           },
           {
             "name": "bare-os",
@@ -1667,15 +1659,15 @@
           },
           {
             "name": "bare-path",
-            "version": "3.0.0"
+            "version": "3.0.1"
           },
           {
             "name": "bare-stream",
-            "version": "2.13.1"
+            "version": "2.13.3"
           },
           {
             "name": "bare-url",
-            "version": "2.4.3"
+            "version": "2.4.5"
           },
           {
             "name": "base64-js",
@@ -1735,7 +1727,7 @@
           },
           {
             "name": "bullmq",
-            "version": "5.78.0"
+            "version": "5.78.1"
           },
           {
             "name": "busboy",
@@ -1840,10 +1832,6 @@
           {
             "name": "conf",
             "version": "15.1.0"
-          },
-          {
-            "name": "consola",
-            "version": "3.4.2"
           },
           {
             "name": "content-disposition",
@@ -2031,7 +2019,7 @@
           },
           {
             "name": "es-object-atoms",
-            "version": "1.1.1"
+            "version": "1.1.2"
           },
           {
             "name": "esbuild",
@@ -2219,7 +2207,7 @@
           },
           {
             "name": "hasown",
-            "version": "2.0.3"
+            "version": "2.0.4"
           },
           {
             "name": "he",
@@ -2255,7 +2243,7 @@
           },
           {
             "name": "immich",
-            "version": "3.0.0-rc.0"
+            "version": "3.0.0-rc.1"
           },
           {
             "name": "import-fresh",
@@ -2263,7 +2251,7 @@
           },
           {
             "name": "import-in-the-middle",
-            "version": "3.0.1"
+            "version": "3.0.2"
           },
           {
             "name": "inherits",
@@ -2623,11 +2611,11 @@
           },
           {
             "name": "node-addon-api",
-            "version": "8.7.0"
+            "version": "8.8.0"
           },
           {
             "name": "node-gyp",
-            "version": "12.3.0"
+            "version": "13.0.0"
           },
           {
             "name": "node-gyp-build",
@@ -2639,11 +2627,11 @@
           },
           {
             "name": "nodemailer",
-            "version": "8.0.10"
+            "version": "8.0.11"
           },
           {
             "name": "nopt",
-            "version": "9.0.0"
+            "version": "10.0.1"
           },
           {
             "name": "normalize-path",
@@ -2831,7 +2819,7 @@
           },
           {
             "name": "postcss-selector-parser",
-            "version": "6.1.2"
+            "version": "6.1.4"
           },
           {
             "name": "postcss-value-parser",
@@ -2859,7 +2847,7 @@
           },
           {
             "name": "prettier",
-            "version": "3.8.3"
+            "version": "3.8.4"
           },
           {
             "name": "prismjs",
@@ -2867,7 +2855,7 @@
           },
           {
             "name": "proc-log",
-            "version": "6.1.0"
+            "version": "7.0.0"
           },
           {
             "name": "process",
@@ -2883,7 +2871,7 @@
           },
           {
             "name": "protobufjs",
-            "version": "7.6.0"
+            "version": "7.6.4"
           },
           {
             "name": "protocol-buffers-schema",
@@ -3023,7 +3011,7 @@
           },
           {
             "name": "semver",
-            "version": "7.8.0"
+            "version": "7.8.1"
           },
           {
             "name": "send",
@@ -3055,7 +3043,7 @@
           },
           {
             "name": "side-channel",
-            "version": "1.1.0"
+            "version": "1.1.1"
           },
           {
             "name": "side-channel-list",
@@ -3131,7 +3119,7 @@
           },
           {
             "name": "streamx",
-            "version": "2.25.0"
+            "version": "2.28.0"
           },
           {
             "name": "string-width",
@@ -3179,7 +3167,7 @@
           },
           {
             "name": "systeminformation",
-            "version": "5.31.6"
+            "version": "5.31.7"
           },
           {
             "name": "tagged-tag",
@@ -3203,7 +3191,7 @@
           },
           {
             "name": "tar",
-            "version": "7.5.15"
+            "version": "7.5.16"
           },
           {
             "name": "tar-stream",
@@ -3327,7 +3315,7 @@
           },
           {
             "name": "undici",
-            "version": "6.25.0"
+            "version": "6.26.0"
           },
           {
             "name": "undici-types",
@@ -3446,18 +3434,18 @@
         "freebsd": 251,
         "go": 0,
         "java": 0,
-        "node": 601,
+        "node": 598,
         "php": 0,
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 855
+        "total": 852
       }
     },
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-06-18T00:08:52Z",
+      "generated": "2026-06-18T10:03:35Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
