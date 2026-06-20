@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-18T10:04:50Z",
+  "generated": "2026-06-20T13:48:21Z",
   "image": "immich-server",
   "tags": {
     "beta": {
-      "app_version": "v3.0.0-rc.1",
+      "app_version": "v3.0.0-rc.2",
       "arch": "amd64",
-      "generated": "2026-06-18T10:03:20Z",
+      "generated": "2026-06-20T13:47:09Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -775,7 +775,7 @@
           },
           {
             "name": "nss",
-            "version": "3.123.1"
+            "version": "3.124"
           },
           {
             "name": "oniguruma",
@@ -1203,63 +1203,63 @@
           },
           {
             "name": "@opentelemetry/api-logs",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/configuration",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/context-async-hooks",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/core",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-grpc",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-http",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-proto",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-grpc",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-http",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-proto",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-prometheus",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-grpc",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-http",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-proto",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/exporter-zipkin",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/host-metrics",
@@ -1267,43 +1267,43 @@
           },
           {
             "name": "@opentelemetry/instrumentation",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/instrumentation-http",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/instrumentation-ioredis",
-            "version": "0.66.0"
+            "version": "0.67.0"
           },
           {
             "name": "@opentelemetry/instrumentation-nestjs-core",
-            "version": "0.64.0"
+            "version": "0.65.0"
           },
           {
             "name": "@opentelemetry/instrumentation-pg",
-            "version": "0.70.0"
+            "version": "0.71.0"
           },
           {
             "name": "@opentelemetry/otlp-exporter-base",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/otlp-grpc-exporter-base",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/otlp-transformer",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/propagator-b3",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/propagator-jaeger",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/redis-common",
@@ -1311,27 +1311,27 @@
           },
           {
             "name": "@opentelemetry/resources",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/sdk-logs",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/sdk-metrics",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/sdk-node",
-            "version": "0.218.0"
+            "version": "0.219.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-base",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-node",
-            "version": "2.7.1"
+            "version": "2.8.0"
           },
           {
             "name": "@opentelemetry/semantic-conventions",
@@ -1339,7 +1339,7 @@
           },
           {
             "name": "@opentelemetry/sql-common",
-            "version": "0.41.2"
+            "version": "0.42.0"
           },
           {
             "name": "@photostructure/tz-lookup",
@@ -2243,7 +2243,7 @@
           },
           {
             "name": "immich",
-            "version": "3.0.0-rc.1"
+            "version": "3.0.0-rc.2"
           },
           {
             "name": "import-fresh",
@@ -2627,7 +2627,7 @@
           },
           {
             "name": "nodemailer",
-            "version": "8.0.11"
+            "version": "9.0.1"
           },
           {
             "name": "nopt",
@@ -3445,7 +3445,7 @@
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-06-18T10:03:35Z",
+      "generated": "2026-06-20T13:40:27Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -4215,7 +4215,7 @@
           },
           {
             "name": "nss",
-            "version": "3.123.1"
+            "version": "3.124"
           },
           {
             "name": "oniguruma",
