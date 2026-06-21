@@ -22,7 +22,7 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
-| `beta` | Beta release built from upstream v3.0.0-rc.0. | Alternative build. |
+| `beta` | Beta release built from upstream v3.0.0-rc.2. | Alternative build. |
 
 ## Prerequisites
 
@@ -81,6 +81,7 @@ services:
     name: immich_server
     options:
       - container: 'boot args:--pull'
+      - expose="2283:2283 proto:tcp" \
     oci:
       user: root
       environment:
@@ -110,6 +111,7 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/immich-server:${tag}
 ```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
 
@@ -128,6 +130,29 @@ podman run -d --name immich-server \
   -v /path/to/containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
 ```
+
+### AppJail
+
+```bash
+appjail oci run -Pd \
+  -o overwrite=force \
+  -o container="args:--pull" \
+  -o virtualnet=":<random> default" \
+  -o nat \
+  -o expose="2283:2283 proto:tcp" \
+  -e DB_HOSTNAME=immich-postgres \
+  -e DB_USERNAME=postgres \
+  -e DB_PASSWORD=postgres \
+  -e DB_DATABASE_NAME=immich \
+  -e REDIS_HOSTNAME=immich-redis \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
+  -o fstab="/path/to/containers/immich-server /config <pseudofs>" \
+  -o fstab="/path/to/containers/immich-server/data /data <pseudofs>" \
+  ghcr.io/daemonless/immich-server:latest immich-server
+```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Ansible
 
@@ -186,7 +211,7 @@ This image is part of the [Immich Stack](https://daemonless.io/images/immich).
 
 **Architectures:** amd64
 **User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
-**Base:** FreeBSD 15.0
+**Base:** FreeBSD 15.1
 
 ---
 
