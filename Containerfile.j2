@@ -212,6 +212,7 @@ ENV NODE_ENV=production
 ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg/lib"
 ENV IMMICH_PORT=2283
 ENV IMMICH_MEDIA_LOCATION=/data
+ENV SKIP_CHOWN=true
 
 # --- Expose (Injected by Generator) ---
 {%- if ports %}

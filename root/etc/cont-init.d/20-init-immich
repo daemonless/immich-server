@@ -5,14 +5,18 @@
 # config and media directories. Needed on first run when /data is a freshly
 # mounted host directory with foreign ownership.
 #
-# This recursive chown runs on EVERY container start. On large libraries
-# (hundreds of GB) it can take many minutes, and it is pure duplication when
-# two containers share the same /data mount (e.g. a split api / microservices
-# deployment). Set SKIP_CHOWN=true to skip it when ownership is already known
-# to be correct. Unset/false preserves the previous always-chown behaviour.
-if [ "${SKIP_CHOWN:-false}" = "true" ]; then
-    echo "Immich server init: SKIP_CHOWN=true, skipping permission fix."
+# Chown config/media to 'bsd', but skip the slow recursive pass on large
+# libraries when the marker already records the current PUID:PGID (re-chown only
+# on first run or a PUID change). Marker written before the chown so it gets
+# owned too. SKIP_CHOWN=false forces a chown every start.
+SKIP_CHOWN=${SKIP_CHOWN:-true}
+WANT="${PUID:-1000}:${PGID:-1000}"
+
+if [ "${SKIP_CHOWN}" = "true" ] && [ "$(cat /config/.chown_done 2>/dev/null)" = "$WANT" ]; then
+    echo "Immich server init: ownership already $WANT; skipping permission fix."
 else
+    echo "Fixing permissions ($WANT)..."
+    echo "$WANT" > /config/.chown_done
     chown -R bsd:bsd /config /data /usr/src/app/upload /usr/src/app/library /app 2>/dev/null || true
 fi
 

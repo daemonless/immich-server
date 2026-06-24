@@ -18,14 +18,12 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | **Website** | [https://immich.app/](https://immich.app/) |
 
 ## Version Tags
-
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
 | `beta` | Beta release built from upstream v3.0.0-rc.2. | Alternative build. |
 
 ## Prerequisites
-
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
@@ -46,6 +44,7 @@ services:
       - PUID=1000  # User ID for the application process
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
+      - SKIP_CHOWN=  # Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start.
     volumes:
       - "/path/to/containers/immich-server:/config"
       - "/path/to/containers/immich-server/data:/data"
@@ -55,10 +54,11 @@ services:
 ```
 
 ### AppJail Director
-
 **.env**:
 
 ```
+# .env
+
 DIRECTOR_PROJECT=immich-server
 DB_HOSTNAME=immich-postgres
 DB_USERNAME=postgres
@@ -68,11 +68,14 @@ REDIS_HOSTNAME=immich-redis
 PUID=1000
 PGID=1000
 TZ=UTC
+SKIP_CHOWN=
 ```
 
 **appjail-director.yml**:
 
 ```yaml
+# appjail-director.yml
+
 options:
   - virtualnet: ':<random> default'
   - nat:
@@ -81,7 +84,7 @@ services:
     name: immich_server
     options:
       - container: 'boot args:--pull'
-      - expose="2283:2283 proto:tcp" \
+      - expose: '2283:2283 proto:tcp' \
     oci:
       user: root
       environment:
@@ -93,6 +96,7 @@ services:
         - PUID: !ENV '${PUID}'
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
+        - SKIP_CHOWN: !ENV '${SKIP_CHOWN}'
     volumes:
       - immich-server: /config
       - immich-server_data: /data
@@ -106,6 +110,8 @@ volumes:
 **Makejail**:
 
 ```
+# Makejail 
+
 ARG tag=latest
 
 OPTION overwrite=force
@@ -126,6 +132,7 @@ podman run -d --name immich-server \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=UTC \
+  -e SKIP_CHOWN= \
   -v /path/to/containers/immich-server:/config \
   -v /path/to/containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
@@ -148,6 +155,7 @@ appjail oci run -Pd \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=UTC \
+  -e SKIP_CHOWN= \
   -o fstab="/path/to/containers/immich-server /config <pseudofs>" \
   -o fstab="/path/to/containers/immich-server/data /data <pseudofs>" \
   ghcr.io/daemonless/immich-server:latest immich-server
@@ -172,6 +180,7 @@ appjail oci run -Pd \
       PUID: "1000"
       PGID: "1000"
       TZ: "UTC"
+      SKIP_CHOWN: ""
     ports:
       - "2283:2283"
     volumes:
@@ -193,6 +202,7 @@ appjail oci run -Pd \
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
+| `SKIP_CHOWN` | `` | Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start. |
 
 ### Volumes
 
