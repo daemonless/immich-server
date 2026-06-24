@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-21T22:29:59Z",
+  "generated": "2026-06-24T21:51:45Z",
   "image": "immich-server",
   "tags": {
     "beta": {
       "app_version": "v3.0.0-rc.2",
       "arch": "amd64",
-      "generated": "2026-06-21T22:27:08Z",
+      "generated": "2026-06-24T21:50:34Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -143,7 +143,7 @@
           },
           {
             "name": "ImageMagick7",
-            "version": "7.1.2.16"
+            "version": "7.1.2.25"
           },
           {
             "name": "Imath",
@@ -155,7 +155,7 @@
           },
           {
             "name": "aom",
-            "version": "3.13.3"
+            "version": "3.14.1"
           },
           {
             "name": "avahi-app",
@@ -795,7 +795,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.12"
+            "version": "3.4.13"
           },
           {
             "name": "openh264",
@@ -891,7 +891,7 @@
           },
           {
             "name": "python311",
-            "version": "3.11.15_3"
+            "version": "3.11.15_4"
           },
           {
             "name": "readline",
@@ -3453,7 +3453,7 @@
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-06-21T22:28:42Z",
+      "generated": "2026-06-24T21:49:10Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3591,7 +3591,7 @@
           },
           {
             "name": "ImageMagick7",
-            "version": "7.1.2.16"
+            "version": "7.1.2.25"
           },
           {
             "name": "Imath",
@@ -3603,7 +3603,7 @@
           },
           {
             "name": "aom",
-            "version": "3.13.3"
+            "version": "3.14.1"
           },
           {
             "name": "avahi-app",
@@ -4243,7 +4243,7 @@
           },
           {
             "name": "openexr",
-            "version": "3.4.12"
+            "version": "3.4.13"
           },
           {
             "name": "openh264",
@@ -4339,7 +4339,7 @@
           },
           {
             "name": "python311",
-            "version": "3.11.15_3"
+            "version": "3.11.15_4"
           },
           {
             "name": "readline",
