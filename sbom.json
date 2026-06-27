@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-24T21:51:45Z",
+  "generated": "2026-06-27T22:14:09Z",
   "image": "immich-server",
   "tags": {
     "beta": {
-      "app_version": "v3.0.0-rc.2",
+      "app_version": "v3.0.0-rc.3",
       "arch": "amd64",
-      "generated": "2026-06-24T21:50:34Z",
+      "generated": "2026-06-27T22:13:00Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -2251,7 +2251,7 @@
           },
           {
             "name": "immich",
-            "version": "3.0.0-rc.2"
+            "version": "3.0.0-rc.3"
           },
           {
             "name": "import-fresh",
@@ -2583,7 +2583,7 @@
           },
           {
             "name": "nanoid",
-            "version": "3.3.12"
+            "version": "3.3.15"
           },
           {
             "name": "negotiator",
@@ -3453,7 +3453,7 @@
     "latest": {
       "app_version": "v2.7.5",
       "arch": "amd64",
-      "generated": "2026-06-24T21:49:10Z",
+      "generated": "2026-06-27T22:12:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
