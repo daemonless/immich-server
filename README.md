@@ -21,7 +21,7 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
-| `beta` | Beta release built from upstream v3.0.0-rc.2. | Alternative build. |
+| `beta` | Beta release built from upstream v3.0.0-rc.3. | Alternative build. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -44,7 +44,7 @@ services:
       - PUID=1000  # User ID for the application process
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
-      - SKIP_CHOWN=  # Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start.
+      - SKIP_CHOWN=true  # Skip the startup recursive chown of /config and /data once ownership is recorded in /config/.chown_done (default true). Set false to force a chown on every start. The marker lives in /config, so /config must be a persistent volume for the skip to take effect across restarts.
     volumes:
       - "/path/to/containers/immich-server:/config"
       - "/path/to/containers/immich-server/data:/data"
@@ -68,7 +68,7 @@ REDIS_HOSTNAME=immich-redis
 PUID=1000
 PGID=1000
 TZ=UTC
-SKIP_CHOWN=
+SKIP_CHOWN=true
 ```
 
 **appjail-director.yml**:
@@ -110,7 +110,7 @@ volumes:
 **Makejail**:
 
 ```
-# Makejail 
+# Makejail
 
 ARG tag=latest
 
@@ -132,7 +132,7 @@ podman run -d --name immich-server \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=UTC \
-  -e SKIP_CHOWN= \
+  -e SKIP_CHOWN=true \
   -v /path/to/containers/immich-server:/config \
   -v /path/to/containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
@@ -155,7 +155,7 @@ appjail oci run -Pd \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=UTC \
-  -e SKIP_CHOWN= \
+  -e SKIP_CHOWN=true \
   -o fstab="/path/to/containers/immich-server /config <pseudofs>" \
   -o fstab="/path/to/containers/immich-server/data /data <pseudofs>" \
   ghcr.io/daemonless/immich-server:latest immich-server
@@ -180,7 +180,7 @@ appjail oci run -Pd \
       PUID: "1000"
       PGID: "1000"
       TZ: "UTC"
-      SKIP_CHOWN: ""
+      SKIP_CHOWN: "true"
     ports:
       - "2283:2283"
     volumes:
@@ -202,13 +202,13 @@ appjail oci run -Pd \
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
-| `SKIP_CHOWN` | `` | Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start. |
+| `SKIP_CHOWN` | `true` | Skip the startup recursive chown of /config and /data once ownership is recorded in /config/.chown_done (default true). Set false to force a chown on every start. The marker lives in /config, so /config must be a persistent volume for the skip to take effect across restarts. |
 
 ### Volumes
 
 | Path | Description |
 |------|-------------|
-| `/config` | Configuration directory (unused but mounted) |
+| `/config` | Holds the startup ownership marker (.chown_done). Mount as a persistent volume so the chown is skipped on later starts. |
 | `/data` | Media storage (photos, videos, thumbnails) |
 
 ### Ports

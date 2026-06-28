@@ -19,14 +19,16 @@ x-daemonless:
       PUID: "User ID for the application process"
       PGID: "Group ID for the application process"
       TZ: "Timezone for the container"
-      SKIP_CHOWN: "Skip the startup recursive chown of /config and /data (default false). Set true on a second container that shares the same /data mount, or once ownership is known-correct, to avoid a slow chown on every start."
+      SKIP_CHOWN:
+        desc: "Skip the startup recursive chown of /config and /data once ownership is recorded in /config/.chown_done (default true). Set false to force a chown on every start. The marker lives in /config, so /config must be a persistent volume for the skip to take effect across restarts."
+        default: "true"
       DB_HOSTNAME: "Postgres database hostname"
       DB_USERNAME: "Postgres database user"
       DB_PASSWORD: "Postgres database password"
       DB_DATABASE_NAME: "Postgres database name"
       REDIS_HOSTNAME: "Redis hostname"
     volumes:
-      /config: "Configuration directory (unused but mounted)"
+      /config: "Holds the startup ownership marker (.chown_done). Mount as a persistent volume so the chown is skipped on later starts."
       /data: "Media storage (photos, videos, thumbnails)"
     ports:
       2283: "Web UI/API"
