@@ -10,6 +10,6 @@ build:
       default: true
     - tag: beta
       containerfile: Containerfile
-      tag_desc: Beta release built from upstream v3.0.0-rc.3.
+      tag_desc: Beta release built from upstream v3.0.0.
       args:
-        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases/tags/v3.0.0-rc.3"
+        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases/tags/v3.0.0"
