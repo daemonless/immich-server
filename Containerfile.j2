@@ -108,8 +108,10 @@ RUN pnpm --filter immich-web build
 RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
 
 # Copy pre-built corePlugin from Linux image (extism-js doesn't have FreeBSD releases)
-# The WASM plugin is platform-independent, so we can use the Linux build
-COPY --from=linux-immich /build/corePlugin /app/corePlugin
+# The WASM plugin is platform-independent, so we can use the Linux build.
+# Upstream moved this from /build/corePlugin to /build/plugins/immich-plugin-core
+# (a multi-plugin layout) around 2026-07-02; same plugin, just relocated.
+COPY --from=linux-immich /build/plugins/immich-plugin-core /app/corePlugin
 
 # Download geodata for reverse geocoding
 RUN mkdir -p /app/geodata && \
