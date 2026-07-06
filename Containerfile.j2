@@ -193,9 +193,10 @@ RUN cp /tmp/immich_version /app/version && \
     chown -R bsd:bsd /config /data /build && \
     chmod 755 /build && \
     ln -sf /app/www /build/www && \
-    ln -sf /app/corePlugin /build/corePlugin && \
+    mkdir -p /build/plugins && \
+    ln -sf /app/corePlugin /build/plugins/immich-plugin-core && \
     ln -sf /app/geodata /build/geodata && \
-    chown -h bsd:bsd /build/www /build/corePlugin /build/geodata && \
+    chown -h bsd:bsd /build/www /build/plugins/immich-plugin-core /build/geodata && \
     for v in 14 15 16 17 18; do \
       mkdir -p /usr/lib/postgresql/${v}/bin && \
       ln -sf /usr/local/bin/pg_dump /usr/lib/postgresql/${v}/bin/pg_dump; \
