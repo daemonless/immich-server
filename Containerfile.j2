@@ -194,6 +194,7 @@ RUN cp /tmp/immich_version /app/version && \
     chmod 755 /build && \
     ln -sf /app/www /build/www && \
     mkdir -p /build/plugins && \
+    chown bsd:bsd /build/plugins && chmod 755 /build/plugins && \
     ln -sf /app/corePlugin /build/plugins/immich-plugin-core && \
     ln -sf /app/geodata /build/geodata && \
     chown -h bsd:bsd /build/www /build/plugins/immich-plugin-core /build/geodata && \
