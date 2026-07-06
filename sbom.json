@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-03T07:29:51Z",
+  "generated": "2026-07-06T10:17:18Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.0.1",
       "arch": "amd64",
-      "generated": "2026-07-03T07:28:35Z",
+      "generated": "2026-07-06T10:16:00Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -503,7 +503,7 @@
           },
           {
             "name": "libevent",
-            "version": "2.1.12"
+            "version": "2.1.13"
           },
           {
             "name": "libexif",
