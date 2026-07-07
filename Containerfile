@@ -133,7 +133,7 @@ RUN mkdir -p /app/geodata && \
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora postgresql18-client"
+ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora postgresql18-client libva-intel-media-driver libva-utils"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 ARG HEALTHCHECK_ENDPOINT="http://localhost:2283/api/server-info/ping"
