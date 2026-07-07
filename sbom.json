@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-06T21:42:32Z",
+  "generated": "2026-07-07T21:10:26Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.0.1",
       "arch": "amd64",
-      "generated": "2026-07-06T21:41:14Z",
+      "generated": "2026-07-07T21:09:10Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -288,6 +288,10 @@
           {
             "name": "glib",
             "version": "2.84.4,2"
+          },
+          {
+            "name": "gmmlib",
+            "version": "22.5.4"
           },
           {
             "name": "gmp",
@@ -683,6 +687,14 @@
           },
           {
             "name": "libva",
+            "version": "2.23.0"
+          },
+          {
+            "name": "libva-intel-media-driver",
+            "version": "23.4.3_1"
+          },
+          {
+            "name": "libva-utils",
             "version": "2.23.0"
           },
           {
@@ -3439,7 +3451,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 253,
+        "freebsd": 256,
         "go": 0,
         "java": 0,
         "node": 598,
@@ -3447,7 +3459,7 @@
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 854
+        "total": 857
       }
     }
   }
