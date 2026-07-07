@@ -4,7 +4,7 @@
 # Source: Containerfile.j2
 # --------------------------------------------------------------------------
 
-ARG BASE_VERSION=15.1
+ARG BASE_VERSION=15.1-latest
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
