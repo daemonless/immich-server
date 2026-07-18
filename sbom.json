@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-15T22:22:01Z",
+  "generated": "2026-07-18T10:11:59Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.0.3",
       "arch": "amd64",
-      "generated": "2026-07-15T22:20:45Z",
+      "generated": "2026-07-18T10:10:45Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
