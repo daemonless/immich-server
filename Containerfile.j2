@@ -85,7 +85,7 @@ RUN pnpm install --frozen-lockfile && \
     SHARP_DIR=$(find /build/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     sed -i '' 's/VIPS,/VIPS, UHDR,/' "$SHARP_DIR/src/common.h" && \
     sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc" && \
-    cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3.11 node-gyp rebuild
+    cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3 node-gyp rebuild
 
 # Build server and SDKs
 RUN if [ -d "packages/plugin-sdk" ]; then \
