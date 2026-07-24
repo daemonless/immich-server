@@ -33,12 +33,12 @@ RUN pkg install -y git && \
         ports/Mk ports/Templates ports/Keywords && \
     rm /tmp/ports.tar.zst && \
     git clone --depth=1 https://github.com/daemonless/freebsd-ports.git /tmp/freebsd-ports && \
-    cp -r /tmp/freebsd-ports/multimedia/jellyfin-ffmpeg /usr/ports/multimedia/ && \
+    cp -r /tmp/freebsd-ports/multimedia/jellyfin-ffmpeg7 /usr/ports/multimedia/ && \
     rm -rf /tmp/freebsd-ports
-WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg
+WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg7
 RUN make BATCH=yes MAKE_JOBS_NUMBER=4 install clean || \
-    (cat /usr/ports/multimedia/jellyfin-ffmpeg/work/jellyfin-ffmpeg-7.1.3-3/ffbuild/config.log && false)
-RUN mkdir -p /tmp/packages && pkg create -o /tmp/packages/ jellyfin-ffmpeg
+    (cat /usr/ports/multimedia/jellyfin-ffmpeg7/work/jellyfin-ffmpeg7-*/ffbuild/config.log && false)
+RUN mkdir -p /tmp/packages && pkg create -o /tmp/packages/ jellyfin-ffmpeg7
 
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
@@ -167,12 +167,12 @@ RUN pkg update && \
     rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
     rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
-# Install jellyfin-ffmpeg (HDR tonemapping) and override system ffmpeg
-COPY --from=jffmpeg-builder /tmp/packages/jellyfin-ffmpeg-*.pkg /tmp/
-RUN pkg add -f /tmp/jellyfin-ffmpeg-*.pkg && \
-    rm /tmp/jellyfin-ffmpeg-*.pkg && \
-    ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffmpeg  /usr/local/bin/ffmpeg && \
-    ln -sf /usr/local/lib/jellyfin-ffmpeg/bin/ffprobe /usr/local/bin/ffprobe
+# Install jellyfin-ffmpeg7 (HDR tonemapping) and override system ffmpeg
+COPY --from=jffmpeg-builder /tmp/packages/jellyfin-ffmpeg7-*.pkg /tmp/
+RUN pkg add -f /tmp/jellyfin-ffmpeg7-*.pkg && \
+    rm /tmp/jellyfin-ffmpeg7-*.pkg && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg7/bin/ffmpeg  /usr/local/bin/ffmpeg && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg7/bin/ffprobe /usr/local/bin/ffprobe
 
 # Copy version and built application from builder
 COPY --from=builder /tmp/immich_version /tmp/immich_version
@@ -208,7 +208,7 @@ RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg/lib"
+ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg7/lib"
 ENV IMMICH_PORT=2283
 ENV IMMICH_MEDIA_LOCATION=/data
 ENV SKIP_CHOWN=true
