@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-24T20:23:51Z",
+  "generated": "2026-07-29T16:43:50Z",
   "image": "immich-server",
   "tags": {
     "latest": {
-      "app_version": "v3.0.3",
+      "app_version": "v3.1.0",
       "arch": "amd64",
-      "generated": "2026-07-24T20:22:29Z",
+      "generated": "2026-07-29T16:42:26Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -287,7 +287,7 @@
           },
           {
             "name": "giflib",
-            "version": "5.2.2"
+            "version": "6.1.3"
           },
           {
             "name": "glib",
@@ -491,7 +491,7 @@
           },
           {
             "name": "libdisplay-info",
-            "version": "0.3.0"
+            "version": "0.4.0"
           },
           {
             "name": "libdrm",
@@ -627,7 +627,7 @@
           },
           {
             "name": "librsvg2-rust",
-            "version": "2.62.3"
+            "version": "2.62.3_1"
           },
           {
             "name": "libsndfile",
@@ -767,7 +767,7 @@
           },
           {
             "name": "mesa-libs",
-            "version": "26.1.5"
+            "version": "26.1.5_1"
           },
           {
             "name": "mkfontscale",
@@ -871,7 +871,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.8.0_1"
+            "version": "2.8.1_1"
           },
           {
             "name": "pkgconf",
@@ -967,11 +967,11 @@
           },
           {
             "name": "srt",
-            "version": "1.5.5"
+            "version": "1.5.6"
           },
           {
             "name": "svt-av1",
-            "version": "4.1.0"
+            "version": "4.2.0"
           },
           {
             "name": "tiff",
@@ -1199,11 +1199,11 @@
           },
           {
             "name": "@nestjs/common",
-            "version": "11.1.27"
+            "version": "11.1.28"
           },
           {
             "name": "@nestjs/core",
-            "version": "11.1.27"
+            "version": "11.1.28"
           },
           {
             "name": "@nestjs/mapped-types",
@@ -1211,11 +1211,11 @@
           },
           {
             "name": "@nestjs/platform-express",
-            "version": "11.1.27"
+            "version": "11.1.28"
           },
           {
             "name": "@nestjs/platform-socket.io",
-            "version": "11.1.27"
+            "version": "11.1.28"
           },
           {
             "name": "@nestjs/schedule",
@@ -1223,11 +1223,11 @@
           },
           {
             "name": "@nestjs/swagger",
-            "version": "11.4.4"
+            "version": "11.4.5"
           },
           {
             "name": "@nestjs/websockets",
-            "version": "11.1.27"
+            "version": "11.1.28"
           },
           {
             "name": "@nodelib/fs.scandir",
@@ -1247,63 +1247,63 @@
           },
           {
             "name": "@opentelemetry/api-logs",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/configuration",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/context-async-hooks",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/core",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-grpc",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-http",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-proto",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-grpc",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-http",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-proto",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-prometheus",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-grpc",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-http",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-proto",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/exporter-zipkin",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/host-metrics",
@@ -1311,43 +1311,43 @@
           },
           {
             "name": "@opentelemetry/instrumentation",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/instrumentation-http",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/instrumentation-ioredis",
-            "version": "0.67.0"
+            "version": "0.68.0"
           },
           {
             "name": "@opentelemetry/instrumentation-nestjs-core",
-            "version": "0.65.0"
+            "version": "0.66.0"
           },
           {
             "name": "@opentelemetry/instrumentation-pg",
-            "version": "0.71.0"
+            "version": "0.72.0"
           },
           {
             "name": "@opentelemetry/otlp-exporter-base",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/otlp-grpc-exporter-base",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/otlp-transformer",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/propagator-b3",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/propagator-jaeger",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/redis-common",
@@ -1355,31 +1355,35 @@
           },
           {
             "name": "@opentelemetry/resources",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/sdk-logs",
-            "version": "0.219.0"
+            "version": "0.220.0"
           },
           {
             "name": "@opentelemetry/sdk-metrics",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/sdk-node",
-            "version": "0.219.0"
+            "version": "0.220.0"
+          },
+          {
+            "name": "@opentelemetry/sdk-trace",
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-base",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/sdk-trace-node",
-            "version": "2.8.0"
+            "version": "2.9.0"
           },
           {
             "name": "@opentelemetry/semantic-conventions",
-            "version": "1.41.1"
+            "version": "1.43.0"
           },
           {
             "name": "@opentelemetry/sql-common",
@@ -1431,7 +1435,7 @@
           },
           {
             "name": "@protobufjs/utf8",
-            "version": "1.1.1"
+            "version": "1.1.2"
           },
           {
             "name": "@react-email/body",
@@ -1571,11 +1575,11 @@
           },
           {
             "name": "@types/luxon",
-            "version": "3.7.1"
+            "version": "3.7.2"
           },
           {
             "name": "@types/node",
-            "version": "24.13.2"
+            "version": "24.13.3"
           },
           {
             "name": "@types/pg",
@@ -1592,6 +1596,10 @@
           {
             "name": "@types/ws",
             "version": "8.18.1"
+          },
+          {
+            "name": "@typescript/typescript6",
+            "version": "6.0.2"
           },
           {
             "name": "MathJax-grunt-cleaner",
@@ -1695,15 +1703,11 @@
           },
           {
             "name": "bare-fs",
-            "version": "4.7.2"
-          },
-          {
-            "name": "bare-os",
-            "version": "3.9.1"
+            "version": "4.7.4"
           },
           {
             "name": "bare-path",
-            "version": "3.0.1"
+            "version": "3.1.1"
           },
           {
             "name": "bare-stream",
@@ -1743,7 +1747,7 @@
           },
           {
             "name": "body-parser",
-            "version": "2.2.2"
+            "version": "2.3.0"
           },
           {
             "name": "brace-expansion",
@@ -1771,7 +1775,7 @@
           },
           {
             "name": "bullmq",
-            "version": "5.78.1"
+            "version": "5.80.5"
           },
           {
             "name": "busboy",
@@ -2131,7 +2135,7 @@
           },
           {
             "name": "fast-uri",
-            "version": "3.1.2"
+            "version": "3.1.3"
           },
           {
             "name": "fastq",
@@ -2191,7 +2195,7 @@
           },
           {
             "name": "geo-tz",
-            "version": "8.1.7"
+            "version": "8.1.8"
           },
           {
             "name": "geobuf",
@@ -2259,11 +2263,15 @@
           },
           {
             "name": "helmet",
-            "version": "8.2.0"
+            "version": "8.3.0"
           },
           {
             "name": "html-to-text",
             "version": "9.0.5"
+          },
+          {
+            "name": "html5parser",
+            "version": "3.0.0"
           },
           {
             "name": "htmlparser2",
@@ -2279,7 +2287,7 @@
           },
           {
             "name": "iconv-lite",
-            "version": "0.7.2"
+            "version": "0.7.3"
           },
           {
             "name": "ieee754",
@@ -2287,7 +2295,7 @@
           },
           {
             "name": "immich",
-            "version": "3.0.3"
+            "version": "3.1.0"
           },
           {
             "name": "import-fresh",
@@ -2307,7 +2315,7 @@
           },
           {
             "name": "ioredis",
-            "version": "5.10.1"
+            "version": "5.11.1"
           },
           {
             "name": "ipaddr.js",
@@ -2391,7 +2399,7 @@
           },
           {
             "name": "js-yaml",
-            "version": "4.1.1"
+            "version": "4.3.0"
           },
           {
             "name": "jsesc",
@@ -2478,16 +2486,8 @@
             "version": "4.3.0"
           },
           {
-            "name": "lodash.defaults",
-            "version": "4.2.0"
-          },
-          {
             "name": "lodash.includes",
             "version": "4.3.0"
-          },
-          {
-            "name": "lodash.isarguments",
-            "version": "3.1.0"
           },
           {
             "name": "lodash.isboolean",
@@ -2603,7 +2603,7 @@
           },
           {
             "name": "msgpackr",
-            "version": "2.0.2"
+            "version": "2.0.4"
           },
           {
             "name": "msgpackr-extract",
@@ -2611,7 +2611,7 @@
           },
           {
             "name": "multer",
-            "version": "2.1.1"
+            "version": "2.2.0"
           },
           {
             "name": "mute-stream",
@@ -2627,7 +2627,7 @@
           },
           {
             "name": "nanoid",
-            "version": "3.3.15"
+            "version": "3.3.16"
           },
           {
             "name": "negotiator",
@@ -2651,7 +2651,7 @@
           },
           {
             "name": "nestjs-otel",
-            "version": "8.0.3"
+            "version": "8.1.0"
           },
           {
             "name": "nestjs-zod",
@@ -2679,7 +2679,7 @@
           },
           {
             "name": "nodemailer",
-            "version": "9.0.1"
+            "version": "9.0.3"
           },
           {
             "name": "nopt",
@@ -2799,7 +2799,7 @@
           },
           {
             "name": "pg",
-            "version": "8.21.0"
+            "version": "8.22.0"
           },
           {
             "name": "pg-cloudflare",
@@ -2807,7 +2807,7 @@
           },
           {
             "name": "pg-connection-string",
-            "version": "2.13.0"
+            "version": "2.14.0"
           },
           {
             "name": "pg-int8",
@@ -2819,7 +2819,7 @@
           },
           {
             "name": "pg-protocol",
-            "version": "1.14.0"
+            "version": "1.15.0"
           },
           {
             "name": "pg-types",
@@ -2851,7 +2851,7 @@
           },
           {
             "name": "postcss",
-            "version": "8.5.15"
+            "version": "8.5.19"
           },
           {
             "name": "postcss-import",
@@ -2899,7 +2899,7 @@
           },
           {
             "name": "prettier",
-            "version": "3.8.4"
+            "version": "3.9.5"
           },
           {
             "name": "prismjs",
@@ -2923,7 +2923,7 @@
           },
           {
             "name": "protobufjs",
-            "version": "7.6.4"
+            "version": "7.6.5"
           },
           {
             "name": "protocol-buffers-schema",
@@ -2935,7 +2935,7 @@
           },
           {
             "name": "qs",
-            "version": "6.15.2"
+            "version": "6.15.3"
           },
           {
             "name": "queue-microtask",
@@ -2943,7 +2943,7 @@
           },
           {
             "name": "range-parser",
-            "version": "1.2.1"
+            "version": "1.3.0"
           },
           {
             "name": "raw-body",
@@ -3063,7 +3063,7 @@
           },
           {
             "name": "semver",
-            "version": "7.8.1"
+            "version": "7.8.5"
           },
           {
             "name": "send",
@@ -3215,11 +3215,11 @@
           },
           {
             "name": "swagger-ui-dist",
-            "version": "5.32.6"
+            "version": "5.32.8"
           },
           {
             "name": "systeminformation",
-            "version": "5.31.7"
+            "version": "5.31.17"
           },
           {
             "name": "tagged-tag",
@@ -3323,7 +3323,7 @@
           },
           {
             "name": "tsx",
-            "version": "4.22.4"
+            "version": "4.23.1"
           },
           {
             "name": "type-fest",
@@ -3387,7 +3387,7 @@
           },
           {
             "name": "uuid",
-            "version": "14.0.0"
+            "version": "14.0.1"
           },
           {
             "name": "validator",
@@ -3443,7 +3443,7 @@
           },
           {
             "name": "yargs",
-            "version": "17.7.2"
+            "version": "17.7.3"
           },
           {
             "name": "yargs-parser",
