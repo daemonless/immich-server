@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-29T16:43:50Z",
+  "generated": "2026-07-30T00:37:13Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.1.0",
       "arch": "amd64",
-      "generated": "2026-07-29T16:42:26Z",
+      "generated": "2026-07-30T00:35:55Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -31,7 +31,7 @@
           },
           {
             "name": "FreeBSD-clibs-lib32",
-            "version": "15.1p1"
+            "version": "15.1p2"
           },
           {
             "name": "FreeBSD-ctf-lib",
@@ -328,6 +328,10 @@
           {
             "name": "gsfonts",
             "version": "8.11_8"
+          },
+          {
+            "name": "gzip",
+            "version": "1.14"
           },
           {
             "name": "harfbuzz",
@@ -3483,7 +3487,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 254,
+        "freebsd": 255,
         "go": 0,
         "java": 0,
         "node": 608,
@@ -3491,7 +3495,7 @@
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 865
+        "total": 866
       }
     }
   }
