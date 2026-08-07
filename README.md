@@ -83,7 +83,7 @@ services:
     name: immich_server
     options:
       - container: 'boot args:--pull'
-      - expose: '2283:2283 proto:tcp' \
+      - expose: '2283:2283 proto:tcp'
     oci:
       user: root
       environment:
