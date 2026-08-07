@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-01T20:28:52Z",
+  "generated": "2026-08-07T22:22:18Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.1.0",
       "arch": "amd64",
-      "generated": "2026-08-01T20:24:05Z",
+      "generated": "2026-08-07T22:17:47Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -368,7 +368,7 @@
               "CUPS"
             ],
             "name": "cups",
-            "version": "2.4.19_1"
+            "version": "2.4.19_2"
           },
           {
             "licenses": [
@@ -618,7 +618,7 @@
               "GPLv2+"
             ],
             "name": "hwdata",
-            "version": "0.409,1"
+            "version": "0.410,1"
           },
           {
             "licenses": [
@@ -1120,7 +1120,7 @@
               "CDDL"
             ],
             "name": "libraw",
-            "version": "0.22.1"
+            "version": "0.22.2"
           },
           {
             "licenses": [
@@ -1177,7 +1177,7 @@
               "BSD2CLAUSE"
             ],
             "name": "libudev-devd",
-            "version": "0.6.0"
+            "version": "0.7.0"
           },
           {
             "licenses": [
@@ -1378,6 +1378,13 @@
             "licenses": [
               "MIT"
             ],
+            "name": "mesa-dri",
+            "version": "26.1.5_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
             "name": "mesa-libs",
             "version": "26.1.5_1"
           },
@@ -1414,7 +1421,7 @@
               "LGPL21"
             ],
             "name": "mpg123",
-            "version": "1.33.6"
+            "version": "1.33.7"
           },
           {
             "licenses": [
@@ -1536,7 +1543,7 @@
               "GPLv1+"
             ],
             "name": "perl5",
-            "version": "5.42.2"
+            "version": "5.42.3"
           },
           {
             "licenses": [
@@ -1694,7 +1701,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "4.6.4"
+            "version": "4.6.6"
           },
           {
             "licenses": [
@@ -1715,7 +1722,7 @@
               "NCSA"
             ],
             "name": "spirv-llvm-translator-llvm19",
-            "version": "19.1.20"
+            "version": "19.1.21"
           },
           {
             "licenses": [
@@ -1787,7 +1794,7 @@
               "APACHE20"
             ],
             "name": "vulkan-loader",
-            "version": "1.4.356"
+            "version": "1.4.357"
           },
           {
             "licenses": [
@@ -4908,7 +4915,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 255,
+        "freebsd": 256,
         "go": 0,
         "java": 0,
         "node": 608,
@@ -4916,7 +4923,7 @@
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 866
+        "total": 867
       }
     }
   }
