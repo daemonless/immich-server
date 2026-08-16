@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-07T22:22:18Z",
+  "generated": "2026-08-16T18:09:03Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.1.0",
       "arch": "amd64",
-      "generated": "2026-08-07T22:17:47Z",
+      "generated": "2026-08-16T18:06:05Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -302,7 +302,7 @@
               "BSL"
             ],
             "name": "boost-libs",
-            "version": "1.89.0_3"
+            "version": "1.91.0"
           },
           {
             "licenses": [
@@ -425,7 +425,7 @@
               "LGPL3+"
             ],
             "name": "ffmpeg",
-            "version": "8.1.2_1,1"
+            "version": "8.1.2_2,1"
           },
           {
             "licenses": [
@@ -472,7 +472,7 @@
               "GPLv3RLE"
             ],
             "name": "gcc14",
-            "version": "14.2.0_6"
+            "version": "14.2.0_7"
           },
           {
             "licenses": [
@@ -515,7 +515,7 @@
               "LGPL20"
             ],
             "name": "glib",
-            "version": "2.86.4,2"
+            "version": "2.88.3,2"
           },
           {
             "licenses": [
@@ -768,7 +768,7 @@
               "MIT"
             ],
             "name": "libXft",
-            "version": "2.3.8"
+            "version": "2.3.9"
           },
           {
             "licenses": [
@@ -888,7 +888,7 @@
               "MIT"
             ],
             "name": "libdrm",
-            "version": "2.4.133,1"
+            "version": "2.4.134,1"
           },
           {
             "licenses": [
@@ -1290,7 +1290,7 @@
               "GPLv2"
             ],
             "name": "libx264",
-            "version": "0.164.3095"
+            "version": "0.165.3223"
           },
           {
             "licenses": [
@@ -1379,14 +1379,14 @@
               "MIT"
             ],
             "name": "mesa-dri",
-            "version": "26.1.5_1"
+            "version": "26.1.6"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "mesa-libs",
-            "version": "26.1.5_1"
+            "version": "26.1.6"
           },
           {
             "licenses": [
@@ -1471,7 +1471,7 @@
               "BSD3CLAUSE"
             ],
             "name": "openblas",
-            "version": "0.3.33,2"
+            "version": "0.3.34_1,2"
           },
           {
             "licenses": [
@@ -1513,7 +1513,7 @@
               "BSD3CLAUSE"
             ],
             "name": "p11-kit",
-            "version": "0.26.4"
+            "version": "0.26.5"
           },
           {
             "licenses": [
@@ -1571,14 +1571,14 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.8.1_1"
+            "version": "2.8.4"
           },
           {
             "licenses": [
               "ISCL"
             ],
             "name": "pkgconf",
-            "version": "2.4.3_1,1"
+            "version": "3.0.5,1"
           },
           {
             "licenses": [
@@ -1629,7 +1629,7 @@
               "BSL"
             ],
             "name": "py312-boost-libs",
-            "version": "1.89.0"
+            "version": "1.91.0"
           },
           {
             "licenses": [
@@ -1651,7 +1651,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.13_3"
+            "version": "3.12.13_4"
           },
           {
             "licenses": [
@@ -1686,7 +1686,7 @@
               "APACHE20"
             ],
             "name": "shaderc",
-            "version": "2026.2_1"
+            "version": "2026.3"
           },
           {
             "licenses": [
@@ -1729,7 +1729,7 @@
               "APACHE20"
             ],
             "name": "spirv-tools",
-            "version": "2026.2"
+            "version": "2026.3.r1"
           },
           {
             "licenses": [
