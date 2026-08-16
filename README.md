@@ -49,8 +49,7 @@ services:
       - "/path/to/containers/immich-server/data:/data"
     ports:
       - "2283:2283"
-    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
-    restart: always
+    restart: unless-stopped
 ```
 
 ### AppJail Director

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-16T18:09:03Z",
+  "generated": "2026-08-16T22:05:44Z",
   "image": "immich-server",
   "tags": {
     "latest": {
       "app_version": "v3.1.0",
       "arch": "amd64",
-      "generated": "2026-08-16T18:06:05Z",
+      "generated": "2026-08-16T22:02:40Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1514,6 +1514,21 @@
             ],
             "name": "p11-kit",
             "version": "0.26.5"
+          },
+          {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
+            "name": "p5-File-Slurper",
+            "version": "0.014"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "p5-IO-Compress-Brotli",
+            "version": "0.017000_1"
           },
           {
             "licenses": [
@@ -4915,7 +4930,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 256,
+        "freebsd": 258,
         "go": 0,
         "java": 0,
         "node": 608,
@@ -4923,7 +4938,7 @@
         "python": 3,
         "ruby": 0,
         "rust": 0,
-        "total": 867
+        "total": 869
       }
     }
   }
