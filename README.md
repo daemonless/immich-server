@@ -21,6 +21,7 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users — recommended. |
+| `beta` | Beta release built from upstream v3.2.0-rc.1. | Alternative build. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -49,8 +50,11 @@ services:
       - "/path/to/containers/immich-server/data:/data"
     ports:
       - "2283:2283"
-    restart: unless-stopped
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -116,6 +120,9 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/immich-server:${tag}
 ```
+
+Save the files above, then run `appjail-director up`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
@@ -136,6 +143,8 @@ podman run -d --name immich-server \
   -v /path/to/containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
@@ -159,7 +168,50 @@ appjail oci run -Pd \
   -o fstab="/path/to/containers/immich-server/data /data <pseudofs>" \
   ghcr.io/daemonless/immich-server:latest immich-server
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+
+```yaml
+services:
+  immich-server:
+    image: "ghcr.io/daemonless/immich-server:latest"
+    container_name: immich-server
+    network_mode: host  # jail shares host networking
+    environment:
+      - DB_HOSTNAME=immich-postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE_NAME=immich
+      - REDIS_HOSTNAME=immich-redis
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SKIP_CHOWN=true
+```
+
+Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env DB_HOSTNAME=immich-postgres \
+  --env DB_USERNAME=postgres \
+  --env DB_PASSWORD=postgres \
+  --env DB_DATABASE_NAME=immich \
+  --env REDIS_HOSTNAME=immich-redis \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=UTC \
+  --env SKIP_CHOWN=true \
+  --data-path /path/to/containers/immich-server \
+  immich-server ghcr.io/daemonless/immich-server:latest inherit
+```
 
 ### Ansible
 
@@ -186,6 +238,8 @@ appjail oci run -Pd \
       - "/path/to/containers/immich-server:/config"
       - "/path/to/containers/immich-server/data:/data"
 ```
+
+Save as `immich-server-deploy.yaml`, then run `ansible-playbook immich-server-deploy.yaml`.
 
 ## Parameters
 

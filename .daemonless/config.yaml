@@ -5,8 +5,11 @@ cit:
 
 build:
   variants:
-    # NOTE: We'll link beta to latest until Immich offers a newer beta.
     - tag: latest
       containerfile: Containerfile
       default: true
-      aliases: [beta]
+    - tag: beta
+      containerfile: Containerfile
+      tag_desc: Beta release built from upstream v3.2.0-rc.1.
+      args:
+        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases/tags/v3.2.0-rc.1"
