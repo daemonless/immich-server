@@ -25,16 +25,12 @@ RUN pkg update && pkg install -y \
     libvdpau libX11 alsa-lib sndio \
     && pkg clean -ay
 
-RUN pkg install -y git && \
+RUN mkdir -p /usr/ports && \
     fetch -qo /tmp/ports.tar.zst \
     "https://download.freebsd.org/ports/ports/ports.tar.zst" && \
-    mkdir -p /usr/ports/multimedia && \
     tar -xf /tmp/ports.tar.zst -C /usr/ports --strip-components=1 \
-        ports/Mk ports/Templates ports/Keywords && \
-    rm /tmp/ports.tar.zst && \
-    git clone --depth=1 https://github.com/daemonless/freebsd-ports.git /tmp/freebsd-ports && \
-    cp -r /tmp/freebsd-ports/multimedia/jellyfin-ffmpeg7 /usr/ports/multimedia/ && \
-    rm -rf /tmp/freebsd-ports
+        ports/Mk ports/Templates ports/Keywords ports/multimedia/jellyfin-ffmpeg7 && \
+    rm /tmp/ports.tar.zst
 WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg7
 RUN make BATCH=yes MAKE_JOBS_NUMBER=4 install clean || \
     (cat /usr/ports/multimedia/jellyfin-ffmpeg7/work/jellyfin-ffmpeg7-*/ffbuild/config.log && false)
