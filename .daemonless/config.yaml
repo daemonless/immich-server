@@ -11,5 +11,9 @@ build:
     - tag: beta
       containerfile: Containerfile
       tag_desc: Beta release built from upstream v3.2.0-rc.1.
+      # The /releases/tags/<tag> endpoint 403s under CI's cross-org GITHUB_TOKEN;
+      # the /releases list endpoint doesn't. So pin the RC via a list + selector
+      # (same pattern as emby's beta). Bump the tag in UPSTREAM_JQ per new RC.
       args:
-        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases/tags/v3.2.0-rc.1"
+        UPSTREAM_URL: "https://api.github.com/repos/immich-app/immich/releases"
+        UPSTREAM_JQ: '[.[] | select(.tag_name == "v3.2.0-rc.1")] | first | .tag_name'
