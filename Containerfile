@@ -83,11 +83,14 @@ RUN --mount=type=secret,id=github_token \
 # Build server
 WORKDIR /build
 
-# Patch sharp to recognize UHDR loader (libvips 8.18+)
+# Patch sharp for the UHDR loader (libvips 8.18+); sharp 0.35.3+ (immich 3.2)
+# defines UHDR natively, so skip the patch when present to avoid redefinition.
 RUN pnpm install --frozen-lockfile && \
     SHARP_DIR=$(find /build/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
-    sed -i '' 's/VIPS,/VIPS, UHDR,/' "$SHARP_DIR/src/common.h" && \
-    sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc" && \
+    if ! grep -q 'UHDR' "$SHARP_DIR/src/common.h"; then \
+      sed -i '' 's/VIPS,/VIPS, UHDR,/' "$SHARP_DIR/src/common.h" && \
+      sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc"; \
+    fi && \
     cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3 node-gyp rebuild
 
 # Build server and SDKs
@@ -99,7 +102,7 @@ RUN if [ -d "packages/plugin-sdk" ]; then \
 
 # Deploy production dependencies only
 RUN pnpm deploy --filter immich --prod /app && \
-    SHARP_BUILD=$(find /build/node_modules/.pnpm -name 'sharp-freebsd-x64.node' -path '*/src/build/Release/*' | head -1) && \
+    SHARP_BUILD=$(find /build/node_modules/.pnpm -name 'sharp-freebsd-x64*.node' -path '*/src/build/Release/*' | head -1) && \
     SHARP_DEST=$(find /app/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     mkdir -p "$SHARP_DEST/src/build/Release" && \
     cp "$SHARP_BUILD" "$SHARP_DEST/src/build/Release/"
