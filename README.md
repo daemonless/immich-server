@@ -7,6 +7,7 @@ Source: dbuild templates
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/immich-server/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/immich-server/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/daemonless/immich-server?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/immich-server/commits)
+[![OCI Pulls](https://img.shields.io/docker/pulls/daemonless/immich-server?style=flat-square&label=OCI+Pulls&color=blue)](https://hub.docker.com/r/daemonless/immich-server)
 
 Self-hosted photo and video backup and management server with web UI, mobile sync, and shared albums.
 
@@ -86,7 +87,7 @@ services:
   immich-server:
     name: immich_server
     options:
-      - container: 'boot args:--pull'
+      - container: 'args:--pull'
       - expose: '2283:2283 proto:tcp'
     oci:
       user: root
@@ -117,13 +118,18 @@ volumes:
 
 ARG tag=latest
 
+OPTION container=boot
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/immich-server:${tag}
 ```
 
 Save the files above, then run `appjail-director up`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Podman CLI
 
@@ -148,6 +154,7 @@ Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
+
 ```bash
 appjail oci run -Pd \
   -o overwrite=force \
@@ -169,21 +176,26 @@ appjail oci run -Pd \
   ghcr.io/daemonless/immich-server:latest immich-server
 ```
 
-Save as `run.sh`, then run `sh run.sh`.
+Save the files above, then run `sh run.sh`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Bastille
 
 > [!WARNING]
-> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
 
 ```yaml
 services:
   immich-server:
+    name: immich-server
     image: "ghcr.io/daemonless/immich-server:latest"
-    container_name: immich-server
-    network_mode: host  # jail shares host networking
+    network:
+      - mode: host
     environment:
       - DB_HOSTNAME=immich-postgres
       - DB_USERNAME=postgres
@@ -194,9 +206,12 @@ services:
       - PGID=1000
       - TZ=UTC
       - SKIP_CHOWN=true
+    volumes:
+      - "/path/to/containers/immich-server:/config"
+      - "/path/to/containers/immich-server/data:/data"
 ```
 
-Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
 
 ```bash
 bastille create -O \
@@ -209,7 +224,8 @@ bastille create -O \
   --env PGID=1000 \
   --env TZ=UTC \
   --env SKIP_CHOWN=true \
-  --data-path /path/to/containers/immich-server \
+  --volume /path/to/containers/immich-server /config \
+  --volume /path/to/containers/immich-server/data /data \
   immich-server ghcr.io/daemonless/immich-server:latest inherit
 ```
 

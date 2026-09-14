@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-10T17:34:39Z",
+  "generated": "2026-09-14T22:52:22Z",
   "image": "immich-server",
   "tags": {
     "beta": {
       "app_version": "v3.2.0-rc.1",
       "arch": "amd64",
-      "generated": "2026-09-10T17:29:13Z",
+      "generated": "2026-09-14T22:49:31Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -345,7 +345,7 @@
               "MIT"
             ],
             "name": "cgif",
-            "version": "0.5.3"
+            "version": "0.5.4"
           },
           {
             "licenses": [
@@ -360,7 +360,7 @@
               "MIT"
             ],
             "name": "corepack",
-            "version": "0.35.0_1"
+            "version": "0.36.0"
           },
           {
             "licenses": [
@@ -375,7 +375,7 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.21.0"
+            "version": "8.22.0"
           },
           {
             "licenses": [
@@ -501,7 +501,7 @@
               "AGPLv3"
             ],
             "name": "ghostscript10",
-            "version": "10.07.1"
+            "version": "10.08.0"
           },
           {
             "licenses": [
@@ -1020,7 +1020,7 @@
               "GPLv3"
             ],
             "name": "libksba",
-            "version": "1.8.0"
+            "version": "1.8.1"
           },
           {
             "licenses": [
@@ -1127,7 +1127,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_1"
+            "version": "2.62.3_2"
           },
           {
             "licenses": [
@@ -1458,7 +1458,7 @@
               "MPL20"
             ],
             "name": "nss",
-            "version": "3.128_1"
+            "version": "3.129"
           },
           {
             "licenses": [
@@ -1717,7 +1717,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "4.6.11"
+            "version": "4.6.11_1"
           },
           {
             "licenses": [
@@ -1796,7 +1796,7 @@
               "LGPL21"
             ],
             "name": "vips",
-            "version": "8.18.5_1"
+            "version": "8.18.6"
           },
           {
             "licenses": [
@@ -2964,7 +2964,7 @@
           {
             "name": "corepack",
             "purl": "",
-            "version": "0.35.0"
+            "version": "0.36.0"
           },
           {
             "name": "cors",
@@ -4943,9 +4943,9 @@
       }
     },
     "latest": {
-      "app_version": "v3.2.0",
+      "app_version": "v3.2.1",
       "arch": "amd64",
-      "generated": "2026-09-10T17:31:06Z",
+      "generated": "2026-09-14T22:47:03Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5285,7 +5285,7 @@
               "MIT"
             ],
             "name": "cgif",
-            "version": "0.5.3"
+            "version": "0.5.4"
           },
           {
             "licenses": [
@@ -5300,7 +5300,7 @@
               "MIT"
             ],
             "name": "corepack",
-            "version": "0.35.0_1"
+            "version": "0.36.0"
           },
           {
             "licenses": [
@@ -5315,7 +5315,7 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.21.0"
+            "version": "8.22.0"
           },
           {
             "licenses": [
@@ -5441,7 +5441,7 @@
               "AGPLv3"
             ],
             "name": "ghostscript10",
-            "version": "10.07.1"
+            "version": "10.08.0"
           },
           {
             "licenses": [
@@ -5960,7 +5960,7 @@
               "GPLv3"
             ],
             "name": "libksba",
-            "version": "1.8.0"
+            "version": "1.8.1"
           },
           {
             "licenses": [
@@ -6067,7 +6067,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_1"
+            "version": "2.62.3_2"
           },
           {
             "licenses": [
@@ -6398,7 +6398,7 @@
               "MPL20"
             ],
             "name": "nss",
-            "version": "3.128_1"
+            "version": "3.129"
           },
           {
             "licenses": [
@@ -6657,7 +6657,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "4.6.11"
+            "version": "4.6.11_1"
           },
           {
             "licenses": [
@@ -6736,7 +6736,7 @@
               "LGPL21"
             ],
             "name": "vips",
-            "version": "8.18.5_1"
+            "version": "8.18.6"
           },
           {
             "licenses": [
@@ -7904,7 +7904,7 @@
           {
             "name": "corepack",
             "purl": "",
-            "version": "0.35.0"
+            "version": "0.36.0"
           },
           {
             "name": "cors",
@@ -8389,7 +8389,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.2.0"
+            "version": "3.2.1"
           },
           {
             "name": "import-fresh",
