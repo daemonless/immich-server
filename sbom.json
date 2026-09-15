@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-14T22:52:22Z",
+  "generated": "2026-09-15T22:32:15Z",
   "image": "immich-server",
   "tags": {
     "beta": {
       "app_version": "v3.2.0-rc.1",
       "arch": "amd64",
-      "generated": "2026-09-14T22:49:31Z",
+      "generated": "2026-09-15T22:25:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -323,7 +323,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.127"
+            "version": "3.129"
           },
           {
             "licenses": [
@@ -556,6 +556,14 @@
           },
           {
             "licenses": [
+              "GPLv2+",
+              "LGPL20+"
+            ],
+            "name": "gobject-introspection",
+            "version": "1.86.0,1"
+          },
+          {
+            "licenses": [
               "LGPL21+"
             ],
             "name": "gpgme",
@@ -633,6 +641,14 @@
             ],
             "name": "indexinfo",
             "version": "0.3.1_1"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "GPLv2"
+            ],
+            "name": "jackit",
+            "version": "1.9.22_3"
           },
           {
             "licenses": [
@@ -853,7 +869,7 @@
               "LGPL21"
             ],
             "name": "libbluray",
-            "version": "1.5.0,1"
+            "version": "1.5.1,1"
           },
           {
             "licenses": [
@@ -1131,6 +1147,13 @@
           },
           {
             "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "libsamplerate",
+            "version": "0.2.2_1"
+          },
+          {
+            "licenses": [
               "LGPL21+"
             ],
             "name": "libsndfile",
@@ -1149,6 +1172,13 @@
             ],
             "name": "libssh2",
             "version": "1.11.1_1,3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libsysinfo",
+            "version": "0.0.3_3"
           },
           {
             "licenses": [
@@ -1631,7 +1661,7 @@
               "MIT"
             ],
             "name": "portaudio",
-            "version": "19.6.0_7,1"
+            "version": "19.6.0_8,1"
           },
           {
             "licenses": [
@@ -1649,6 +1679,13 @@
           },
           {
             "licenses": [
+              "MIT"
+            ],
+            "name": "py312-dbus",
+            "version": "1.4.0"
+          },
+          {
+            "licenses": [
               "BSD3CLAUSE"
             ],
             "name": "py312-numpy",
@@ -1661,6 +1698,35 @@
             ],
             "name": "py312-packaging",
             "version": "26.3"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "MPL11"
+            ],
+            "name": "py312-pycairo",
+            "version": "1.29.1"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "py312-pygobject",
+            "version": "3.58.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "py312-setuptools",
+            "version": "63.1.0_3"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "pygobject-common",
+            "version": "3.58.0"
           },
           {
             "licenses": [
@@ -1702,7 +1768,7 @@
               "APACHE20"
             ],
             "name": "shaderc",
-            "version": "2026.3"
+            "version": "2026.4"
           },
           {
             "licenses": [
@@ -4910,6 +4976,11 @@
         "php": [],
         "python": [
           {
+            "name": "PyGObject",
+            "purl": "",
+            "version": "3.58.0"
+          },
+          {
             "name": "example",
             "purl": "",
             "version": "21.12"
@@ -4923,6 +4994,16 @@
             "name": "packaging",
             "purl": "",
             "version": "26.3"
+          },
+          {
+            "name": "pycairo",
+            "purl": "",
+            "version": "1.29.1"
+          },
+          {
+            "name": "setuptools",
+            "purl": "",
+            "version": "63.1.0"
           }
         ],
         "ruby": [],
@@ -4931,21 +5012,21 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 258,
+        "freebsd": 267,
         "go": 0,
         "java": 0,
         "node": 608,
         "php": 0,
-        "python": 3,
+        "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 869
+        "total": 881
       }
     },
     "latest": {
-      "app_version": "v3.2.1",
+      "app_version": "v3.2.2",
       "arch": "amd64",
-      "generated": "2026-09-14T22:47:03Z",
+      "generated": "2026-09-15T22:29:27Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5263,7 +5344,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.127"
+            "version": "3.129"
           },
           {
             "licenses": [
@@ -5496,6 +5577,14 @@
           },
           {
             "licenses": [
+              "GPLv2+",
+              "LGPL20+"
+            ],
+            "name": "gobject-introspection",
+            "version": "1.86.0,1"
+          },
+          {
+            "licenses": [
               "LGPL21+"
             ],
             "name": "gpgme",
@@ -5573,6 +5662,14 @@
             ],
             "name": "indexinfo",
             "version": "0.3.1_1"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "GPLv2"
+            ],
+            "name": "jackit",
+            "version": "1.9.22_3"
           },
           {
             "licenses": [
@@ -5793,7 +5890,7 @@
               "LGPL21"
             ],
             "name": "libbluray",
-            "version": "1.5.0,1"
+            "version": "1.5.1,1"
           },
           {
             "licenses": [
@@ -6071,6 +6168,13 @@
           },
           {
             "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "libsamplerate",
+            "version": "0.2.2_1"
+          },
+          {
+            "licenses": [
               "LGPL21+"
             ],
             "name": "libsndfile",
@@ -6089,6 +6193,13 @@
             ],
             "name": "libssh2",
             "version": "1.11.1_1,3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libsysinfo",
+            "version": "0.0.3_3"
           },
           {
             "licenses": [
@@ -6571,7 +6682,7 @@
               "MIT"
             ],
             "name": "portaudio",
-            "version": "19.6.0_7,1"
+            "version": "19.6.0_8,1"
           },
           {
             "licenses": [
@@ -6589,6 +6700,13 @@
           },
           {
             "licenses": [
+              "MIT"
+            ],
+            "name": "py312-dbus",
+            "version": "1.4.0"
+          },
+          {
+            "licenses": [
               "BSD3CLAUSE"
             ],
             "name": "py312-numpy",
@@ -6601,6 +6719,35 @@
             ],
             "name": "py312-packaging",
             "version": "26.3"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "MPL11"
+            ],
+            "name": "py312-pycairo",
+            "version": "1.29.1"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "py312-pygobject",
+            "version": "3.58.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "py312-setuptools",
+            "version": "63.1.0_3"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "pygobject-common",
+            "version": "3.58.0"
           },
           {
             "licenses": [
@@ -6642,7 +6789,7 @@
               "APACHE20"
             ],
             "name": "shaderc",
-            "version": "2026.3"
+            "version": "2026.4"
           },
           {
             "licenses": [
@@ -8389,7 +8536,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.2.1"
+            "version": "3.2.2"
           },
           {
             "name": "import-fresh",
@@ -9850,6 +9997,11 @@
         "php": [],
         "python": [
           {
+            "name": "PyGObject",
+            "purl": "",
+            "version": "3.58.0"
+          },
+          {
             "name": "example",
             "purl": "",
             "version": "21.12"
@@ -9863,6 +10015,16 @@
             "name": "packaging",
             "purl": "",
             "version": "26.3"
+          },
+          {
+            "name": "pycairo",
+            "purl": "",
+            "version": "1.29.1"
+          },
+          {
+            "name": "setuptools",
+            "purl": "",
+            "version": "63.1.0"
           }
         ],
         "ruby": [],
@@ -9871,15 +10033,15 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 258,
+        "freebsd": 267,
         "go": 0,
         "java": 0,
         "node": 608,
         "php": 0,
-        "python": 3,
+        "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 869
+        "total": 881
       }
     }
   }
