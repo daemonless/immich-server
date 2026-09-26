@@ -4,32 +4,6 @@ ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
 FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-immich
 
-# Jellyfin FFmpeg builder (HDR tonemapping support for immich thumbnails)
-FROM ghcr.io/daemonless/base:${BASE_VERSION} AS jffmpeg-builder
-
-RUN pkg update && pkg install -y \
-    FreeBSD-bmake FreeBSD-clibs-dev FreeBSD-clang FreeBSD-clang-dev FreeBSD-toolchain \
-    FreeBSD-utilities-dev FreeBSD-runtime-dev \
-    FreeBSD-zlib-dev FreeBSD-bzip2-dev FreeBSD-openssl-dev FreeBSD-xz-dev \
-    nasm vulkan-headers quilt pkgconf gmake perl5 \
-    libass libbluray chromaprint dav1d fdk-aac fontconfig freetype2 \
-    fribidi gmp harfbuzz lame libopenmpt opus libplacebo shaderc \
-    svt-av1 libtheora libvorbis libvpx vulkan-loader webp libx264 x265 \
-    sekrit-twc-zimg libzvbi gnutls libxml2 libiconv libva libdrm \
-    libvdpau libX11 alsa-lib sndio \
-    && pkg clean -ay
-
-RUN mkdir -p /usr/ports && \
-    fetch -qo /tmp/ports.tar.zst \
-    "https://download.freebsd.org/ports/ports/ports.tar.zst" && \
-    tar -xf /tmp/ports.tar.zst -C /usr/ports --strip-components=1 \
-        ports/Mk ports/Templates ports/Keywords ports/multimedia/jellyfin-ffmpeg7 && \
-    rm /tmp/ports.tar.zst
-WORKDIR /usr/ports/multimedia/jellyfin-ffmpeg7
-RUN make BATCH=yes MAKE_JOBS_NUMBER=4 install clean || \
-    (cat /usr/ports/multimedia/jellyfin-ffmpeg7/work/jellyfin-ffmpeg7-*/ffbuild/config.log && false)
-RUN mkdir -p /tmp/packages && pkg create -o /tmp/packages/ jellyfin-ffmpeg7
-
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
@@ -45,7 +19,6 @@ RUN pkg update && pkg install -y \
     FreeBSD-openssl-dev FreeBSD-zlib-dev FreeBSD-xz-dev FreeBSD-bzip2-dev \
     python3 \
     vips \
-    ffmpeg \
     p5-Image-ExifTool \
     libheif \
     libraw \
@@ -56,8 +29,12 @@ RUN pkg update && pkg install -y \
 RUN ln -sf /usr/bin/clang++ /usr/bin/c++ && \
     ln -sf /usr/bin/clang /usr/bin/cc
 
-# Enable corepack for pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Enable corepack for pnpm and install rolldown WASM fallback for aarch64
+RUN corepack enable && corepack prepare pnpm@latest --activate && \
+    npm install -g @rolldown/binding-wasm32-wasi
+
+ENV NODE_PATH="/usr/local/lib/node_modules" \
+    NODE_OPTIONS="--max-old-space-size=4096"
 
 # Clone immich source (resolve latest version from upstream)
 WORKDIR /build
@@ -96,21 +73,16 @@ RUN if [ -d "packages/plugin-sdk" ]; then \
 
 # Deploy production dependencies only
 RUN pnpm deploy --filter immich --prod /app && \
-    SHARP_BUILD=$(find /build/node_modules/.pnpm -name 'sharp-freebsd-x64*.node' -path '*/src/build/Release/*' | head -1) && \
+    SHARP_BUILD=$(find /build/node_modules/.pnpm -name 'sharp-freebsd-*.node' -path '*/src/build/Release/*' | head -1) && \
     SHARP_DEST=$(find /app/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     mkdir -p "$SHARP_DEST/src/build/Release" && \
     cp "$SHARP_BUILD" "$SHARP_DEST/src/build/Release/"
 
-# Build web UI (increase heap for vite build)
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-RUN pnpm --filter immich-web build
-
-RUN mkdir -p /app/www && cp -r /build/web/build/* /app/www/
-
-# Copy pre-built corePlugin from Linux image (extism-js doesn't have FreeBSD releases)
-# The WASM plugin is platform-independent, so we can use the Linux build.
-# Upstream moved this from /build/corePlugin to /build/plugins/immich-plugin-core
-# (a multi-plugin layout) around 2026-07-02; same plugin, just relocated.
+# Copy pre-built web UI and corePlugin from Linux image
+# The web UI is platform-independent static assets; copying it avoids heavy
+# Vite/Rolldown compilation (especially in WASM on aarch64) and saves ~5-10 min.
+# The corePlugin WASM plugin is also platform-independent (extism-js has no FreeBSD release).
+COPY --from=linux-immich /build/www /app/www
 COPY --from=linux-immich /build/plugins/immich-plugin-core /app/corePlugin
 
 # Download geodata for reverse geocoding
@@ -128,7 +100,7 @@ RUN mkdir -p /app/geodata && \
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG PACKAGES="node22 vips ffmpeg p5-Image-ExifTool p5-IO-Compress-Brotli libheif libraw webp alsa-lib sndio sekrit-twc-zimg libopenmpt chromaprint libzvbi fdk-aac libtheora postgresql18-client libva-intel-media-driver mesa-dri libva-utils jq gzip"
+ARG PACKAGES="node22 vips jellyfin-ffmpeg p5-Image-ExifTool p5-IO-Compress-Brotli libheif libraw webp postgresql18-client libva-utils jq gzip"
 ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 {%- if ports %}
@@ -164,21 +136,26 @@ LABEL org.opencontainers.image.title="{{ title }}" \
       io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}" \
       io.daemonless.packages="${PACKAGES}"
 
-# Install runtime dependencies
-RUN pkg update && \
-    pkg install -y ${PACKAGES} && \
+# Install runtime dependencies (Intel and AMD VA-API drivers only needed on amd64)
+RUN case "${FREEBSD_ARCH}" in \
+        amd64) ARCH_PACKAGES="libva-intel-media-driver mesa-dri" ;; \
+        *)     ARCH_PACKAGES="" ;; \
+    esac && \
+    pkg update && \
+    pkg install -y ${PACKAGES} ${ARCH_PACKAGES} && \
     mkdir -p /app && \
     pkg clean -ay && \
     rm -rf /var/cache/pkg/* /var/db/pkg/repos/* && \
-    rm -rf /usr/local/libexec/gcc14 /usr/local/bin/lto-dump14 && \
+    find /usr/local -name '*.a' -delete && \
+    rm -rf /usr/local/share/doc /usr/local/share/man /usr/local/include /usr/local/llvm19/include /usr/local/llvm19/bin && \
+    rm -rf /usr/local/libexec/gcc14 /usr/local/bin/*-portbld-freebsd* /usr/local/*-portbld-freebsd* && \
     rm -f /usr/local/lib/libopcodes* /usr/local/lib/libbfd*
 
-# Install jellyfin-ffmpeg7 (HDR tonemapping) and override system ffmpeg
-COPY --from=jffmpeg-builder /tmp/packages/jellyfin-ffmpeg7-*.pkg /tmp/
-RUN pkg add -f /tmp/jellyfin-ffmpeg7-*.pkg && \
-    rm /tmp/jellyfin-ffmpeg7-*.pkg && \
-    ln -sf /usr/local/lib/jellyfin-ffmpeg7/bin/ffmpeg  /usr/local/bin/ffmpeg && \
-    ln -sf /usr/local/lib/jellyfin-ffmpeg7/bin/ffprobe /usr/local/bin/ffprobe
+# Link jellyfin-ffmpeg (HDR tonemapping) to default ffmpeg paths
+RUN ln -sf /usr/local/lib/jellyfin-ffmpeg8/bin/ffmpeg  /usr/local/bin/ffmpeg && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg8/bin/ffprobe /usr/local/bin/ffprobe && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg8/bin/ffmpeg  /usr/local/bin/jellyfin-ffmpeg && \
+    ln -sf /usr/local/lib/jellyfin-ffmpeg8/bin/ffprobe /usr/local/bin/jellyfin-ffprobe
 
 # Copy version and built application from builder
 COPY --from=builder /tmp/immich_version /tmp/immich_version
@@ -214,7 +191,7 @@ RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg7/lib"
+ENV LD_LIBRARY_PATH="/usr/local/lib/jellyfin-ffmpeg8/lib"
 ENV IMMICH_PORT=2283
 ENV IMMICH_MEDIA_LOCATION=/data
 ENV SKIP_CHOWN=true

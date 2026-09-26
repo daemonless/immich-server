@@ -22,7 +22,6 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users — recommended. |
-| `beta` | Beta release built from upstream v3.2.0-rc.1. | Alternative build. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -288,7 +287,7 @@ Save as `immich-server-deploy.yaml`, then run `ansible-playbook immich-server-de
 
 This image is part of the [Immich Stack](https://daemonless.io/images/immich).
 
-**Architectures:** amd64
+**Architectures:** amd64, aarch64
 **User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
 **Base:** FreeBSD 15.1
 
