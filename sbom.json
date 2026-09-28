@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-26T22:54:10Z",
+  "generated": "2026-09-28T21:57:41Z",
   "image": "immich-server",
   "tags": {
     "latest-amd64": {
-      "app_version": "v3.2.2",
+      "app_version": "v3.2.4",
       "arch": "amd64",
-      "generated": "2026-09-26T22:52:14Z",
+      "generated": "2026-09-28T21:56:01Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -676,7 +676,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.2.5"
+            "version": "8.1.2.5_1"
           },
           {
             "licenses": [
@@ -1500,6 +1500,13 @@
             "licenses": [
               "BSD2CLAUSE"
             ],
+            "name": "ocl-icd",
+            "version": "2.3.5"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "oniguruma",
             "version": "6.9.10"
           },
@@ -1509,6 +1516,13 @@
             ],
             "name": "openblas",
             "version": "0.3.34_1,2"
+          },
+          {
+            "licenses": [
+              "APACHE20"
+            ],
+            "name": "opencl",
+            "version": "3.1.1"
           },
           {
             "licenses": [
@@ -1573,7 +1587,7 @@
               "GPLv1+"
             ],
             "name": "p5-Image-ExifTool",
-            "version": "13.36"
+            "version": "13.55"
           },
           {
             "licenses": [
@@ -1630,7 +1644,7 @@
               "ISCL"
             ],
             "name": "pkgconf",
-            "version": "3.0.6,1"
+            "version": "3.0.7,1"
           },
           {
             "licenses": [
@@ -1739,7 +1753,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14"
+            "version": "3.12.14_1"
           },
           {
             "licenses": [
@@ -3476,7 +3490,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.2.2"
+            "version": "3.2.4"
           },
           {
             "name": "import-fresh",
@@ -4963,7 +4977,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 268,
+        "freebsd": 270,
         "go": 0,
         "java": 0,
         "node": 597,
@@ -4971,7 +4985,7 @@
         "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 871
+        "total": 873
       }
     }
   }
