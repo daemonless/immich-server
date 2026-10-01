@@ -22,6 +22,7 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users — recommended. |
+| `beta` | **Upstream Binary**. Built from official release. | Alternative build. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -46,8 +47,8 @@ services:
       - TZ=UTC  # Timezone for the container
       - SKIP_CHOWN=true  # Skip the startup recursive chown of /config and /data once ownership is recorded in /config/.chown_done (default true). Set false to force a chown on every start. The marker lives in /config, so /config must be a persistent volume for the skip to take effect across restarts.
     volumes:
-      - "/path/to/containers/immich-server:/config"
-      - "/path/to/containers/immich-server/data:/data"
+      - "/containers/immich-server:/config"
+      - "/containers/immich-server/data:/data"
     ports:
       - "2283:2283"
     # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
@@ -105,9 +106,9 @@ services:
       - immich-server_data: /data
 volumes:
   immich-server:
-    device: '/path/to/containers/immich-server'
+    device: '/containers/immich-server'
   immich-server_data:
-    device: '/path/to/containers/immich-server/data'
+    device: '/containers/immich-server/data'
 ```
 
 **Makejail**:
@@ -144,8 +145,8 @@ podman run -d --name immich-server \
   -e PGID=1000 \
   -e TZ=UTC \
   -e SKIP_CHOWN=true \
-  -v /path/to/containers/immich-server:/config \
-  -v /path/to/containers/immich-server/data:/data \
+  -v /containers/immich-server:/config \
+  -v /containers/immich-server/data:/data \
   ghcr.io/daemonless/immich-server:latest
 ```
 
@@ -170,8 +171,8 @@ appjail oci run -Pd \
   -e PGID=1000 \
   -e TZ=UTC \
   -e SKIP_CHOWN=true \
-  -o fstab="/path/to/containers/immich-server /config <pseudofs>" \
-  -o fstab="/path/to/containers/immich-server/data /data <pseudofs>" \
+  -o fstab="/containers/immich-server /config <pseudofs>" \
+  -o fstab="/containers/immich-server/data /data <pseudofs>" \
   ghcr.io/daemonless/immich-server:latest immich-server
 ```
 
@@ -206,8 +207,8 @@ services:
       - TZ=UTC
       - SKIP_CHOWN=true
     volumes:
-      - "/path/to/containers/immich-server:/config"
-      - "/path/to/containers/immich-server/data:/data"
+      - "/containers/immich-server:/config"
+      - "/containers/immich-server/data:/data"
 ```
 
 Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
@@ -223,8 +224,8 @@ bastille create -O \
   --env PGID=1000 \
   --env TZ=UTC \
   --env SKIP_CHOWN=true \
-  --volume /path/to/containers/immich-server /config \
-  --volume /path/to/containers/immich-server/data /data \
+  --volume /containers/immich-server /config \
+  --volume /containers/immich-server/data /data \
   immich-server ghcr.io/daemonless/immich-server:latest inherit
 ```
 
@@ -250,8 +251,8 @@ bastille create -O \
     ports:
       - "2283:2283"
     volumes:
-      - "/path/to/containers/immich-server:/config"
-      - "/path/to/containers/immich-server/data:/data"
+      - "/containers/immich-server:/config"
+      - "/containers/immich-server/data:/data"
 ```
 
 Save as `immich-server-deploy.yaml`, then run `ansible-playbook immich-server-deploy.yaml`.
