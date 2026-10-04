@@ -40,7 +40,8 @@ RUN corepack enable && corepack prepare pnpm@latest --activate && \
     npm install -g @rolldown/binding-wasm32-wasi
 
 ENV NODE_PATH="/usr/local/lib/node_modules" \
-    NODE_OPTIONS="--max-old-space-size=4096"
+    NODE_OPTIONS="--max-old-space-size=4096" \
+    SHARP_FORCE_GLOBAL_LIBVIPS=true
 
 # Clone immich source (resolve latest version from upstream)
 WORKDIR /build
@@ -62,13 +63,15 @@ WORKDIR /build
 
 # Patch sharp for the UHDR loader (libvips 8.18+); sharp 0.35.3+ (immich 3.2)
 # defines UHDR natively, so skip the patch when present to avoid redefinition.
+# Also relax micro version requirement in common.h for ports libvips (e.g. 8.18.6 vs 8.18.7+).
 RUN pnpm install --frozen-lockfile && \
     SHARP_DIR=$(find /build/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     if ! grep -q 'UHDR' "$SHARP_DIR/src/common.h"; then \
       sed -i '' 's/VIPS,/VIPS, UHDR,/' "$SHARP_DIR/src/common.h" && \
       sed -i '' 's/{ "VipsForeignLoadJpegFile"/{ "VipsForeignLoadUhdrFile", ImageType::UHDR },\n    { "VipsForeignLoadUhdrBuffer", ImageType::UHDR },\n    { "VipsForeignLoadJpegFile"/' "$SHARP_DIR/src/common.cc"; \
     fi && \
-    cd "$SHARP_DIR/src" && PYTHON=/usr/local/bin/python3 node-gyp rebuild
+    sed -i '' 's/VIPS_MICRO_VERSION < [0-9]*/VIPS_MICRO_VERSION < 0/' "$SHARP_DIR/src/common.h" && \
+    cd "$SHARP_DIR/src" && SHARP_FORCE_GLOBAL_LIBVIPS=true PYTHON=/usr/local/bin/python3 node-gyp rebuild
 
 # Build server and SDKs
 RUN if [ -d "packages/plugin-sdk" ]; then \
