@@ -131,59 +131,6 @@ Save the files above, then run `appjail-director up`.
 >
 > To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
-### Podman CLI
-
-```bash
-podman run -d --name immich-server \
-  -p 2283:2283 \
-  -e DB_HOSTNAME=immich-postgres \
-  -e DB_USERNAME=postgres \
-  -e DB_PASSWORD=postgres \
-  -e DB_DATABASE_NAME=immich \
-  -e REDIS_HOSTNAME=immich-redis \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e SKIP_CHOWN=true \
-  -v /containers/immich-server:/config \
-  -v /containers/immich-server/data:/data \
-  ghcr.io/daemonless/immich-server:latest
-```
-
-Save as `run.sh`, then run `sh run.sh`.
-
-### AppJail
-
-
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -o expose="2283:2283 proto:tcp" \
-  -e DB_HOSTNAME=immich-postgres \
-  -e DB_USERNAME=postgres \
-  -e DB_PASSWORD=postgres \
-  -e DB_DATABASE_NAME=immich \
-  -e REDIS_HOSTNAME=immich-redis \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e SKIP_CHOWN=true \
-  -o fstab="/containers/immich-server /config <pseudofs>" \
-  -o fstab="/containers/immich-server/data /data <pseudofs>" \
-  ghcr.io/daemonless/immich-server:latest immich-server
-```
-
-Save the files above, then run `sh run.sh`.
-
-
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
 ### Bastille
 
 > [!WARNING]
@@ -211,51 +158,7 @@ services:
       - "/containers/immich-server/data:/data"
 ```
 
-Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
-
-```bash
-bastille create -O \
-  --env DB_HOSTNAME=immich-postgres \
-  --env DB_USERNAME=postgres \
-  --env DB_PASSWORD=postgres \
-  --env DB_DATABASE_NAME=immich \
-  --env REDIS_HOSTNAME=immich-redis \
-  --env PUID=1000 \
-  --env PGID=1000 \
-  --env TZ=UTC \
-  --env SKIP_CHOWN=true \
-  --volume /containers/immich-server /config \
-  --volume /containers/immich-server/data /data \
-  immich-server ghcr.io/daemonless/immich-server:latest inherit
-```
-
-### Ansible
-
-```yaml
-- name: Deploy immich-server
-  containers.podman.podman_container:
-    name: immich-server
-    image: "ghcr.io/daemonless/immich-server:latest"
-    state: started
-    restart_policy: always
-    env:
-      DB_HOSTNAME: "immich-postgres"
-      DB_USERNAME: "postgres"
-      DB_PASSWORD: "postgres"
-      DB_DATABASE_NAME: "immich"
-      REDIS_HOSTNAME: "immich-redis"
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
-      SKIP_CHOWN: "true"
-    ports:
-      - "2283:2283"
-    volumes:
-      - "/containers/immich-server:/config"
-      - "/containers/immich-server/data:/data"
-```
-
-Save as `immich-server-deploy.yaml`, then run `ansible-playbook immich-server-deploy.yaml`.
+Save as `bastille-compose.yml`, then run `bastille up`.
 
 ## Parameters
 

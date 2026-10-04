@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-01T09:22:05Z",
+  "generated": "2026-10-04T20:26:58Z",
   "image": "immich-server",
   "tags": {
     "beta-amd64": {
-      "app_version": "v3.3.0-rc.1",
+      "app_version": "v3.3.0-rc.2",
       "arch": "amd64",
-      "generated": "2026-10-01T09:19:20Z",
+      "generated": "2026-10-04T20:25:22Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -273,7 +273,7 @@
               "BSD3CLAUSE"
             ],
             "name": "Imath",
-            "version": "3.2.3"
+            "version": "3.2.3_1"
           },
           {
             "licenses": [
@@ -316,7 +316,7 @@
               "BSL"
             ],
             "name": "boost-libs",
-            "version": "1.91.0"
+            "version": "1.92.0"
           },
           {
             "licenses": [
@@ -402,7 +402,7 @@
               "GPLv2+"
             ],
             "name": "dbus-glib",
-            "version": "0.114"
+            "version": "0.116"
           },
           {
             "licenses": [
@@ -1320,7 +1320,7 @@
               "GPLv2+"
             ],
             "name": "libwmf",
-            "version": "0.2.15"
+            "version": "0.2.16"
           },
           {
             "licenses": [
@@ -1473,7 +1473,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2"
+            "version": "22.23.2_1"
           },
           {
             "licenses": [
@@ -1601,7 +1601,7 @@
               "BSD3CLAUSE"
             ],
             "name": "pcre2",
-            "version": "10.48"
+            "version": "10.49"
           },
           {
             "licenses": [
@@ -1695,7 +1695,7 @@
               "BSL"
             ],
             "name": "py312-boost-libs",
-            "version": "1.91.0"
+            "version": "1.92.0"
           },
           {
             "licenses": [
@@ -1803,7 +1803,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "4.6.11_1"
+            "version": "5.0.1"
           },
           {
             "licenses": [
@@ -3495,7 +3495,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.0-rc.1"
+            "version": "3.3.0-rc.2"
           },
           {
             "name": "import-fresh",
@@ -4475,7 +4475,7 @@
           {
             "name": "sharp",
             "purl": "",
-            "version": "0.35.3"
+            "version": "0.35.5"
           },
           {
             "name": "shebang-command",
@@ -5001,7 +5001,7 @@
     "latest-amd64": {
       "app_version": "v3.2.4",
       "arch": "amd64",
-      "generated": "2026-10-01T09:20:20Z",
+      "generated": "2026-10-04T20:22:30Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5269,7 +5269,7 @@
               "BSD3CLAUSE"
             ],
             "name": "Imath",
-            "version": "3.2.3"
+            "version": "3.2.3_1"
           },
           {
             "licenses": [
@@ -5312,7 +5312,7 @@
               "BSL"
             ],
             "name": "boost-libs",
-            "version": "1.91.0"
+            "version": "1.92.0"
           },
           {
             "licenses": [
@@ -5398,7 +5398,7 @@
               "GPLv2+"
             ],
             "name": "dbus-glib",
-            "version": "0.114"
+            "version": "0.116"
           },
           {
             "licenses": [
@@ -6316,7 +6316,7 @@
               "GPLv2+"
             ],
             "name": "libwmf",
-            "version": "0.2.15"
+            "version": "0.2.16"
           },
           {
             "licenses": [
@@ -6469,7 +6469,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2"
+            "version": "22.23.2_1"
           },
           {
             "licenses": [
@@ -6597,7 +6597,7 @@
               "BSD3CLAUSE"
             ],
             "name": "pcre2",
-            "version": "10.48"
+            "version": "10.49"
           },
           {
             "licenses": [
@@ -6691,7 +6691,7 @@
               "BSL"
             ],
             "name": "py312-boost-libs",
-            "version": "1.91.0"
+            "version": "1.92.0"
           },
           {
             "licenses": [
@@ -6799,7 +6799,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "4.6.11_1"
+            "version": "5.0.1"
           },
           {
             "licenses": [
