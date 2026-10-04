@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-01T09:43:48Z",
+  "generated": "2026-10-04T20:45:18Z",
   "image": "immich-server",
   "tags": {
     "beta-aarch64": {
-      "app_version": "v3.3.0-rc.1",
+      "app_version": "v3.3.0-rc.2",
       "arch": "aarch64",
-      "generated": "2026-10-01T09:41:45Z",
+      "generated": "2026-10-04T20:43:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3466,7 +3466,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.0-rc.1"
+            "version": "3.3.0-rc.2"
           },
           {
             "name": "import-fresh",
@@ -4446,7 +4446,7 @@
           {
             "name": "sharp",
             "purl": "",
-            "version": "0.35.3"
+            "version": "0.35.5"
           },
           {
             "name": "shebang-command",
@@ -4972,7 +4972,7 @@
     "latest-aarch64": {
       "app_version": "v3.2.4",
       "arch": "aarch64",
-      "generated": "2026-10-01T09:41:40Z",
+      "generated": "2026-10-04T20:43:09Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
