@@ -2,6 +2,7 @@ name: immich-server
 
 x-daemonless:
   title: "Immich Server"
+  class: part  # installed by the immich stack; alone it has no database
   icon: ":material-server:"
   category: "Photos & Media"
   description: "Self-hosted photo and video backup and management server with web UI, mobile sync, and shared albums."
