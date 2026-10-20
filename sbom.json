@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-14T18:20:46Z",
+  "generated": "2026-10-20T12:58:33Z",
   "image": "immich-server",
   "tags": {
     "beta-amd64": {
-      "app_version": "v3.3.3",
+      "app_version": "v3.3.4",
       "arch": "amd64",
-      "generated": "2026-10-14T18:16:28Z",
+      "generated": "2026-10-20T12:56:52Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -203,7 +203,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -252,7 +252,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -374,7 +374,7 @@
               "CUPS"
             ],
             "name": "cups",
-            "version": "2.4.19_2"
+            "version": "2.4.20"
           },
           {
             "licenses": [
@@ -610,7 +610,7 @@
               "MIT"
             ],
             "name": "harfbuzz",
-            "version": "14.2.1"
+            "version": "14.5.1"
           },
           {
             "licenses": [
@@ -1004,7 +1004,7 @@
               "LGPL3+"
             ],
             "name": "libheif",
-            "version": "1.22.2_5"
+            "version": "1.23.6"
           },
           {
             "licenses": [
@@ -1149,7 +1149,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_2"
+            "version": "2.62.3_3"
           },
           {
             "licenses": [
@@ -1362,7 +1362,7 @@
               "BSD3CLAUSE"
             ],
             "name": "libzip",
-            "version": "1.11.4"
+            "version": "1.12.1"
           },
           {
             "licenses": [
@@ -1473,7 +1473,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2_1"
+            "version": "22.23.2_2"
           },
           {
             "licenses": [
@@ -1536,7 +1536,7 @@
               "BSD2CLAUSE"
             ],
             "name": "openh264",
-            "version": "2.6.0,2"
+            "version": "2.6.0_1,2"
           },
           {
             "licenses": [
@@ -1753,7 +1753,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14_1"
+            "version": "3.12.15"
           },
           {
             "licenses": [
@@ -1803,7 +1803,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "5.0.1"
+            "version": "5.0.5"
           },
           {
             "licenses": [
@@ -2045,7 +2045,7 @@
           {
             "name": "@immich/sql-tools",
             "purl": "",
-            "version": "0.6.4"
+            "version": "0.6.6"
           },
           {
             "name": "@inquirer/external-editor",
@@ -3495,7 +3495,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.3"
+            "version": "3.3.4"
           },
           {
             "name": "import-fresh",
@@ -4999,9 +4999,9 @@
       }
     },
     "latest-amd64": {
-      "app_version": "v3.3.3",
+      "app_version": "v3.3.4",
       "arch": "amd64",
-      "generated": "2026-10-14T18:17:25Z",
+      "generated": "2026-10-20T12:54:36Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5199,7 +5199,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -5248,7 +5248,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -5370,7 +5370,7 @@
               "CUPS"
             ],
             "name": "cups",
-            "version": "2.4.19_2"
+            "version": "2.4.20"
           },
           {
             "licenses": [
@@ -5606,7 +5606,7 @@
               "MIT"
             ],
             "name": "harfbuzz",
-            "version": "14.2.1"
+            "version": "14.5.1"
           },
           {
             "licenses": [
@@ -6000,7 +6000,7 @@
               "LGPL3+"
             ],
             "name": "libheif",
-            "version": "1.22.2_5"
+            "version": "1.23.6"
           },
           {
             "licenses": [
@@ -6145,7 +6145,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_2"
+            "version": "2.62.3_3"
           },
           {
             "licenses": [
@@ -6358,7 +6358,7 @@
               "BSD3CLAUSE"
             ],
             "name": "libzip",
-            "version": "1.11.4"
+            "version": "1.12.1"
           },
           {
             "licenses": [
@@ -6469,7 +6469,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2_1"
+            "version": "22.23.2_2"
           },
           {
             "licenses": [
@@ -6532,7 +6532,7 @@
               "BSD2CLAUSE"
             ],
             "name": "openh264",
-            "version": "2.6.0,2"
+            "version": "2.6.0_1,2"
           },
           {
             "licenses": [
@@ -6749,7 +6749,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14_1"
+            "version": "3.12.15"
           },
           {
             "licenses": [
@@ -6799,7 +6799,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "5.0.1"
+            "version": "5.0.5"
           },
           {
             "licenses": [
@@ -7041,7 +7041,7 @@
           {
             "name": "@immich/sql-tools",
             "purl": "",
-            "version": "0.6.4"
+            "version": "0.6.6"
           },
           {
             "name": "@inquirer/external-editor",
@@ -8491,7 +8491,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.3"
+            "version": "3.3.4"
           },
           {
             "name": "import-fresh",
