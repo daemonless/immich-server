@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-14T19:46:14Z",
+  "generated": "2026-10-20T13:46:23Z",
   "image": "immich-server",
   "tags": {
     "beta-aarch64": {
-      "app_version": "v3.3.3",
+      "app_version": "v3.3.4",
       "arch": "aarch64",
-      "generated": "2026-10-14T19:44:11Z",
+      "generated": "2026-10-20T13:44:05Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -196,7 +196,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -245,7 +245,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -330,7 +330,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -367,7 +367,7 @@
               "CUPS"
             ],
             "name": "cups",
-            "version": "2.4.19_2"
+            "version": "2.4.20"
           },
           {
             "licenses": [
@@ -416,7 +416,7 @@
               "FRAUNHOFER_FDK_AAC"
             ],
             "name": "fdk-aac",
-            "version": "2.0.3"
+            "version": "3.0.0"
           },
           {
             "licenses": [
@@ -990,7 +990,7 @@
               "LGPL3+"
             ],
             "name": "libheif",
-            "version": "1.22.2_5"
+            "version": "1.23.6"
           },
           {
             "licenses": [
@@ -1135,7 +1135,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_2"
+            "version": "2.62.3_3"
           },
           {
             "licenses": [
@@ -1724,7 +1724,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14_1"
+            "version": "3.12.15"
           },
           {
             "licenses": [
@@ -2016,7 +2016,7 @@
           {
             "name": "@immich/sql-tools",
             "purl": "",
-            "version": "0.6.4"
+            "version": "0.6.6"
           },
           {
             "name": "@inquirer/external-editor",
@@ -3466,7 +3466,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.3"
+            "version": "3.3.4"
           },
           {
             "name": "import-fresh",
@@ -4970,9 +4970,9 @@
       }
     },
     "latest-aarch64": {
-      "app_version": "v3.3.3",
+      "app_version": "v3.3.4",
       "arch": "aarch64",
-      "generated": "2026-10-14T19:44:05Z",
+      "generated": "2026-10-20T13:44:00Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5163,7 +5163,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -5212,7 +5212,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -5297,7 +5297,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -5334,7 +5334,7 @@
               "CUPS"
             ],
             "name": "cups",
-            "version": "2.4.19_2"
+            "version": "2.4.20"
           },
           {
             "licenses": [
@@ -5383,7 +5383,7 @@
               "FRAUNHOFER_FDK_AAC"
             ],
             "name": "fdk-aac",
-            "version": "2.0.3"
+            "version": "3.0.0"
           },
           {
             "licenses": [
@@ -5957,7 +5957,7 @@
               "LGPL3+"
             ],
             "name": "libheif",
-            "version": "1.22.2_5"
+            "version": "1.23.6"
           },
           {
             "licenses": [
@@ -6102,7 +6102,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_2"
+            "version": "2.62.3_3"
           },
           {
             "licenses": [
@@ -6691,7 +6691,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14_1"
+            "version": "3.12.15"
           },
           {
             "licenses": [
@@ -6983,7 +6983,7 @@
           {
             "name": "@immich/sql-tools",
             "purl": "",
-            "version": "0.6.4"
+            "version": "0.6.6"
           },
           {
             "name": "@inquirer/external-editor",
@@ -8433,7 +8433,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.3"
+            "version": "3.3.4"
           },
           {
             "name": "import-fresh",
