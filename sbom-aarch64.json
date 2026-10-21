@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-20T13:46:23Z",
+  "generated": "2026-10-21T20:48:10Z",
   "image": "immich-server",
   "tags": {
     "beta-aarch64": {
-      "app_version": "v3.3.4",
+      "app_version": "v3.3.5",
       "arch": "aarch64",
-      "generated": "2026-10-20T13:44:05Z",
+      "generated": "2026-10-21T20:45:58Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3466,7 +3466,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.4"
+            "version": "3.3.5"
           },
           {
             "name": "import-fresh",
@@ -4970,9 +4970,9 @@
       }
     },
     "latest-aarch64": {
-      "app_version": "v3.3.4",
+      "app_version": "v3.3.5",
       "arch": "aarch64",
-      "generated": "2026-10-20T13:44:00Z",
+      "generated": "2026-10-21T20:45:53Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -8433,7 +8433,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.4"
+            "version": "3.3.5"
           },
           {
             "name": "import-fresh",
