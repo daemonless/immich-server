@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-21T19:54:20Z",
+  "generated": "2026-10-23T08:34:20Z",
   "image": "immich-server",
   "tags": {
     "beta-amd64": {
       "app_version": "v3.3.5",
       "arch": "amd64",
-      "generated": "2026-10-21T19:52:27Z",
+      "generated": "2026-10-23T08:29:07Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -406,13 +406,6 @@
           },
           {
             "licenses": [
-              "ISCL"
-            ],
-            "name": "execline",
-            "version": "2.9.8.1"
-          },
-          {
-            "licenses": [
               "MIT"
             ],
             "name": "expat",
@@ -610,7 +603,7 @@
               "MIT"
             ],
             "name": "harfbuzz",
-            "version": "14.5.1"
+            "version": "14.6.0"
           },
           {
             "licenses": [
@@ -676,7 +669,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.3.1_2"
+            "version": "8.1.3.1_3"
           },
           {
             "licenses": [
@@ -734,7 +727,7 @@
               "MIT"
             ],
             "name": "libX11",
-            "version": "1.8.13_1,1"
+            "version": "1.8.14,1"
           },
           {
             "licenses": [
@@ -797,7 +790,7 @@
               "MIT"
             ],
             "name": "libXi",
-            "version": "1.8.3,1"
+            "version": "1.8.4,1"
           },
           {
             "licenses": [
@@ -811,7 +804,7 @@
               "MIT"
             ],
             "name": "libXrender",
-            "version": "0.9.12"
+            "version": "0.9.13"
           },
           {
             "licenses": [
@@ -1644,7 +1637,7 @@
               "ISCL"
             ],
             "name": "pkgconf",
-            "version": "3.0.7,1"
+            "version": "3.0.9,1"
           },
           {
             "licenses": [
@@ -1764,13 +1757,6 @@
           },
           {
             "licenses": [
-              "ISCL"
-            ],
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "licenses": [
               "ZLIB"
             ],
             "name": "sdl2",
@@ -1804,13 +1790,6 @@
             ],
             "name": "simdjson",
             "version": "5.0.5"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "skalibs",
-            "version": "2.14.5.1"
           },
           {
             "licenses": [
@@ -4987,7 +4966,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 270,
+        "freebsd": 267,
         "go": 0,
         "java": 0,
         "node": 599,
@@ -4995,13 +4974,13 @@
         "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 875
+        "total": 872
       }
     },
     "latest-amd64": {
       "app_version": "v3.3.5",
       "arch": "amd64",
-      "generated": "2026-10-21T19:50:24Z",
+      "generated": "2026-10-23T08:25:18Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5402,13 +5381,6 @@
           },
           {
             "licenses": [
-              "ISCL"
-            ],
-            "name": "execline",
-            "version": "2.9.8.1"
-          },
-          {
-            "licenses": [
               "MIT"
             ],
             "name": "expat",
@@ -5606,7 +5578,7 @@
               "MIT"
             ],
             "name": "harfbuzz",
-            "version": "14.5.1"
+            "version": "14.6.0"
           },
           {
             "licenses": [
@@ -5672,7 +5644,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.3.1_2"
+            "version": "8.1.3.1_3"
           },
           {
             "licenses": [
@@ -5730,7 +5702,7 @@
               "MIT"
             ],
             "name": "libX11",
-            "version": "1.8.13_1,1"
+            "version": "1.8.14,1"
           },
           {
             "licenses": [
@@ -5793,7 +5765,7 @@
               "MIT"
             ],
             "name": "libXi",
-            "version": "1.8.3,1"
+            "version": "1.8.4,1"
           },
           {
             "licenses": [
@@ -5807,7 +5779,7 @@
               "MIT"
             ],
             "name": "libXrender",
-            "version": "0.9.12"
+            "version": "0.9.13"
           },
           {
             "licenses": [
@@ -6640,7 +6612,7 @@
               "ISCL"
             ],
             "name": "pkgconf",
-            "version": "3.0.7,1"
+            "version": "3.0.9,1"
           },
           {
             "licenses": [
@@ -6760,13 +6732,6 @@
           },
           {
             "licenses": [
-              "ISCL"
-            ],
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "licenses": [
               "ZLIB"
             ],
             "name": "sdl2",
@@ -6800,13 +6765,6 @@
             ],
             "name": "simdjson",
             "version": "5.0.5"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "skalibs",
-            "version": "2.14.5.1"
           },
           {
             "licenses": [
@@ -9983,7 +9941,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 270,
+        "freebsd": 267,
         "go": 0,
         "java": 0,
         "node": 599,
@@ -9991,7 +9949,7 @@
         "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 875
+        "total": 872
       }
     }
   }
