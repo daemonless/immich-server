@@ -1,7 +1,10 @@
 icon: ':material-server:'
-# Only test shell, we need depends, which will be tested in daemonless/immich
+# Needs a database (tested in daemonless/immich): run the image's own CMD
+# and expect it to get as far as looking up the database host.
 cit:
-  mode: shell
+  mode: command
+  expect_exit: 1
+  expect_output: "ENOTFOUND database"
 
 build:
   architectures:

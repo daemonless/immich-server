@@ -100,7 +100,7 @@ RUN mkdir -p /app/geodata && \
     date +%Y-%m-%d > /app/geodata/geodata-date.txt
 
 # Production image
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="node22 vips jellyfin-ffmpeg p5-Image-ExifTool p5-IO-Compress-Brotli libheif libraw webp postgresql18-client libva-utils jq gzip"
@@ -189,7 +189,9 @@ RUN cp /tmp/immich_version /app/version && \
 
 # Copy service files
 COPY root/ /
-RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
+RUN chmod +x /daemonless/libexec/immich-server /daemonless/init.d/*
+
+CMD ["/daemonless/libexec/immich-server"]
 
 WORKDIR /app
 
