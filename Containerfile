@@ -10,7 +10,7 @@ ARG UPSTREAM_URL="https://api.github.com/repos/immich-app/immich/releases/latest
 # Pull Linux image for pre-built corePlugin WASM (extism-js has no FreeBSD release)
 FROM --platform=linux/amd64 ghcr.io/immich-app/immich-server:release AS linux-immich
 
-FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION} AS builder
 
 ARG UPSTREAM_URL
 ARG UPSTREAM_JQ=".tag_name"
