@@ -4,7 +4,7 @@ icon: ':material-server:'
 cit:
   mode: command
   expect_exit: 1
-  expect_output: "ENOTFOUND database"
+  expect_output: "getaddrinfo (ENOTFOUND|EAI_AGAIN) database"
 
 build:
   architectures:
