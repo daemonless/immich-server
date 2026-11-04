@@ -22,7 +22,6 @@ Self-hosted photo and video backup and management server with web UI, mobile syn
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Most users — recommended. |
-| `beta` | **Upstream Binary**. Built from official release. | Alternative build. |
 
 ## Parameters
 
