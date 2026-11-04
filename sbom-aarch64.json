@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T11:16:28Z",
+  "generated": "2026-11-04T20:35:48Z",
   "image": "immich-server",
   "tags": {
     "beta-aarch64": {
-      "app_version": "v3.3.5",
+      "app_version": "v3.3.6",
       "arch": "aarch64",
-      "generated": "2026-10-23T11:14:11Z",
+      "generated": "2026-11-04T20:33:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -196,7 +196,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -259,7 +259,7 @@
               "APACHE20"
             ],
             "name": "ImageMagick7",
-            "version": "7.1.2.25_2"
+            "version": "7.1.2.34"
           },
           {
             "licenses": [
@@ -280,7 +280,7 @@
               "BSD2CLAUSE"
             ],
             "name": "aom",
-            "version": "3.15.1"
+            "version": "3.15.2"
           },
           {
             "licenses": [
@@ -316,21 +316,21 @@
               "MIT"
             ],
             "name": "brotli",
-            "version": "1.2.0,1"
+            "version": "1.2.1,1"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "c-ares",
-            "version": "1.34.8"
+            "version": "1.34.9"
           },
           {
             "licenses": [
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -338,7 +338,7 @@
               "MPL11"
             ],
             "name": "cairo",
-            "version": "1.18.2,3"
+            "version": "1.18.6,3"
           },
           {
             "licenses": [
@@ -374,14 +374,14 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.22.0"
+            "version": "8.23.0"
           },
           {
             "licenses": [
               "BSD2CLAUSE"
             ],
             "name": "dav1d",
-            "version": "1.5.4"
+            "version": "1.5.4_1"
           },
           {
             "licenses": [
@@ -417,7 +417,7 @@
               "LGPL3+"
             ],
             "name": "ffmpeg",
-            "version": "9.0.2_2,1"
+            "version": "9.0.2_3,1"
           },
           {
             "licenses": [
@@ -529,7 +529,7 @@
               "GPLv3"
             ],
             "name": "gnupg",
-            "version": "2.5.21"
+            "version": "2.5.24"
           },
           {
             "licenses": [
@@ -552,14 +552,14 @@
               "LGPL21+"
             ],
             "name": "gpgme",
-            "version": "2.1.2"
+            "version": "2.2.0"
           },
           {
             "licenses": [
               "LGPL20+"
             ],
             "name": "gpgmepp",
-            "version": "2.1.0"
+            "version": "2.2.0"
           },
           {
             "licenses": [
@@ -655,7 +655,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.3.1_3"
+            "version": "8.1.3.1_4"
           },
           {
             "licenses": [
@@ -1099,7 +1099,7 @@
               "LGPL21+"
             ],
             "name": "libplacebo",
-            "version": "7.360.1"
+            "version": "7.387.0"
           },
           {
             "licenses": [
@@ -1241,7 +1241,7 @@
               "MIT"
             ],
             "name": "libuv",
-            "version": "1.52.1"
+            "version": "1.52.1_1"
           },
           {
             "licenses": [
@@ -1437,7 +1437,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2_2"
+            "version": "22.23.4"
           },
           {
             "licenses": [
@@ -1458,7 +1458,7 @@
               "MPL20"
             ],
             "name": "nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -1832,7 +1832,7 @@
               "LGPL21"
             ],
             "name": "vips",
-            "version": "8.18.6"
+            "version": "8.18.7_1"
           },
           {
             "licenses": [
@@ -3445,7 +3445,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.5"
+            "version": "3.3.6"
           },
           {
             "name": "import-fresh",
@@ -4949,9 +4949,9 @@
       }
     },
     "latest-aarch64": {
-      "app_version": "v3.3.5",
+      "app_version": "v3.3.6",
       "arch": "aarch64",
-      "generated": "2026-10-23T11:14:05Z",
+      "generated": "2026-11-04T20:33:31Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -5142,7 +5142,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -5205,7 +5205,7 @@
               "APACHE20"
             ],
             "name": "ImageMagick7",
-            "version": "7.1.2.25_2"
+            "version": "7.1.2.34"
           },
           {
             "licenses": [
@@ -5226,7 +5226,7 @@
               "BSD2CLAUSE"
             ],
             "name": "aom",
-            "version": "3.15.1"
+            "version": "3.15.2"
           },
           {
             "licenses": [
@@ -5262,21 +5262,21 @@
               "MIT"
             ],
             "name": "brotli",
-            "version": "1.2.0,1"
+            "version": "1.2.1,1"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "c-ares",
-            "version": "1.34.8"
+            "version": "1.34.9"
           },
           {
             "licenses": [
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -5284,7 +5284,7 @@
               "MPL11"
             ],
             "name": "cairo",
-            "version": "1.18.2,3"
+            "version": "1.18.6,3"
           },
           {
             "licenses": [
@@ -5320,14 +5320,14 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.22.0"
+            "version": "8.23.0"
           },
           {
             "licenses": [
               "BSD2CLAUSE"
             ],
             "name": "dav1d",
-            "version": "1.5.4"
+            "version": "1.5.4_1"
           },
           {
             "licenses": [
@@ -5363,7 +5363,7 @@
               "LGPL3+"
             ],
             "name": "ffmpeg",
-            "version": "9.0.2_2,1"
+            "version": "9.0.2_3,1"
           },
           {
             "licenses": [
@@ -5475,7 +5475,7 @@
               "GPLv3"
             ],
             "name": "gnupg",
-            "version": "2.5.21"
+            "version": "2.5.24"
           },
           {
             "licenses": [
@@ -5498,14 +5498,14 @@
               "LGPL21+"
             ],
             "name": "gpgme",
-            "version": "2.1.2"
+            "version": "2.2.0"
           },
           {
             "licenses": [
               "LGPL20+"
             ],
             "name": "gpgmepp",
-            "version": "2.1.0"
+            "version": "2.2.0"
           },
           {
             "licenses": [
@@ -5601,7 +5601,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.3.1_3"
+            "version": "8.1.3.1_4"
           },
           {
             "licenses": [
@@ -6045,7 +6045,7 @@
               "LGPL21+"
             ],
             "name": "libplacebo",
-            "version": "7.360.1"
+            "version": "7.387.0"
           },
           {
             "licenses": [
@@ -6187,7 +6187,7 @@
               "MIT"
             ],
             "name": "libuv",
-            "version": "1.52.1"
+            "version": "1.52.1_1"
           },
           {
             "licenses": [
@@ -6383,7 +6383,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.2_2"
+            "version": "22.23.4"
           },
           {
             "licenses": [
@@ -6404,7 +6404,7 @@
               "MPL20"
             ],
             "name": "nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -6778,7 +6778,7 @@
               "LGPL21"
             ],
             "name": "vips",
-            "version": "8.18.6"
+            "version": "8.18.7_1"
           },
           {
             "licenses": [
@@ -8391,7 +8391,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.5"
+            "version": "3.3.6"
           },
           {
             "name": "import-fresh",
