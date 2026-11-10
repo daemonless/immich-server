@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-04T21:38:30Z",
+  "generated": "2026-11-10T23:11:54Z",
   "image": "immich-server",
   "tags": {
     "latest-aarch64": {
-      "app_version": "v3.3.6",
+      "app_version": "v3.4.0",
       "arch": "aarch64",
-      "generated": "2026-11-04T21:37:18Z",
+      "generated": "2026-11-10T23:10:39Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -456,7 +456,7 @@
               "LGPL21"
             ],
             "name": "fribidi",
-            "version": "1.0.17"
+            "version": "1.0.18"
           },
           {
             "licenses": [
@@ -589,7 +589,7 @@
               "MIT"
             ],
             "name": "harfbuzz",
-            "version": "14.6.0"
+            "version": "15.0.0"
           },
           {
             "licenses": [
@@ -833,7 +833,7 @@
               "BSD2CLAUSE"
             ],
             "name": "libarchive",
-            "version": "3.8.8,1"
+            "version": "3.8.11,1"
           },
           {
             "licenses": [
@@ -1128,7 +1128,7 @@
               "LGPL20"
             ],
             "name": "librsvg2-rust",
-            "version": "2.62.3_3"
+            "version": "2.63.4"
           },
           {
             "licenses": [
@@ -1558,7 +1558,7 @@
               "LGPL21+"
             ],
             "name": "pango",
-            "version": "1.57.1"
+            "version": "1.58.2"
           },
           {
             "licenses": [
@@ -1760,7 +1760,7 @@
               "APACHE20"
             ],
             "name": "simdjson",
-            "version": "5.0.5"
+            "version": "5.1.0"
           },
           {
             "licenses": [
@@ -1788,7 +1788,7 @@
               "PD"
             ],
             "name": "sqlite3",
-            "version": "3.53.4,1"
+            "version": "3.54.1,1"
           },
           {
             "licenses": [
@@ -1874,7 +1874,7 @@
               "MIT"
             ],
             "name": "xkeyboard-config",
-            "version": "2.48"
+            "version": "2.49"
           },
           {
             "licenses": [
@@ -1905,7 +1905,7 @@
           {
             "name": "@alloc/quick-lru",
             "purl": "",
-            "version": "5.2.0"
+            "version": "5.3.0"
           },
           {
             "name": "@babel/code-frame",
@@ -1914,6 +1914,11 @@
           },
           {
             "name": "@babel/generator",
+            "purl": "",
+            "version": "7.29.8"
+          },
+          {
+            "name": "@babel/helper-globals",
             "purl": "",
             "version": "7.29.7"
           },
@@ -1930,7 +1935,7 @@
           {
             "name": "@babel/parser",
             "purl": "",
-            "version": "7.27.0"
+            "version": "7.29.2"
           },
           {
             "name": "@babel/template",
@@ -1940,12 +1945,12 @@
           {
             "name": "@babel/traverse",
             "purl": "",
-            "version": "7.27.0"
+            "version": "7.29.0"
           },
           {
             "name": "@babel/types",
             "purl": "",
-            "version": "7.29.7"
+            "version": "7.29.8"
           },
           {
             "name": "@borewit/text-codec",
@@ -1955,7 +1960,7 @@
           {
             "name": "@esbuild/freebsd-arm64",
             "purl": "",
-            "version": "0.27.4"
+            "version": "0.28.2"
           },
           {
             "name": "@extism/extism",
@@ -1968,6 +1973,21 @@
             "version": "3.2.0"
           },
           {
+            "name": "@futo-org/backups-api-client",
+            "purl": "",
+            "version": "1.14.0"
+          },
+          {
+            "name": "@futo-org/backups-orchestrator-api",
+            "purl": "",
+            "version": "1.14.0"
+          },
+          {
+            "name": "@futo-org/restic-wrapper",
+            "purl": "",
+            "version": "1.7.0"
+          },
+          {
             "name": "@golevelup/nestjs-discovery",
             "purl": "",
             "version": "7.0.3"
@@ -1975,12 +1995,17 @@
           {
             "name": "@grpc/grpc-js",
             "purl": "",
-            "version": "1.14.4"
+            "version": "1.14.6"
           },
           {
             "name": "@grpc/proto-loader",
             "purl": "",
             "version": "0.8.1"
+          },
+          {
+            "name": "@hexagon/base64",
+            "purl": "",
+            "version": "1.1.28"
           },
           {
             "name": "@img/colour",
@@ -1995,7 +2020,7 @@
           {
             "name": "@immich/sql-tools",
             "purl": "",
-            "version": "0.6.6"
+            "version": "0.7.0"
           },
           {
             "name": "@inquirer/external-editor",
@@ -2005,12 +2030,7 @@
           {
             "name": "@ioredis/commands",
             "purl": "",
-            "version": "1.10.0"
-          },
-          {
-            "name": "@isaacs/cliui",
-            "purl": "",
-            "version": "8.0.2"
+            "version": "2.0.0"
           },
           {
             "name": "@isaacs/fs-minipass",
@@ -2043,6 +2063,11 @@
             "version": "4.4.2"
           },
           {
+            "name": "@levischuck/tiny-cbor",
+            "purl": "",
+            "version": "0.2.11"
+          },
+          {
             "name": "@lukeed/csprng",
             "purl": "",
             "version": "1.1.0"
@@ -2050,7 +2075,7 @@
           {
             "name": "@microsoft/tsdoc",
             "purl": "",
-            "version": "0.17.0"
+            "version": "0.17.1"
           },
           {
             "name": "@my-scope/package-a",
@@ -2075,12 +2100,22 @@
           {
             "name": "@nestjs/common",
             "purl": "",
-            "version": "12.1.0"
+            "version": "12.2.0"
           },
           {
             "name": "@nestjs/core",
             "purl": "",
-            "version": "12.1.0"
+            "version": "12.2.0"
+          },
+          {
+            "name": "@nestjs/event-emitter",
+            "purl": "",
+            "version": "12.0.1"
+          },
+          {
+            "name": "@nestjs/jwt",
+            "purl": "",
+            "version": "12.0.3"
           },
           {
             "name": "@nestjs/mapped-types",
@@ -2090,12 +2125,12 @@
           {
             "name": "@nestjs/platform-express",
             "purl": "",
-            "version": "12.1.0"
+            "version": "12.2.0"
           },
           {
             "name": "@nestjs/platform-socket.io",
             "purl": "",
-            "version": "12.1.0"
+            "version": "12.2.0"
           },
           {
             "name": "@nestjs/schedule",
@@ -2110,7 +2145,7 @@
           {
             "name": "@nestjs/websockets",
             "purl": "",
-            "version": "12.1.0"
+            "version": "12.2.0"
           },
           {
             "name": "@nodelib/fs.scandir",
@@ -2128,84 +2163,84 @@
             "version": "1.2.8"
           },
           {
-            "name": "@opentelemetry/api",
+            "name": "@oazapfts/runtime",
             "purl": "",
-            "version": "1.9.1"
+            "version": "1.2.0"
           },
           {
-            "name": "@opentelemetry/api-logs",
+            "name": "@opentelemetry/api",
             "purl": "",
-            "version": "0.222.0"
+            "version": "1.10.0"
           },
           {
             "name": "@opentelemetry/configuration",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/context-async-hooks",
             "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/core",
             "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-grpc",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-http",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-logs-otlp-proto",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-grpc",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-http",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-metrics-otlp-proto",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-prometheus",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-grpc",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-http",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-trace-otlp-proto",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/exporter-zipkin",
             "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/host-metrics",
@@ -2215,92 +2250,77 @@
           {
             "name": "@opentelemetry/instrumentation",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/instrumentation-http",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/instrumentation-ioredis",
             "purl": "",
-            "version": "0.70.0"
+            "version": "0.72.0"
           },
           {
             "name": "@opentelemetry/instrumentation-nestjs-core",
             "purl": "",
-            "version": "0.68.0"
+            "version": "0.71.0"
           },
           {
             "name": "@opentelemetry/instrumentation-pg",
             "purl": "",
-            "version": "0.74.0"
+            "version": "0.77.0"
           },
           {
             "name": "@opentelemetry/otlp-exporter-base",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/otlp-grpc-exporter-base",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/otlp-transformer",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/propagator-b3",
             "purl": "",
-            "version": "2.11.0"
-          },
-          {
-            "name": "@opentelemetry/propagator-jaeger",
-            "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/redis-common",
             "purl": "",
-            "version": "0.38.3"
+            "version": "0.39.0"
           },
           {
             "name": "@opentelemetry/resources",
             "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/sdk-logs",
             "purl": "",
-            "version": "0.222.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/sdk-metrics",
             "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/sdk-node",
             "purl": "",
-            "version": "0.222.0"
+            "version": "0.300.0"
           },
           {
             "name": "@opentelemetry/sdk-trace",
             "purl": "",
-            "version": "2.11.0"
-          },
-          {
-            "name": "@opentelemetry/sdk-trace-base",
-            "purl": "",
-            "version": "2.11.0"
-          },
-          {
-            "name": "@opentelemetry/sdk-trace-node",
-            "purl": "",
-            "version": "2.11.0"
+            "version": "3.0.0"
           },
           {
             "name": "@opentelemetry/semantic-conventions",
@@ -2310,17 +2330,87 @@
           {
             "name": "@opentelemetry/sql-common",
             "purl": "",
-            "version": "0.42.0"
+            "version": "0.43.0"
+          },
+          {
+            "name": "@peculiar/asn1-android",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-asym-key",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-cms",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-csr",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-ecc",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-pfx",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-pkcs8",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-pkcs9",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-rsa",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-schema",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-x509",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-x509-attr",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/asn1-x509-post-quantum",
+            "purl": "",
+            "version": "2.10.0"
+          },
+          {
+            "name": "@peculiar/utils",
+            "purl": "",
+            "version": "2.0.3"
+          },
+          {
+            "name": "@peculiar/x509",
+            "purl": "",
+            "version": "2.1.0"
           },
           {
             "name": "@photostructure/tz-lookup",
             "purl": "",
-            "version": "11.5.0"
-          },
-          {
-            "name": "@pkgjs/parseargs",
-            "purl": "",
-            "version": "0.11.0"
+            "version": "11.7.0"
           },
           {
             "name": "@polka/url",
@@ -2373,109 +2463,9 @@
             "version": "1.1.2"
           },
           {
-            "name": "@react-email/body",
-            "purl": "",
-            "version": "0.3.0"
-          },
-          {
-            "name": "@react-email/button",
-            "purl": "",
-            "version": "0.2.1"
-          },
-          {
-            "name": "@react-email/code-block",
-            "purl": "",
-            "version": "0.2.1"
-          },
-          {
-            "name": "@react-email/code-inline",
-            "purl": "",
-            "version": "0.0.6"
-          },
-          {
-            "name": "@react-email/column",
-            "purl": "",
-            "version": "0.0.14"
-          },
-          {
-            "name": "@react-email/components",
-            "purl": "",
-            "version": "1.0.12"
-          },
-          {
-            "name": "@react-email/container",
-            "purl": "",
-            "version": "0.0.16"
-          },
-          {
-            "name": "@react-email/font",
-            "purl": "",
-            "version": "0.0.10"
-          },
-          {
-            "name": "@react-email/head",
-            "purl": "",
-            "version": "0.0.13"
-          },
-          {
-            "name": "@react-email/heading",
-            "purl": "",
-            "version": "0.0.16"
-          },
-          {
-            "name": "@react-email/hr",
-            "purl": "",
-            "version": "0.0.12"
-          },
-          {
-            "name": "@react-email/html",
-            "purl": "",
-            "version": "0.0.12"
-          },
-          {
-            "name": "@react-email/img",
-            "purl": "",
-            "version": "0.0.12"
-          },
-          {
-            "name": "@react-email/link",
-            "purl": "",
-            "version": "0.0.13"
-          },
-          {
-            "name": "@react-email/markdown",
-            "purl": "",
-            "version": "0.0.18"
-          },
-          {
-            "name": "@react-email/preview",
-            "purl": "",
-            "version": "0.0.14"
-          },
-          {
             "name": "@react-email/render",
             "purl": "",
-            "version": "2.0.6"
-          },
-          {
-            "name": "@react-email/row",
-            "purl": "",
-            "version": "0.0.13"
-          },
-          {
-            "name": "@react-email/section",
-            "purl": "",
-            "version": "0.0.17"
-          },
-          {
-            "name": "@react-email/tailwind",
-            "purl": "",
-            "version": "2.0.7"
-          },
-          {
-            "name": "@react-email/text",
-            "purl": "",
-            "version": "0.1.6"
+            "version": "2.1.1"
           },
           {
             "name": "@scarf/scarf",
@@ -2486,6 +2476,11 @@
             "name": "@selderee/plugin-htmlparser2",
             "purl": "",
             "version": "0.11.0"
+          },
+          {
+            "name": "@simplewebauthn/server",
+            "purl": "",
+            "version": "14.0.3"
           },
           {
             "name": "@socket.io/component-emitter",
@@ -2515,22 +2510,17 @@
           {
             "name": "@turf/boolean-point-in-polygon",
             "purl": "",
-            "version": "7.3.5"
+            "version": "7.4.0"
           },
           {
             "name": "@turf/helpers",
             "purl": "",
-            "version": "7.3.5"
+            "version": "7.4.0"
           },
           {
             "name": "@turf/invariant",
             "purl": "",
-            "version": "7.3.5"
-          },
-          {
-            "name": "@types/chai-withintoleranceof",
-            "purl": "",
-            "version": "0.0.1"
+            "version": "7.4.0"
           },
           {
             "name": "@types/cors",
@@ -2548,14 +2538,24 @@
             "version": "8.2.13"
           },
           {
+            "name": "@types/jsonwebtoken",
+            "purl": "",
+            "version": "9.0.10"
+          },
+          {
             "name": "@types/luxon",
             "purl": "",
-            "version": "3.7.5"
+            "version": "3.7.6"
+          },
+          {
+            "name": "@types/ms",
+            "purl": "",
+            "version": "2.1.0"
           },
           {
             "name": "@types/node",
             "purl": "",
-            "version": "24.13.6"
+            "version": "24.19.2"
           },
           {
             "name": "@types/pg",
@@ -2575,12 +2575,12 @@
           {
             "name": "@types/ws",
             "purl": "",
-            "version": "8.18.1"
+            "version": "8.18.2"
           },
           {
-            "name": "@typescript/typescript6",
+            "name": "aaguids",
             "purl": "",
-            "version": "6.0.2"
+            "version": "0.0.72"
           },
           {
             "name": "abbrev",
@@ -2596,16 +2596,6 @@
             "name": "accepts",
             "purl": "",
             "version": "1.3.8"
-          },
-          {
-            "name": "acorn",
-            "purl": "",
-            "version": "8.18.0"
-          },
-          {
-            "name": "acorn-import-attributes",
-            "purl": "",
-            "version": "1.9.5"
           },
           {
             "name": "ajv",
@@ -2650,12 +2640,7 @@
           {
             "name": "archiver",
             "purl": "",
-            "version": "7.0.1"
-          },
-          {
-            "name": "archiver-utils",
-            "purl": "",
-            "version": "5.0.2"
+            "version": "8.0.0"
           },
           {
             "name": "arg",
@@ -2671,6 +2656,11 @@
             "name": "array-source",
             "purl": "",
             "version": "0.0.4"
+          },
+          {
+            "name": "asn1js",
+            "purl": "",
+            "version": "3.0.10"
           },
           {
             "name": "async",
@@ -2690,37 +2680,37 @@
           {
             "name": "b4a",
             "purl": "",
-            "version": "1.8.1"
+            "version": "1.9.0"
           },
           {
             "name": "balanced-match",
             "purl": "",
-            "version": "1.0.2"
+            "version": "4.0.4"
           },
           {
             "name": "bare-events",
             "purl": "",
-            "version": "2.9.1"
+            "version": "2.9.2"
           },
           {
             "name": "bare-fs",
             "purl": "",
-            "version": "4.8.0"
+            "version": "4.8.4"
           },
           {
             "name": "bare-path",
             "purl": "",
-            "version": "3.1.1"
+            "version": "3.1.2"
           },
           {
             "name": "bare-stream",
             "purl": "",
-            "version": "2.13.3"
+            "version": "2.13.4"
           },
           {
             "name": "bare-url",
             "purl": "",
-            "version": "2.5.1"
+            "version": "2.5.5"
           },
           {
             "name": "base64-js",
@@ -2728,14 +2718,9 @@
             "version": "1.5.1"
           },
           {
-            "name": "base64id",
-            "purl": "",
-            "version": "2.0.0"
-          },
-          {
             "name": "batch-cluster",
             "purl": "",
-            "version": "17.3.1"
+            "version": "19.5.0"
           },
           {
             "name": "bcrypt",
@@ -2743,14 +2728,29 @@
             "version": "6.0.0"
           },
           {
+            "name": "beep-boop",
+            "purl": "",
+            "version": "1.2.3"
+          },
+          {
             "name": "benchmark",
             "purl": "",
             "version": "1.0.0"
           },
           {
+            "name": "better-sqlite3",
+            "purl": "",
+            "version": "12.11.1"
+          },
+          {
             "name": "binary-extensions",
             "purl": "",
             "version": "2.3.0"
+          },
+          {
+            "name": "bindings",
+            "purl": "",
+            "version": "1.5.0"
           },
           {
             "name": "bl",
@@ -2760,12 +2760,12 @@
           {
             "name": "body-parser",
             "purl": "",
-            "version": "2.3.0"
+            "version": "2.4.0"
           },
           {
             "name": "brace-expansion",
             "purl": "",
-            "version": "2.1.1"
+            "version": "5.0.12"
           },
           {
             "name": "braces",
@@ -2795,7 +2795,7 @@
           {
             "name": "bullmq",
             "purl": "",
-            "version": "5.81.5"
+            "version": "6.4.0"
           },
           {
             "name": "busboy",
@@ -2835,7 +2835,7 @@
           {
             "name": "chardet",
             "purl": "",
-            "version": "2.1.1"
+            "version": "2.2.0"
           },
           {
             "name": "chokidar",
@@ -2845,7 +2845,7 @@
           {
             "name": "chownr",
             "purl": "",
-            "version": "3.0.0"
+            "version": "1.1.4"
           },
           {
             "name": "citty",
@@ -2855,7 +2855,7 @@
           {
             "name": "cjs-module-lexer",
             "purl": "",
-            "version": "2.2.0"
+            "version": "2.3.0"
           },
           {
             "name": "cli-cursor",
@@ -2905,7 +2905,7 @@
           {
             "name": "compress-commons",
             "purl": "",
-            "version": "6.0.2"
+            "version": "7.0.1"
           },
           {
             "name": "compressible",
@@ -2930,12 +2930,12 @@
           {
             "name": "content-disposition",
             "purl": "",
-            "version": "1.1.0"
+            "version": "2.0.1"
           },
           {
             "name": "content-type",
             "purl": "",
-            "version": "1.0.5"
+            "version": "2.1.0"
           },
           {
             "name": "cookie",
@@ -2980,7 +2980,7 @@
           {
             "name": "crc32-stream",
             "purl": "",
-            "version": "6.0.0"
+            "version": "7.0.1"
           },
           {
             "name": "cron",
@@ -2990,12 +2990,12 @@
           {
             "name": "cron-parser",
             "purl": "",
-            "version": "4.9.0"
+            "version": "5.10.2"
           },
           {
-            "name": "cross-spawn",
+            "name": "css-tree",
             "purl": "",
-            "version": "7.0.6"
+            "version": "3.2.1"
           },
           {
             "name": "cssesc",
@@ -3016,6 +3016,16 @@
             "name": "debug",
             "purl": "",
             "version": "2.6.9"
+          },
+          {
+            "name": "decompress-response",
+            "purl": "",
+            "version": "6.0.0"
+          },
+          {
+            "name": "deep-extend",
+            "purl": "",
+            "version": "0.6.0"
           },
           {
             "name": "deepmerge",
@@ -3085,17 +3095,12 @@
           {
             "name": "dot-prop",
             "purl": "",
-            "version": "10.1.0"
+            "version": "10.2.0"
           },
           {
             "name": "dunder-proto",
             "purl": "",
             "version": "1.0.1"
-          },
-          {
-            "name": "eastasianwidth",
-            "purl": "",
-            "version": "0.2.0"
           },
           {
             "name": "ecdsa-sig-formatter",
@@ -3110,12 +3115,12 @@
           {
             "name": "email-dev",
             "purl": "",
-            "version": "0.0.6"
+            "version": "0.0.7"
           },
           {
             "name": "emoji-regex",
             "purl": "",
-            "version": "10.6.0"
+            "version": "8.0.0"
           },
           {
             "name": "encodeurl",
@@ -3123,9 +3128,14 @@
             "version": "2.0.0"
           },
           {
+            "name": "end-of-stream",
+            "purl": "",
+            "version": "1.4.5"
+          },
+          {
             "name": "engine.io",
             "purl": "",
-            "version": "6.6.8"
+            "version": "6.6.11"
           },
           {
             "name": "engine.io-parser",
@@ -3158,6 +3168,11 @@
             "version": "1.3.0"
           },
           {
+            "name": "es-module-lexer",
+            "purl": "",
+            "version": "3.0.3"
+          },
+          {
             "name": "es-object-atoms",
             "purl": "",
             "version": "1.1.2"
@@ -3170,7 +3185,7 @@
           {
             "name": "esbuild",
             "purl": "",
-            "version": "0.27.4"
+            "version": "0.28.2"
           },
           {
             "name": "escalade",
@@ -3198,6 +3213,11 @@
             "version": "5.0.1"
           },
           {
+            "name": "eventemitter2",
+            "purl": "",
+            "version": "6.4.9"
+          },
+          {
             "name": "events",
             "purl": "",
             "version": "3.3.0"
@@ -3210,12 +3230,17 @@
           {
             "name": "exiftool-vendored",
             "purl": "",
-            "version": "35.21.0"
+            "version": "39.0.1"
           },
           {
             "name": "exiftool-vendored.pl",
             "purl": "",
-            "version": "13.59.0"
+            "version": "13.59.3"
+          },
+          {
+            "name": "expand-template",
+            "purl": "",
+            "version": "2.0.3"
           },
           {
             "name": "exponential-backoff",
@@ -3225,7 +3250,7 @@
           {
             "name": "express",
             "purl": "",
-            "version": "5.2.1"
+            "version": "5.3.0"
           },
           {
             "name": "fast-deep-equal",
@@ -3278,6 +3303,11 @@
             "version": "22.1.1"
           },
           {
+            "name": "file-uri-to-path",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
             "name": "fill-range",
             "purl": "",
             "version": "7.1.1"
@@ -3291,11 +3321,6 @@
             "name": "fluent-ffmpeg",
             "purl": "",
             "version": "2.1.3"
-          },
-          {
-            "name": "foreground-child",
-            "purl": "",
-            "version": "3.3.1"
           },
           {
             "name": "forwarded",
@@ -3313,6 +3338,11 @@
             "version": "2.0.0"
           },
           {
+            "name": "fs-constants",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
             "name": "function-bind",
             "purl": "",
             "version": "1.1.2"
@@ -3325,7 +3355,7 @@
           {
             "name": "geo-tz",
             "purl": "",
-            "version": "8.1.9"
+            "version": "8.1.10"
           },
           {
             "name": "geobuf",
@@ -3338,11 +3368,6 @@
             "version": "2.0.5"
           },
           {
-            "name": "get-east-asian-width",
-            "purl": "",
-            "version": "1.6.0"
-          },
-          {
             "name": "get-intrinsic",
             "purl": "",
             "version": "1.3.0"
@@ -3353,19 +3378,19 @@
             "version": "1.0.1"
           },
           {
+            "name": "github-from-package",
+            "purl": "",
+            "version": "0.0.0"
+          },
+          {
             "name": "glob",
             "purl": "",
-            "version": "10.5.0"
+            "version": "13.0.6"
           },
           {
             "name": "glob-parent",
             "purl": "",
             "version": "5.1.2"
-          },
-          {
-            "name": "globals",
-            "purl": "",
-            "version": "11.12.0"
           },
           {
             "name": "gopd",
@@ -3385,7 +3410,7 @@
           {
             "name": "handlebars",
             "purl": "",
-            "version": "4.7.9"
+            "version": "4.7.10"
           },
           {
             "name": "has-flag",
@@ -3445,7 +3470,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.3.6"
+            "version": "3.4.0"
           },
           {
             "name": "import-fresh",
@@ -3455,12 +3480,17 @@
           {
             "name": "import-in-the-middle",
             "purl": "",
-            "version": "3.0.2"
+            "version": "3.5.2"
           },
           {
             "name": "inherits",
             "purl": "",
             "version": "2.0.4"
+          },
+          {
+            "name": "ini",
+            "purl": "",
+            "version": "1.3.8"
           },
           {
             "name": "inquirer",
@@ -3470,7 +3500,7 @@
           {
             "name": "ioredis",
             "purl": "",
-            "version": "5.11.1"
+            "version": "6.0.0"
           },
           {
             "name": "ipaddr.js",
@@ -3490,7 +3520,7 @@
           {
             "name": "is-core-module",
             "purl": "",
-            "version": "2.16.2"
+            "version": "2.17.0"
           },
           {
             "name": "is-extglob",
@@ -3530,7 +3560,7 @@
           {
             "name": "is-stream",
             "purl": "",
-            "version": "2.0.1"
+            "version": "4.0.1"
           },
           {
             "name": "is-unicode-supported",
@@ -3553,11 +3583,6 @@
             "version": "1.2.1"
           },
           {
-            "name": "jackspeak",
-            "purl": "",
-            "version": "3.4.3"
-          },
-          {
             "name": "jiti",
             "purl": "",
             "version": "1.21.7"
@@ -3565,7 +3590,7 @@
           {
             "name": "jose",
             "purl": "",
-            "version": "6.2.12"
+            "version": "6.2.13"
           },
           {
             "name": "js-tokens",
@@ -3575,7 +3600,7 @@
           {
             "name": "js-yaml",
             "purl": "",
-            "version": "4.3.0"
+            "version": "4.3.2"
           },
           {
             "name": "jsesc",
@@ -3625,12 +3650,12 @@
           {
             "name": "kysely",
             "purl": "",
-            "version": "0.29.6"
+            "version": "0.29.7"
           },
           {
             "name": "kysely-postgres-js",
             "purl": "",
-            "version": "3.0.0"
+            "version": "5.0.1"
           },
           {
             "name": "lazystream",
@@ -3725,7 +3750,7 @@
           {
             "name": "lru-cache",
             "purl": "",
-            "version": "10.4.3"
+            "version": "11.5.3"
           },
           {
             "name": "luxon",
@@ -3741,6 +3766,11 @@
             "name": "math-intrinsics",
             "purl": "",
             "version": "1.1.0"
+          },
+          {
+            "name": "mdn-data",
+            "purl": "",
+            "version": "2.27.1"
           },
           {
             "name": "media-typer",
@@ -3783,6 +3813,11 @@
             "version": "5.0.1"
           },
           {
+            "name": "mimic-response",
+            "purl": "",
+            "version": "3.1.0"
+          },
+          {
             "name": "minimatch",
             "purl": "",
             "version": "10.2.6"
@@ -3803,9 +3838,14 @@
             "version": "3.1.0"
           },
           {
+            "name": "mkdirp-classic",
+            "purl": "",
+            "version": "0.5.3"
+          },
+          {
             "name": "mnemonist",
             "purl": "",
-            "version": "0.40.5"
+            "version": "0.40.6"
           },
           {
             "name": "module-details-from-path",
@@ -3825,7 +3865,7 @@
           {
             "name": "msgpackr",
             "purl": "",
-            "version": "2.0.5"
+            "version": "2.1.0"
           },
           {
             "name": "msgpackr-extract",
@@ -3855,7 +3895,12 @@
           {
             "name": "nanoid",
             "purl": "",
-            "version": "3.3.18"
+            "version": "3.3.20"
+          },
+          {
+            "name": "napi-build-utils",
+            "purl": "",
+            "version": "2.0.0"
           },
           {
             "name": "negotiator",
@@ -3875,7 +3920,7 @@
           {
             "name": "nestjs-cls",
             "purl": "",
-            "version": "6.3.1"
+            "version": "7.0.1"
           },
           {
             "name": "nestjs-kysely",
@@ -3893,6 +3938,16 @@
             "version": "5.5.0"
           },
           {
+            "name": "nextjs-with-tailwind",
+            "purl": "",
+            "version": "0.1.0"
+          },
+          {
+            "name": "node-abi",
+            "purl": "",
+            "version": "3.92.0"
+          },
+          {
             "name": "node-abort-controller",
             "purl": "",
             "version": "3.1.1"
@@ -3900,12 +3955,12 @@
           {
             "name": "node-addon-api",
             "purl": "",
-            "version": "8.8.0"
+            "version": "8.9.2"
           },
           {
             "name": "node-gyp",
             "purl": "",
-            "version": "13.0.0"
+            "version": "13.1.0"
           },
           {
             "name": "node-gyp-build",
@@ -3920,7 +3975,7 @@
           {
             "name": "nodemailer",
             "purl": "",
-            "version": "9.1.1"
+            "version": "10.2.1"
           },
           {
             "name": "nopt",
@@ -3940,7 +3995,7 @@
           {
             "name": "nypm",
             "purl": "",
-            "version": "0.6.5"
+            "version": "0.6.6"
           },
           {
             "name": "oauth4webapi",
@@ -3998,11 +4053,6 @@
             "version": "5.4.1"
           },
           {
-            "name": "package-json-from-dist",
-            "purl": "",
-            "version": "1.0.1"
-          },
-          {
             "name": "parent-module",
             "purl": "",
             "version": "1.0.1"
@@ -4023,11 +4073,6 @@
             "version": "1.3.3"
           },
           {
-            "name": "path-key",
-            "purl": "",
-            "version": "3.1.1"
-          },
-          {
             "name": "path-parse",
             "purl": "",
             "version": "1.0.7"
@@ -4035,7 +4080,7 @@
           {
             "name": "path-scurry",
             "purl": "",
-            "version": "1.11.1"
+            "version": "2.0.2"
           },
           {
             "name": "path-source",
@@ -4070,17 +4115,17 @@
           {
             "name": "pg",
             "purl": "",
-            "version": "8.23.0"
+            "version": "8.23.1"
           },
           {
             "name": "pg-cloudflare",
             "purl": "",
-            "version": "1.4.0"
+            "version": "1.4.1"
           },
           {
             "name": "pg-connection-string",
             "purl": "",
-            "version": "2.14.0"
+            "version": "2.14.1"
           },
           {
             "name": "pg-int8",
@@ -4095,7 +4140,7 @@
           {
             "name": "pg-protocol",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.16.1"
           },
           {
             "name": "pg-types",
@@ -4118,9 +4163,9 @@
             "version": "2.3.2"
           },
           {
-            "name": "pify",
+            "name": "picospinner",
             "purl": "",
-            "version": "2.3.0"
+            "version": "3.1.2"
           },
           {
             "name": "pirates",
@@ -4135,7 +4180,7 @@
           {
             "name": "postcss",
             "purl": "",
-            "version": "8.5.28"
+            "version": "8.5.31"
           },
           {
             "name": "postcss-import",
@@ -4193,9 +4238,14 @@
             "version": "1.2.0"
           },
           {
+            "name": "prebuild-install",
+            "purl": "",
+            "version": "7.1.3"
+          },
+          {
             "name": "prettier",
             "purl": "",
-            "version": "3.9.9"
+            "version": "3.9.10"
           },
           {
             "name": "prismjs",
@@ -4225,7 +4275,7 @@
           {
             "name": "protobufjs",
             "purl": "",
-            "version": "7.6.5"
+            "version": "7.6.6"
           },
           {
             "name": "protocol-buffers-schema",
@@ -4235,12 +4285,27 @@
           {
             "name": "proxy-addr",
             "purl": "",
-            "version": "2.0.7"
+            "version": "2.0.8"
+          },
+          {
+            "name": "pump",
+            "purl": "",
+            "version": "3.0.4"
+          },
+          {
+            "name": "pvtsutils",
+            "purl": "",
+            "version": "1.3.6"
+          },
+          {
+            "name": "pvutils",
+            "purl": "",
+            "version": "1.1.5"
           },
           {
             "name": "qs",
             "purl": "",
-            "version": "6.15.3"
+            "version": "6.16.1"
           },
           {
             "name": "queue-microtask",
@@ -4258,24 +4323,29 @@
             "version": "3.0.2"
           },
           {
+            "name": "rc",
+            "purl": "",
+            "version": "1.2.8"
+          },
+          {
             "name": "react",
             "purl": "",
-            "version": "19.3.0"
+            "version": "19.3.1"
           },
           {
             "name": "react-dom",
             "purl": "",
-            "version": "19.3.0"
+            "version": "19.3.1"
           },
           {
             "name": "react-email",
             "purl": "",
-            "version": "5.2.11"
+            "version": "6.11.3"
           },
           {
             "name": "read-cache",
             "purl": "",
-            "version": "1.0.0"
+            "version": "1.0.2"
           },
           {
             "name": "readable-stream",
@@ -4285,7 +4355,7 @@
           {
             "name": "readdir-glob",
             "purl": "",
-            "version": "1.1.3"
+            "version": "3.0.0"
           },
           {
             "name": "readdirp",
@@ -4296,11 +4366,6 @@
             "name": "redis-errors",
             "purl": "",
             "version": "1.2.0"
-          },
-          {
-            "name": "redis-parser",
-            "purl": "",
-            "version": "3.0.0"
           },
           {
             "name": "reflect-metadata",
@@ -4325,7 +4390,7 @@
           {
             "name": "resolve",
             "purl": "",
-            "version": "1.22.12"
+            "version": "1.22.13"
           },
           {
             "name": "resolve-from",
@@ -4428,16 +4493,6 @@
             "version": "0.35.5"
           },
           {
-            "name": "shebang-command",
-            "purl": "",
-            "version": "2.0.0"
-          },
-          {
-            "name": "shebang-regex",
-            "purl": "",
-            "version": "3.0.0"
-          },
-          {
             "name": "side-channel",
             "purl": "",
             "version": "1.1.1"
@@ -4463,6 +4518,16 @@
             "version": "3.0.7"
           },
           {
+            "name": "simple-concat",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "simple-get",
+            "purl": "",
+            "version": "4.0.1"
+          },
+          {
             "name": "sirv",
             "purl": "",
             "version": "3.0.2"
@@ -4480,17 +4545,17 @@
           {
             "name": "socket.io",
             "purl": "",
-            "version": "4.8.3"
+            "version": "4.8.4"
           },
           {
             "name": "socket.io-adapter",
             "purl": "",
-            "version": "2.5.7"
+            "version": "2.5.8"
           },
           {
             "name": "socket.io-parser",
             "purl": "",
-            "version": "4.2.6"
+            "version": "4.2.7"
           },
           {
             "name": "source-map",
@@ -4500,7 +4565,7 @@
           {
             "name": "source-map-js",
             "purl": "",
-            "version": "1.2.1"
+            "version": "1.2.2"
           },
           {
             "name": "split2",
@@ -4518,11 +4583,6 @@
             "version": "2.0.2"
           },
           {
-            "name": "stdin-discarder",
-            "purl": "",
-            "version": "0.2.2"
-          },
-          {
             "name": "stream-source",
             "purl": "",
             "version": "0.3.5"
@@ -4535,7 +4595,7 @@
           {
             "name": "streamx",
             "purl": "",
-            "version": "2.28.0"
+            "version": "2.28.1"
           },
           {
             "name": "string-width",
@@ -4558,9 +4618,14 @@
             "version": "3.0.0"
           },
           {
+            "name": "strip-json-comments",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
             "name": "strtok3",
             "purl": "",
-            "version": "10.3.5"
+            "version": "10.4.1"
           },
           {
             "name": "stubborn-fs",
@@ -4590,12 +4655,12 @@
           {
             "name": "swagger-ui-dist",
             "purl": "",
-            "version": "5.33.0"
+            "version": "5.34.0"
           },
           {
             "name": "systeminformation",
             "purl": "",
-            "version": "5.31.17"
+            "version": "5.33.15"
           },
           {
             "name": "tagged-tag",
@@ -4610,12 +4675,12 @@
           {
             "name": "tailwindcss-email-variants",
             "purl": "",
-            "version": "3.0.5"
+            "version": "3.0.6"
           },
           {
             "name": "tailwindcss-mso",
             "purl": "",
-            "version": "2.0.3"
+            "version": "2.0.4"
           },
           {
             "name": "tailwindcss-preset-email",
@@ -4625,12 +4690,17 @@
           {
             "name": "tar",
             "purl": "",
-            "version": "7.5.16"
+            "version": "7.5.22"
+          },
+          {
+            "name": "tar-fs",
+            "purl": "",
+            "version": "2.1.5"
           },
           {
             "name": "tar-stream",
             "purl": "",
-            "version": "3.2.0"
+            "version": "2.2.0"
           },
           {
             "name": "teex",
@@ -4670,7 +4740,7 @@
           {
             "name": "tinyexec",
             "purl": "",
-            "version": "1.3.0"
+            "version": "1.3.1"
           },
           {
             "name": "tinyglobby",
@@ -4720,12 +4790,22 @@
           {
             "name": "tslib",
             "purl": "",
-            "version": "2.8.1"
+            "version": "1.14.1"
           },
           {
             "name": "tsx",
             "purl": "",
             "version": "4.23.15"
+          },
+          {
+            "name": "tsyringe",
+            "purl": "",
+            "version": "4.10.0"
+          },
+          {
+            "name": "tunnel-agent",
+            "purl": "",
+            "version": "0.6.0"
           },
           {
             "name": "type-fest",
@@ -4741,11 +4821,6 @@
             "name": "typedarray",
             "purl": "",
             "version": "0.0.6"
-          },
-          {
-            "name": "typescript",
-            "purl": "",
-            "version": "6.0.3"
           },
           {
             "name": "ua-is-frozen",
@@ -4775,17 +4850,17 @@
           {
             "name": "uint8array-extras",
             "purl": "",
-            "version": "1.5.0"
+            "version": "1.6.0"
           },
           {
             "name": "undici",
             "purl": "",
-            "version": "6.26.0"
+            "version": "8.11.2"
           },
           {
             "name": "undici-types",
             "purl": "",
-            "version": "7.18.2"
+            "version": "7.24.6"
           },
           {
             "name": "unpipe",
@@ -4805,7 +4880,7 @@
           {
             "name": "uuid",
             "purl": "",
-            "version": "14.0.2"
+            "version": "14.0.3"
           },
           {
             "name": "validator",
@@ -4816,6 +4891,11 @@
             "name": "vary",
             "purl": "",
             "version": "1.1.2"
+          },
+          {
+            "name": "vite-with-tailwind",
+            "purl": "",
+            "version": "0.0.0"
           },
           {
             "name": "wcwidth",
@@ -4850,7 +4930,7 @@
           {
             "name": "ws",
             "purl": "",
-            "version": "8.20.1"
+            "version": "8.21.3"
           },
           {
             "name": "xtend",
@@ -4885,12 +4965,12 @@
           {
             "name": "yoctocolors",
             "purl": "",
-            "version": "2.1.2"
+            "version": "2.2.0"
           },
           {
             "name": "zip-stream",
             "purl": "",
-            "version": "6.0.1"
+            "version": "7.0.5"
           },
           {
             "name": "zod",
@@ -4940,12 +5020,12 @@
         "freebsd": 263,
         "go": 0,
         "java": 0,
-        "node": 599,
+        "node": 615,
         "php": 0,
         "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 868
+        "total": 884
       }
     }
   }
