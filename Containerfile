@@ -35,9 +35,10 @@ RUN pkg update && pkg install -y \
 RUN ln -sf /usr/bin/clang++ /usr/bin/c++ && \
     ln -sf /usr/bin/clang /usr/bin/cc
 
-# Enable corepack for pnpm and install rolldown WASM fallback for aarch64
+# Enable corepack for pnpm and install rolldown WASM fallback for aarch64.
+# The wasm package declares cpu wasm32 since 1.3.0; --force skips that check.
 RUN corepack enable && corepack prepare pnpm@latest --activate && \
-    npm install -g @rolldown/binding-wasm32-wasi
+    npm install -g --force @rolldown/binding-wasm32-wasi
 
 ENV NODE_PATH="/usr/local/lib/node_modules" \
     NODE_OPTIONS="--max-old-space-size=4096" \
@@ -64,7 +65,9 @@ WORKDIR /build
 # Patch sharp for the UHDR loader (libvips 8.18+); sharp 0.35.3+ (immich 3.2)
 # defines UHDR natively, so skip the patch when present to avoid redefinition.
 # Also relax micro version requirement in common.h for ports libvips (e.g. 8.18.6 vs 8.18.7+).
-RUN pnpm install --frozen-lockfile && \
+# The web UI comes from the Linux image; its prepare hook (svelte-kit sync) loads
+# sharp before the FreeBSD build below exists, so leave that project out.
+RUN pnpm install --frozen-lockfile --filter '!immich-web' && \
     SHARP_DIR=$(find /build/node_modules/.pnpm -name 'sharp' -type d -path '*/node_modules/sharp' | head -1) && \
     if ! grep -q 'UHDR' "$SHARP_DIR/src/common.h"; then \
       sed -i '' 's/VIPS,/VIPS, UHDR,/' "$SHARP_DIR/src/common.h" && \
