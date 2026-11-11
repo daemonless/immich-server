@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-10T23:37:25Z",
+  "generated": "2026-11-11T20:49:53Z",
   "image": "immich-server",
   "tags": {
     "latest-aarch64": {
-      "app_version": "v3.4.0",
+      "app_version": "v3.4.1",
       "arch": "aarch64",
-      "generated": "2026-11-10T23:36:32Z",
+      "generated": "2026-11-11T20:49:08Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1975,12 +1975,12 @@
           {
             "name": "@futo-org/backups-api-client",
             "purl": "",
-            "version": "1.14.0"
+            "version": "1.16.0"
           },
           {
             "name": "@futo-org/backups-orchestrator-api",
             "purl": "",
-            "version": "1.14.0"
+            "version": "1.16.0"
           },
           {
             "name": "@futo-org/restic-wrapper",
@@ -3470,7 +3470,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.4.0"
+            "version": "3.4.1"
           },
           {
             "name": "import-fresh",
