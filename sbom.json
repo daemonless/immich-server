@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-11T21:46:26Z",
+  "generated": "2026-11-18T23:49:32Z",
   "image": "immich-server",
   "tags": {
     "latest-amd64": {
-      "app_version": "v3.4.1",
+      "app_version": "v3.4.2",
       "arch": "amd64",
-      "generated": "2026-11-11T21:44:57Z",
+      "generated": "2026-11-18T23:47:38Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -395,7 +395,7 @@
               "GPLv2"
             ],
             "name": "dbus",
-            "version": "1.16.2_4,1"
+            "version": "1.16.4,1"
           },
           {
             "licenses": [
@@ -678,7 +678,7 @@
               "ZLIB"
             ],
             "name": "jpeg-turbo",
-            "version": "3.1.4.1"
+            "version": "3.2.1"
           },
           {
             "licenses": [
@@ -699,14 +699,14 @@
               "MIT"
             ],
             "name": "lcms2",
-            "version": "2.19.1"
+            "version": "2.20"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "lerc",
-            "version": "4.2.0"
+            "version": "4.3.0"
           },
           {
             "licenses": [
@@ -840,7 +840,7 @@
               "BSD2CLAUSE"
             ],
             "name": "libaec",
-            "version": "1.1.7"
+            "version": "1.1.8"
           },
           {
             "licenses": [
@@ -997,7 +997,7 @@
               "LGPL3+"
             ],
             "name": "libheif",
-            "version": "1.23.6"
+            "version": "1.23.6_1"
           },
           {
             "licenses": [
@@ -1026,7 +1026,7 @@
               "BSD3CLAUSE"
             ],
             "name": "libjxl",
-            "version": "0.12.0"
+            "version": "0.12.0_1"
           },
           {
             "licenses": [
@@ -1057,28 +1057,28 @@
               "GPLv2"
             ],
             "name": "liblz4",
-            "version": "1.10.0_2,1"
+            "version": "1.11.1,1"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "libnghttp2",
-            "version": "1.70.0"
+            "version": "1.71.0"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "libnghttp3",
-            "version": "1.18.0"
+            "version": "1.19.0"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "libngtcp2",
-            "version": "1.25.0"
+            "version": "1.26.0"
           },
           {
             "licenses": [
@@ -1092,7 +1092,7 @@
               "BSD3CLAUSE"
             ],
             "name": "libopenmpt",
-            "version": "0.8.9"
+            "version": "0.8.10"
           },
           {
             "licenses": [
@@ -1135,7 +1135,7 @@
               "CDDL"
             ],
             "name": "libraw",
-            "version": "0.22.2"
+            "version": "0.22.3"
           },
           {
             "licenses": [
@@ -1313,7 +1313,7 @@
               "GPLv2+"
             ],
             "name": "libwmf",
-            "version": "0.2.16"
+            "version": "0.2.17"
           },
           {
             "licenses": [
@@ -1369,7 +1369,7 @@
               "MIT"
             ],
             "name": "llhttp",
-            "version": "9.4.3"
+            "version": "9.4.4"
           },
           {
             "licenses": [
@@ -1466,7 +1466,7 @@
               "MIT"
             ],
             "name": "node22",
-            "version": "22.23.4"
+            "version": "22.23.5"
           },
           {
             "licenses": [
@@ -1522,7 +1522,7 @@
               "BSD3CLAUSE"
             ],
             "name": "openexr",
-            "version": "3.4.17"
+            "version": "3.4.18_1"
           },
           {
             "licenses": [
@@ -1543,7 +1543,7 @@
               "BSD2CLAUSE"
             ],
             "name": "openjph",
-            "version": "0.32.0"
+            "version": "0.33.0"
           },
           {
             "licenses": [
@@ -1557,7 +1557,7 @@
               "BSD3CLAUSE"
             ],
             "name": "p11-kit",
-            "version": "0.26.5_1"
+            "version": "0.26.6"
           },
           {
             "licenses": [
@@ -1630,7 +1630,7 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.9.0"
+            "version": "2.9.2"
           },
           {
             "licenses": [
@@ -1681,7 +1681,7 @@
               "PostgreSQL"
             ],
             "name": "postgresql18-client",
-            "version": "18.6"
+            "version": "18.7"
           },
           {
             "licenses": [
@@ -1718,7 +1718,7 @@
               "MPL11"
             ],
             "name": "py312-pycairo",
-            "version": "1.29.1"
+            "version": "1.29.2"
           },
           {
             "licenses": [
@@ -1746,7 +1746,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.15"
+            "version": "3.12.16"
           },
           {
             "licenses": [
@@ -2004,17 +2004,17 @@
           {
             "name": "@futo-org/backups-api-client",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.18.1"
           },
           {
             "name": "@futo-org/backups-orchestrator-api",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.18.1"
           },
           {
             "name": "@futo-org/restic-wrapper",
             "purl": "",
-            "version": "1.7.0"
+            "version": "1.9.0"
           },
           {
             "name": "@golevelup/nestjs-discovery",
@@ -3499,7 +3499,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.4.1"
+            "version": "3.4.2"
           },
           {
             "name": "import-fresh",
@@ -5032,7 +5032,7 @@
           {
             "name": "pycairo",
             "purl": "",
-            "version": "1.29.1"
+            "version": "1.29.2"
           },
           {
             "name": "setuptools",
