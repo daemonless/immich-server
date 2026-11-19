@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-11T22:54:50Z",
+  "generated": "2026-11-19T05:43:16Z",
   "image": "immich-server",
   "tags": {
     "latest-aarch64": {
-      "app_version": "v3.4.1",
+      "app_version": "v3.4.2",
       "arch": "aarch64",
-      "generated": "2026-11-11T22:53:55Z",
+      "generated": "2026-11-19T05:41:48Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -280,7 +280,7 @@
               "BSD2CLAUSE"
             ],
             "name": "aom",
-            "version": "3.15.2"
+            "version": "3.15.3"
           },
           {
             "licenses": [
@@ -298,11 +298,11 @@
           },
           {
             "licenses": [
-              "LGPL3",
-              "GPLv3"
+              "GPLv3",
+              "LGPL3"
             ],
             "name": "binutils",
-            "version": "2.44,1"
+            "version": "2.44_1,1"
           },
           {
             "licenses": [
@@ -402,7 +402,7 @@
               "MIT"
             ],
             "name": "expat",
-            "version": "2.9.0"
+            "version": "2.10.0"
           },
           {
             "licenses": [
@@ -525,8 +525,8 @@
           },
           {
             "licenses": [
-              "LGPL3",
-              "GPLv3"
+              "GPLv3",
+              "LGPL3"
             ],
             "name": "gnupg",
             "version": "2.5.24"
@@ -611,7 +611,7 @@
               "GPLv2+"
             ],
             "name": "hwdata",
-            "version": "0.412,1"
+            "version": "0.413,1"
           },
           {
             "licenses": [
@@ -655,7 +655,7 @@
               "GPLv2+"
             ],
             "name": "jellyfin-ffmpeg",
-            "version": "8.1.3.1_4"
+            "version": "8.1.3.2"
           },
           {
             "licenses": [
@@ -1017,8 +1017,8 @@
           {
             "licenses": [
               "GPLv2",
-              "LGPL3",
-              "GPLv3"
+              "GPLv3",
+              "LGPL3"
             ],
             "name": "libksba",
             "version": "1.8.1"
@@ -1223,8 +1223,8 @@
           {
             "licenses": [
               "GPLv2",
-              "LGPL3+",
-              "GFDL"
+              "GFDL",
+              "LGPL3+"
             ],
             "name": "libunistring",
             "version": "1.4.2"
@@ -1359,7 +1359,7 @@
               "REGEX"
             ],
             "name": "llvm19",
-            "version": "19.1.7_4"
+            "version": "19.1.7_5"
           },
           {
             "licenses": [
@@ -1458,7 +1458,7 @@
               "MPL20"
             ],
             "name": "nss",
-            "version": "3.132"
+            "version": "3.133"
           },
           {
             "licenses": [
@@ -1493,7 +1493,7 @@
               "BSD3CLAUSE"
             ],
             "name": "openexr",
-            "version": "3.4.16"
+            "version": "3.4.17"
           },
           {
             "licenses": [
@@ -1601,7 +1601,7 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.8.4"
+            "version": "2.9.0"
           },
           {
             "licenses": [
@@ -1774,7 +1774,7 @@
               "NCSA"
             ],
             "name": "spirv-llvm-translator-llvm19",
-            "version": "19.1.23"
+            "version": "19.1.24"
           },
           {
             "licenses": [
@@ -1804,7 +1804,7 @@
               "BSD3CLAUSE"
             ],
             "name": "svt-av1",
-            "version": "4.2.0"
+            "version": "4.3.0"
           },
           {
             "licenses": [
@@ -1846,7 +1846,7 @@
               "APACHE20"
             ],
             "name": "vulkan-loader",
-            "version": "1.4.365"
+            "version": "1.4.368"
           },
           {
             "licenses": [
@@ -1975,17 +1975,17 @@
           {
             "name": "@futo-org/backups-api-client",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.18.1"
           },
           {
             "name": "@futo-org/backups-orchestrator-api",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.18.1"
           },
           {
             "name": "@futo-org/restic-wrapper",
             "purl": "",
-            "version": "1.7.0"
+            "version": "1.9.0"
           },
           {
             "name": "@golevelup/nestjs-discovery",
@@ -3470,7 +3470,7 @@
           {
             "name": "immich",
             "purl": "",
-            "version": "3.4.1"
+            "version": "3.4.2"
           },
           {
             "name": "import-fresh",
